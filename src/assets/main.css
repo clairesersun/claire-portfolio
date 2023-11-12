@@ -6,9 +6,11 @@
 
   font-weight: normal;
 }
-
+html {
+  scroll-snap-type: x mandatory;
+}
 img {
-  max-height: 100vh;
+  max-height: 100%;
   height: auto;
 }
 

@@ -1,70 +1,81 @@
-<script setup>
-import ProjectsInfo from './ProjectsInfo.vue';
-import LocomotiveScroll from 'locomotive-scroll';
+<template>
+    
+    <RouterLink 
+    :to=projectLink 
+    class="item"
+    >
+        <img :src=projectImg alt="Project Cover Image"/>
+        <h1>
+            {{ title }} 
+        </h1>
+    </RouterLink>
+
+</template>
 
 
-defineProps(['projects'])
+
+<style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.item {
+    scroll-snap-align: start;
+    display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+/* display: flex;
+flex-direction: column;
+width: 100px;
+height: 100%;
+outline: 1px dotted gray;
+padding: 1em;
+box-sizing: border-box;
+width: 100vw;
+height: 100vh;
+object-fit: cover;
+position: relative;
+align-self: center;
+justify-self: center;
+justify-content: center;
+align-items: center; */
+}
+
+h1 {
+    /* scroll-snap-align: start; */
+
+font-size: 15rem;
+/* font-family: 'Montserrat', sans-serif; */
+font-family: 'Proza Libre', sans-serif;
+
+font-weight: 500;
+color: var(--color-heading);
+z-index: 75;
+align-self: center;
+position: absolute;
+
+
+}
+</style>
+
+
+
+<script>
+
+export default {
+
+
+props: {
+title: String,
+projectImg: String,
+projectLink: String
+}}
 
 
 
 
 </script>
-
-<template>
-    <div 
-    class="cover" 
-    width="${projects.id}00vw">
-        <div 
-        class="cover-contents" >
-            <ProjectsInfo
-            
-            v-for="project in projects"
-            :key="project.id"
-            :ref="project.id"
-          :title="project.title"
-          :projectImg="project.image"
-          :projectLink="project.link"
-          />
-        </div>
-    </div>
-</template>
-
-<style scoped>
-.cover {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100vh;
-    background: var(--color-background);
-    color: var(--color-text);
-}
-
-.cover-contents {
-    flex-direction: column;
-    position: sticky;
-    top: 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background: var(--color-background);
-    color: var(--color-text);
-    
-}
-
-img {
-    width: auto;
-    height: 100%;
-    object-fit: cover;
-}
-
-</style>
-

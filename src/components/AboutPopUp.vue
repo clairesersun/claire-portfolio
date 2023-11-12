@@ -17,7 +17,10 @@
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 .modal-close-button {
+  font-family: 'Proza Libre', sans-serif;
   position: absolute;
   top: 0;
   right: 0;
@@ -32,6 +35,8 @@
   z-index: 100;
 }
 .modal-wrapper {
+  font-family: 'Proza Libre', sans-serif;
+
   position: fixed;
   left: 0;
   top: 0;
@@ -50,6 +55,8 @@
 }
 
 h1 {
+  font-family: 'Proza Libre', sans-serif;
+
   font-weight: 500;
   font-size: 2.6rem;
   position: relative;
@@ -57,7 +64,23 @@ h1 {
 }
 
 h3 {
+  font-family: 'Proza Libre', sans-serif;
+
   font-size: 1.2rem;
+}
+
+h2 {
+  font-family: 'Proza Libre', sans-serif;
+
+  font-size: 1.2rem;
+}
+
+p {
+  font-family: 'Proza Libre', sans-serif;
+  
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
 </style>

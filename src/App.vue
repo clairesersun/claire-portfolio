@@ -42,6 +42,9 @@ function showModel() {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
 /* Make the element transition with duration 0.25s and easing ease into opacity 0 when it mounts and unmounts */
 .modal-fade-enter-from,
 .modal-fade-leave-to {
@@ -54,6 +57,7 @@ function showModel() {
 }
 
 header {
+  font-family: 'Proza Libre', sans-serif;
   line-height: 1.5;
   max-height: 100vh;
   top: 0;
@@ -101,6 +105,7 @@ nav button.router-link-exact-active:hover {
   background-color: transparent;
 }
 
+
 .btn {
   display: inline-block;
   padding: 1rem;
@@ -113,7 +118,9 @@ nav button.router-link-exact-active:hover {
 }
 
 .btn:hover {
-  background-color: var(--color-border);
+  box-shadow: inset 0 0 0 2em var(--color-border);
+  transition: 1s;
+  /* background-color: var(--color-border); */
 }
 
 
