@@ -1,17 +1,25 @@
 <script setup>
 import ProjectCover from '../components/ProjectCover.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
-import { animate, scroll, glide, inView } from "motion";
+import { animate, scroll } from "motion";
 
-const projects = ref([
-  { id: 1, title: 'VALLETO', image: 'src/assets/logo.svg', link: '/projects/valleto' },
-  { id: 2, title: 'Moving For Life', image: 'src/assets/logo.svg', link: '/projects/valleto' },
-  { id: 3, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/valleto' }
+const projectsWeb = ref([
+  { id: 1, title: 'VALLETO', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Web Designer' },
+  { id: 2, title: 'Moving For Life', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Web Designer' },
+  { id: 3, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Web Designer' }
 ])
+
+const projectsFilm = ref([
+  { id: 4, title: 'PRESEVERE', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Videographer/Editor'}
+])
+
+
 
 const observer = new IntersectionObserver((entries, observer) => {
   console.log(entries)
 });
+
+
 
 onMounted(() => {
   const items = document.querySelectorAll(".item");
@@ -61,6 +69,7 @@ onUnmounted(() => {
 
 
 
+
 </script>
 
 <template>
@@ -68,18 +77,63 @@ onUnmounted(() => {
     <div 
     class="cover"
     >
+    <div class="dropdown">
+      <div class="filter">Filter</div>
+      <div class="dropdown-content">
+        <button class="btn active" @click="filterSelection('All')">All</button>
+        <button class="btn" @click="filterSelection('Web Design')">Web Design</button>
+        <button class="btn" @click="filterSelection('Videographer/Editor')">Videographer/Editor</button>
+      </div>
+    </div>
     <!-- :height="`${projects.length}00vh`" -->
+        <!-- show all -->
         <div 
-        class="cover-contents" >
+        class="cover-contents filterDiv all" >
             <ProjectCover
-            v-for="project in projects"
-            :key="project.id"
-            :ref="project.id"
-            :title="project.title"
-            :projectImg="project.image"
-            :projectLink="project.link"
+            v-for="web in projectsWeb"
+            :key="web.id"
+            :ref="web.id"
+            :title="web.title"
+            :projectImg="web.image"
+            :projectLink="web.link"
+            :role="web.role"
+          />
+          <ProjectCover
+            v-for="film in projectsFilm"
+            :key="film.id"
+            :ref="film.id"
+            :title="film.title"
+            :projectImg="film.image"
+            :projectLink="film.link"
+            :role="film.role"
           />
         </div>
+        <!-- only show web
+        <div 
+        class="cover-contents filterDiv web" >
+            <ProjectCover
+            v-for="web in projectsWeb"
+            :key="web.id"
+            :ref="web.id"
+            :title="web.title"
+            :projectImg="web.image"
+            :projectLink="web.link"
+            :role="web.role"
+          />
+        </div>
+        only show film -->
+        <!-- <div 
+        class="cover-contents filterDiv film" >
+          <ProjectCover
+            v-for="film in projectsFilm"
+            :key="film.id"
+            :ref="film.id"
+            :title="film.title"
+            :projectImg="film.image"
+            :projectLink="film.link"
+            :role="film.role"
+          /> -->
+        <!-- </div> --> 
         <div class="progress-bar"></div>
     </div>
     
@@ -87,6 +141,105 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding-top: 200px;
+  padding-left: 115px;
+  background-color: transparent;
+  /* min-width: 160px; */
+  widows: min-content;
+  z-index: 1;
+}
+
+.dropdown-content button {
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 var(--color-border);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content button:hover {
+  background-color: var(--color-border)
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .filter {
+  background-color: #3e8e41;
+}
+
+.dropdown {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  top: 18%;
+  right: 13%;
+}
+
+
+.filter.router-link-exact-active {
+  color: var(--color-text);
+}
+
+
+.filter.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+
+.filter {
+  display: inline-block;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 var(--color-border);
+}
+
+.filter:hover {
+  box-shadow: inset 0 0 0 2em var(--color-border);
+  transition: 1s;
+  /* background-color: var(--color-border); */
+}
+
+
+
+/* .filterDiv {
+  display: none; /* Hidden by default 
+} */
+/* .cover-contents .filterDiv .all {
+  display: block !important;
+} */
 
 .progress-bar {
       position: fixed;
