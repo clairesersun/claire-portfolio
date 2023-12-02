@@ -76,6 +76,8 @@ align-items: center; */
 h1 {
 font-size: 15rem;
 line-height: 15rem;
+word-wrap: break-word;
+max-width: 100vw;
 
 /* z-index: 75;
 align-self: center;
