@@ -1,11 +1,11 @@
 <template>
-    <div class="about">
+    <div class="about valleto">
       <img 
-      src="../../assets/logo.svg" 
-      alt="Valleto Logo"
+      src="../../assets/valleto/cover.jpeg" 
+      alt="Valleto Cover Image"
       class="cover-img">
       <h1 class="title">VALLETO</h1>
-      <h2 class="subtitle">Designer  ☁︎  UI / UX / Development / Graphic Design  ☁︎  2021-2022</h2>
+      <h2 class="subtitle">Web Designer  ☁︎  UI / UX / Development / Graphic Design  ☁︎  2021-2022</h2>
     <div class="content">
       <h3 class="section-title">Problem</h3>
       <p>The site required maintenance and updates to keep up with the evolution of the dance company as new initiative were added, new works created, and the home city of the company changed. The site had slow load times and bounced many users off the site. There was a need for a merchandise store and a way for people to register for online zoom classes. Lastly, user experience needed to be elevated as well.</p>
@@ -39,6 +39,33 @@
         <img src="https://static.wixstatic.com/media/877ffb_df97e8049bc943878f14dd23c6797b28~mv2.png/v1/fill/w_720,h_403,al_c,lg_1,q_85,enc_auto/6-transparent.png" alt="6-transparent.png" width="530" height="297" style="width: 530px; height: 297px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-four">
         <img src="https://static.wixstatic.com/media/877ffb_798b1a78c91147f6b5dd2b18405d22a2~mv2.png/v1/crop/x_345,y_78,w_255,h_174/fill/w_357,h_241,al_c,lg_1,q_85,enc_auto/5-transparent.png" alt="5-transparent.png" width="227" height="153" style="width: 227px; height: 153px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-five">
       </div>
+      <div class="position-section">
+        <div class="section-wrapper">
+          <h3 class="position-title">Position</h3>
+          <p class="position-info">Web Designer</p>
+        </div>
+        <div class="section-wrapper">
+          <h3 class="position-title">Work</h3>
+          <p class="position-info">UI</p>
+          <p class="position-info">UX</p>
+          <p class="position-info">Development</p>
+          <p class="position-info">Graphic Design</p>
+        </div>
+        <div class="section-wrapper shift">
+          <h3 class="position-title">Org</h3>
+          <p class="position-info">VALLETO</p>
+        </div>
+        <div class="section-wrapper"></div>
+        <div class="section-wrapper">
+          <h3 class="position-title">Year</h3>
+          <p class="position-info">2021-2022</p>
+        </div>
+        <div class="section-wrapper">
+          <h3 class="position-title">www</h3>
+          <a href="https://valletodance.com/" target="_blank" class="position-info">valletodance.com</a>
+        </div>
+
+      </div>
       <h3 class="section-title link">
     <RouterLink 
     to="/"
@@ -53,7 +80,7 @@
   
   <style>
   
-    .about {
+    .about.valleto {
       min-height: 100vh;
       display: flex;
       align-items: start;
@@ -61,27 +88,27 @@
       flex-direction: column;    
     }
     
-    .cover-img {
+    .valleto .cover-img {
       width: 100vw;
-      height: 85vh;
+      height: 93vh;
       object-fit: cover;
       position: relative;
       top: 0;
       z-index: -1;
     }
 
-    .title {
+    .valleto .title {
       position: absolute;
       align-self: center;
-      top: 40vh;
+      top: 30vh;
       text-align: center;
-      font-size: 10rem;
+      font-size: 15rem;
       font-family: 'Proza Libre', sans-serif;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--color-heading);
     }
 
-    .subtitle {
+    .valleto .subtitle {
       position: relative;
       width: 60vw;
       align-self: center;
@@ -90,26 +117,26 @@
       font-weight: 600;
     }
 
-    .content {
+    .valleto .content {
       position: relative;
       width: 60vw;
       align-self: center;
     }
 
-    .section-title {
+    .valleto .section-title {
       font-family: 'Proza Libre', sans-serif;
       font-size: 1.2rem;
       text-align: left;
       font-weight: 600;
     }
 
-    h2 {
+    .valleto h2 {
       font-family: 'Proza Libre', sans-serif;
       font-size: 1.2rem;
       text-align: left;
     }
 
-    p {
+    .valleto p {
       font-family: 'Proza Libre', sans-serif;
         font-size: 1rem;
         line-height: 1.5;
@@ -117,11 +144,11 @@
         text-align: left;
     }
 
-    .img-container {
+    .valleto .img-container {
       width: 100%;
     }
 
-    .align-img-one {
+    .valleto .align-img-one {
       position: relative;
       margin: 0px 0px -133px calc((100% - 980px) * 0.5);
       left: 391px;
@@ -130,7 +157,7 @@
       align-self: start;
     }
 
-    .align-img-two {
+    .valleto .align-img-two {
       position: relative;
       margin: 0px 0px 10px calc((100% - 980px) * 0.5);
       left: 14px;
@@ -139,7 +166,7 @@
       align-self: start;
   }
 
-  .align-img-three {
+  .valleto .align-img-three {
     position: relative;
     margin: 0px 0px 10px calc((100% - 980px) * 0.5);
     left: 122px;
@@ -148,21 +175,17 @@
     align-self: start;
   }
 
-  .align-img-four {
+  .valleto .align-img-four {
     position: relative;
-    margin: 0px 0px -142px calc((100% - 980px) * 0.5);
+    margin: 30px 0px -142px calc((100% - 980px) * 0.5);
     left: 224px;
     grid-area: 22 / 1 / 23 / 2;
     justify-self: start;
     align-self: start;
   }
 
-  .align-img-five {
+  .valleto .align-img-five {
     position: relative;
-    /* height: 228px;
-    width: 0; */
-    /* left: 557px; */
-    /* top: 137px; */
     margin: 0px 0px -180px calc((100% - 300px));
     grid-area: 23 / 1 / 24 / 2;
     justify-self: start;
@@ -170,27 +193,69 @@
     transform: rotate(270deg);
   }
 
-  .video-container {
+  .valleto .video-container {
     width: 100%;
   }
 
-  video {
+  .valleto video {
     position: relative;
     margin: 0px 0px 10px calc((100% - 980px) * 0.5);
     left: 122px;
       justify-self: start;
       align-self: start;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     aspect-ratio: auto 744 / 397;
     width: 744px;
     height: 397px;
   }
 
-  .section-title.link {
+  .valleto .position-section {
+    margin-top: 250px;
+    background-color: var(--color-background-soft);
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-around;
+    width: 60vw;
+  }
+
+  .valleto .position-title {
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0;
+  } 
+
+  .valleto .position-info {
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  .valleto .section-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 40%
+  }
+
+  .valleto .section-wrapper.shift {
+    margin-top: -55px;
+  }
+
+  .valleto .section-title.link {
     position: relative;
-    margin-top: 15rem;
-    margin-bottom: 6rem;
+    margin-top: 5rem;
+    margin-bottom: 7rem;
     text-align: center;
     font-size: 2rem;
     font-family: 'Proza Libre', sans-serif;

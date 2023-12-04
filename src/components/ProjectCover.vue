@@ -4,17 +4,19 @@
     :to=projectLink 
     class="item"
     >
-        <div class="overlay start"></div>
+        
             <img :src=projectImg alt="Project Cover Image"/>
-                <div class="words">
-                    <h1>
-                        {{ title }} 
-                    </h1>
-                    <h2> 
-                        {{ role }} 
-                    </h2>
-                </div>
-        <div class="overlay end"></div>
+            <div class="words">
+            <div class="overlay start"></div>
+                <h1>
+                    {{ title }} 
+                </h1>
+                <h2> 
+                    {{ role }} 
+                </h2>
+                <div class="overlay end"></div>
+            </div>
+        
     </RouterLink>
 
 </template>
@@ -59,7 +61,7 @@ align-items: center; */
     justify-content: center;
     position: absolute;
     z-index: 75;
-    width: 65%;
+    /* width: 65%; */
     height: 100%;
     /* background: rgba(0,0,0,0.5); */
     color: white;
@@ -78,6 +80,8 @@ font-size: 15rem;
 line-height: 15rem;
 word-wrap: break-word;
 max-width: 100vw;
+z-index: 6;
+
 
 /* z-index: 75;
 align-self: center;
@@ -87,6 +91,10 @@ position: absolute; */
 h2 {
 font-size: 2rem;
 line-height: 2rem;
+/* right: 10; */
+padding-right: 40px;
+z-index: 6;
+word-wrap: break-word;
 /* font-family: 'Montserrat', sans-serif; */
 /* font-family: 'Proza Libre', sans-serif;
 font-weight: 500; */
@@ -101,21 +109,24 @@ align-self: flex-end;
 
 .overlay {
     position: absolute;
-    z-index: 50;
+    z-index: 5;
     width: 10%;
     height: 100%;
-    background-color: transparent;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);   
 }
 
 .start {
-        left: 0;
+        right: 0;
     }
 
 .end {
-        right: 0;
+        left: 0;
     }
+
+img { 
+    height: 100vh;
+    /* opacity: 0.8; */
+}
 
 
 </style>

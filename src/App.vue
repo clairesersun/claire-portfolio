@@ -71,8 +71,6 @@ position: fixed;
   width: 100%;
   padding: 1rem 0;
   background-color: transparent;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
 }
 
 

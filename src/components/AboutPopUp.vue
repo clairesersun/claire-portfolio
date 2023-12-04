@@ -42,7 +42,7 @@
   top: 0;
   padding: 20%;
 
-  z-index: 50;
+  z-index: 100;
 
   width: 100vw;
   height: 100vh;

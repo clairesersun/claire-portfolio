@@ -4,9 +4,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { animate, scroll } from "motion";
 
 const projectsWeb = ref([
-  { id: 1, title: 'VALLETO', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Web Designer' },
-  { id: 2, title: 'Moving For Life', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Web Designer' },
-  { id: 3, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Web Designer' }
+  { id: 1, title: 'VALLETO', image: 'src/assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
+  { id: 2, title: 'Moving For Life', image: 'src/assets/movingforlife/cover.png', link: '/projects/movingforlife', role: 'Web Designer' },
+  { id: 3, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/timeslot', role: 'Web Designer' }
 ])
 
 const projectsFilm = ref([
@@ -198,7 +198,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 50;
   top: 18%;
   right: 13%;
 }
@@ -224,6 +224,7 @@ onUnmounted(() => {
   font-weight: 600;
   cursor: pointer;
   box-shadow: inset 0 0 0 0 var(--color-border);
+  z-index: 5;
 }
 
 .filter:hover {
