@@ -13,6 +13,11 @@
         <p>If you are interested in my work feel free to contact me at >>> put a component to compy email to clipboard >>> claire.sersun[at]gmail.com.</p>
         <h2>Press</h2>
         <p>List of press possibly with a + to reveal more info about it??? or just link to it??? or nothing???</p>
+        <h2>Links</h2>
+        <p>Github logo btn</p>
+        <p>LinkedIn logo btn</p>
+        <p>Instagram logo btn</p>
+        <p>Spotify logo btn</p>
     </div>
 </template>
 
