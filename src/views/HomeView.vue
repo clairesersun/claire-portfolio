@@ -10,7 +10,18 @@ const projectsWeb = ref([
 ])
 
 const projectsFilm = ref([
-  { id: 4, title: 'PRESEVERE', image: 'src/assets/logo.svg', link: '/projects/valleto', role: 'Videographer/Editor'}
+  { id: 4, title: 'PRESEVERE', image: 'src/assets/presevere/cover.jpeg', link: '/projects/presevere', role: 'Videographer/Editor'},
+  { id: 5, title: 'Rise Up', image: 'src/assets/riseup/cover.jpeg', link: '/projects/riseup', role: 'Videographer/Editor'},
+  { id: 6, title: 'Reflect: Re-move', image: 'src/assets/reflectremove/cover.jpeg', link: '/projects/reflectremove', role: 'Videographer/Editor'},
+  { id: 7, title: 'my boy', image: 'src/assets/myboy/cover.png', link: '/projects/myboy', role: 'Videographer/Editor'}
+])
+
+const projectsDance = ref([
+  { id: 8, title: 'Dance', image: 'src/assets/dance/cover.png', link: '/projects/dance', role: 'Dancer'}
+])
+
+const projectsModel = ref([
+  { id: 8, title: 'Modeling', image: 'src/assets/modeling/cover.jpeg', link: '/projects/modeling', role: 'Model'}
 ])
 
 
@@ -107,6 +118,22 @@ onUnmounted(() => {
             :projectLink="film.link"
             :role="film.role"
           />
+          <ProjectCover
+            v-for="dance in projectsDance"
+            :key="dance.id"
+            :ref="dance.id"
+            :title="dance.title"
+            :projectImg="dance.image"
+            :projectLink="dance.link"
+            :role="dance.role"/>
+          <ProjectCover
+            v-for="model in projectsModel"
+            :key="model.id"
+            :ref="model.id"
+            :title="model.title"
+            :projectImg="model.image"
+            :projectLink="model.link"
+            :role="model.role"/>
         </div>
         <!-- only show web
         <div 
@@ -254,7 +281,7 @@ onUnmounted(() => {
     }
 
 .cover {
-  height: 500vh;
+  height: 800vh;
   position: relative;
     /* display: flex;
     flex-direction: row;

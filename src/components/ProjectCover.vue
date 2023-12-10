@@ -61,7 +61,7 @@ align-items: center; */
     justify-content: center;
     position: absolute;
     z-index: 75;
-    /* width: 65%; */
+    width: 65%;
     height: 100%;
     /* background: rgba(0,0,0,0.5); */
     color: white;
@@ -75,7 +75,7 @@ align-items: center; */
 
 }
 
-h1 {
+.item h1 {
 font-size: 15rem;
 line-height: 15rem;
 word-wrap: break-word;
@@ -88,7 +88,7 @@ align-self: center;
 position: absolute; */
 }
 
-h2 {
+.item h2 {
 font-size: 2rem;
 line-height: 2rem;
 /* right: 10; */
@@ -123,8 +123,9 @@ align-self: flex-end;
         left: 0;
     }
 
-img { 
-    height: 100vh;
+.item img { 
+    height: 100%;
+    width: 100vw;
     /* opacity: 0.8; */
 }
 

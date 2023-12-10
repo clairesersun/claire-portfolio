@@ -41,48 +41,39 @@
 }
 .modal-wrapper {
   font-family: 'Proza Libre', sans-serif;
-
   position: fixed;
   left: 0;
   top: 0;
-  padding: 20%;
-
+  padding: 10%;
   z-index: 100;
-
   width: 100vw;
   height: 100vh;
-
   /* background: rgba(0, 0, 0, 0.2); */
   background: #000;
-
   display: flex;
   flex-direction: column;
 }
 
-h1 {
+.modal-wrapper h1 {
   font-family: 'Proza Libre', sans-serif;
-
   font-weight: 500;
   font-size: 2.6rem;
   position: relative;
   top: -10px;
 }
 
-h3 {
+.modal-wrapper h3 {
   font-family: 'Proza Libre', sans-serif;
-
   font-size: 1.2rem;
 }
 
-h2 {
+.modal-wrapper h2 {
   font-family: 'Proza Libre', sans-serif;
-
   font-size: 1.2rem;
 }
 
-p {
+.modal-wrapper p {
   font-family: 'Proza Libre', sans-serif;
-  
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
