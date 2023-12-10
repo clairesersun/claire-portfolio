@@ -124,6 +124,8 @@
       position: absolute;
       align-self: center;
       top: 30vh;
+      width: 100vw;
+      word-break: break-word;
       text-align: center;
       font-size: 15rem;
       font-family: 'Proza Libre', sans-serif;
@@ -187,19 +189,18 @@
     height: auto;
     }
 
+
   .modeling .video-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .modeling iframe {
     position: relative;
-    margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-    left: 122px;
-      justify-self: start;
-      align-self: start;
+    align-self: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    aspect-ratio: auto 744 / 397;
     width: 744px;
     height: 397px;
   }
@@ -285,5 +286,16 @@
   column-count:         1;
   }
 }
+
+@media (max-width: 800px) {
+    .modeling iframe {
+    width: 350px;
+    height: auto;
+  }}
+
+  @media (max-width: 360px) {
+    .modeling iframe {
+    width: 250px;
+  }}
   
   </style>

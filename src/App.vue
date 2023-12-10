@@ -79,7 +79,7 @@ nav {
   display: flex;
   place-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 100vw;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
@@ -121,5 +121,32 @@ nav button.router-link-exact-active:hover {
   /* background-color: var(--color-border); */
 }
 
+.video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+ iframe {
+    position: relative;
+    align-self: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    width: 744px;
+    height: 397px;
+  }
+
+@media (max-width: 800px) {
+    iframe {
+    width: 350px;
+    height: auto;
+  }
+
+  @media (max-width: 360px) {
+    iframe {
+    width: 250px;
+  }}
+
+}
 
 </style>

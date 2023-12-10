@@ -34,7 +34,9 @@
         As the company evolved, pages were redesigned to fit new needs and additional ones added. 
       </p>
       <p>I took performance photos of the Work MOON. See selections <a href="https://valletodance.com/project/moon">here.</a></p>
-      <video preload="none" autoplay loop playsinline="true" src="https://video.wixstatic.com/video/877ffb_c4aa71a825c34376ab753974259bcfc3/1080p/mp4/file.mp4"></video>
+      <div class="video-container">
+        <video preload="none" autoplay loop playsinline="true" src="https://video.wixstatic.com/video/877ffb_c4aa71a825c34376ab753974259bcfc3/1080p/mp4/file.mp4"></video>
+      </div>
       <div class="img-container">
         <img src="https://static.wixstatic.com/media/877ffb_df97e8049bc943878f14dd23c6797b28~mv2.png/v1/fill/w_720,h_403,al_c,lg_1,q_85,enc_auto/6-transparent.png" alt="6-transparent.png" width="530" height="297" style="width: 530px; height: 297px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-four">
         <img src="https://static.wixstatic.com/media/877ffb_798b1a78c91147f6b5dd2b18405d22a2~mv2.png/v1/crop/x_345,y_78,w_255,h_174/fill/w_357,h_241,al_c,lg_1,q_85,enc_auto/5-transparent.png" alt="5-transparent.png" width="227" height="153" style="width: 227px; height: 153px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-five">
@@ -101,6 +103,8 @@
       position: absolute;
       align-self: center;
       top: 30vh;
+      width: 100vw;
+      word-break: break-word;
       text-align: center;
       font-size: 15rem;
       font-family: 'Proza Libre', sans-serif;
@@ -195,17 +199,16 @@
 
   .valleto .video-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .valleto video {
     position: relative;
-    margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-    left: 122px;
-      justify-self: start;
-      align-self: start;
+    align-self: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    aspect-ratio: auto 744 / 397;
     width: 744px;
     height: 397px;
   }
@@ -262,6 +265,17 @@
     font-weight: 600;
     color: var(--color-heading);
   }
+
+  @media (max-width: 800px) {
+    .valleto iframe {
+    width: 350px;
+    height: auto;
+  }}
+
+  @media (max-width: 360px) {
+    .valleto iframe {
+    width: 250px;
+  }}
   
   </style>
   

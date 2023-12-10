@@ -46,6 +46,8 @@
       position: absolute;
       align-self: center;
       top: 30vh;
+      width: 100vw;
+      word-break: break-word;
       text-align: center;
       font-size: 15rem;
       font-family: 'Proza Libre', sans-serif;
@@ -102,23 +104,23 @@
     .dance .align-img {
       position: relative;
       margin: 10px;
+      width: 120%;
+      height: auto;
       justify-self: start;
       align-self: start;
   }
 
   .dance .video-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .dance iframe {
     position: relative;
-    margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-    left: 122px;
-      justify-self: start;
-      align-self: start;
+    align-self: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    aspect-ratio: auto 744 / 397;
     width: 744px;
     height: 397px;
   }
@@ -175,5 +177,17 @@
     font-weight: 600;
     color: var(--color-heading);
   }
+
+  @media (max-width: 800px) {
+    .dance iframe {
+    width: 350px;
+    height: auto;
+  }}
+
+  @media (max-width: 360px) {
+    .dance iframe {
+    width: 250px;
+  }}
+  
   
   </style>

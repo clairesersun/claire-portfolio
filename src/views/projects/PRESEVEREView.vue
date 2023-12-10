@@ -18,7 +18,7 @@
 <p>I choreographed on Luciana through a zoom screen for 2 weeks with a total of 9, two hour long rehearsals. Luciana and Rein filmed the footage via an iPhone on one Saturday following a shot list I created. We did not have the final music yet so I gave Luciana a myriad of music to dance to from classical string compositions to upbeat techno. This allowed for a variety of textures to emerge from her movement. She then sent the footage through Apple Photos for me to edit and piece together the film. The goal was to create this throughout January so I had two weeks left to edit. I struggled with not being in control throughout the entirety of the process which allowed extra tension to surface in the final piece.</p>
 
 <div class="img-container">
-  <img src="https://static.wixstatic.com/media/877ffb_ee3cee40c146426e81f709853fb02e80~mv2.png/v1/fill/w_1726,h_965,al_c,q_90,enc_auto/877ffb_ee3cee40c146426e81f709853fb02e80~mv2.png" alt="" width="980" height="548" style="width: 980px; height: 548px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high">
+  <img src="https://static.wixstatic.com/media/877ffb_ee3cee40c146426e81f709853fb02e80~mv2.png/v1/fill/w_1726,h_965,al_c,q_90,enc_auto/877ffb_ee3cee40c146426e81f709853fb02e80~mv2.png" alt="" width="980" height="548" style="object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img">
 </div>
 <div class="position-section">
         <div class="section-wrapper">
@@ -80,6 +80,8 @@
       position: absolute;
       align-self: center;
       top: 30vh;
+      width: 100vw;
+      word-break: break-word;
       text-align: center;
       font-size: 15rem;
       font-family: 'Proza Libre', sans-serif;
@@ -136,23 +138,23 @@
     .persevere .align-img {
       position: relative;
       margin: 10px;
+      width: 120%;
+      height: auto;
       justify-self: start;
       align-self: start;
   }
 
   .persevere .video-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .persevere iframe {
     position: relative;
-    margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-    left: 122px;
-      justify-self: start;
-      align-self: start;
+    align-self: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    aspect-ratio: auto 744 / 397;
     width: 744px;
     height: 397px;
   }
@@ -209,5 +211,16 @@
     font-weight: 600;
     color: var(--color-heading);
   }
+
+  @media (max-width: 800px) {
+    .persevere iframe {
+    width: 350px;
+    height: auto;
+  }}
+
+  @media (max-width: 360px) {
+    .persevere iframe {
+    width: 250px;
+  }}
   
   </style>

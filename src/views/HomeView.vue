@@ -21,7 +21,12 @@ const projectsDance = ref([
 ])
 
 const projectsModel = ref([
-  { id: 8, title: 'Modeling', image: 'src/assets/modeling/cover.jpeg', link: '/projects/modeling', role: 'Model'}
+  { id: 9, title: 'Modeling', image: 'src/assets/modeling/cover.jpeg', link: '/projects/modeling', role: 'Model'}
+])
+
+const projectsChoreography = ref([
+  { id: 10, title: 'Rain', image: 'src/assets/rain/cover.png', link: '/projects/rain', role: 'Choreographer'},
+  { id: 11, title: 'xxii: Twenty-Two', image: 'src/assets/xxii/cover.png', link: '/projects/xxii', role: 'Choreographer'}
 ])
 
 
@@ -134,6 +139,14 @@ onUnmounted(() => {
             :projectImg="model.image"
             :projectLink="model.link"
             :role="model.role"/>
+          <ProjectCover
+            v-for="choreography in projectsChoreography"
+            :key="choreography.id"
+            :ref="choreography.id"
+            :title="choreography.title"
+            :projectImg="choreography.image"
+            :projectLink="choreography.link"
+            :role="choreography.role"/>
         </div>
         <!-- only show web
         <div 
@@ -321,4 +334,5 @@ img {
     height: 100%;
     object-fit: cover;
 }
+
 </style>

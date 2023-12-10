@@ -126,9 +126,8 @@ align-self: flex-end;
 .item img { 
     height: 100%;
     width: 100vw;
-    /* opacity: 0.8; */
+    opacity: 0.8;
 }
-
 
 </style>
 
