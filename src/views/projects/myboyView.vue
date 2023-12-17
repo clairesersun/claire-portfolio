@@ -4,7 +4,7 @@
       src="../../assets/myboy/cover.png" 
       alt="my boy Cover Image"
       class="cover-img">
-      <h1 class="title">Reflect: Remove</h1>
+      <h1 class="title">my boy</h1>
       <h2 class="subtitle">Videographer / Editor  ☁︎  2019</h2>
     <div class="content">
       <p>A dance concept video by Claire Sersun and Melissa Valente.</p>
@@ -54,13 +54,14 @@
       position: relative;
       top: 0;
       z-index: -1;
+      opacity: 0.8;
     }
 
     .myboy .title {
       position: absolute;
       align-self: center;
       /* justify-content: center; */
-      top: 21vh;
+      top: 30vh;
       width: 100vw;
       word-break: break-word;
       text-align: center;

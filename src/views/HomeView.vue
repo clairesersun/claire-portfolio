@@ -1,7 +1,128 @@
 <script setup>
 import ProjectCover from '../components/ProjectCover.vue'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, onUpdated } from 'vue'
 import { animate, scroll } from "motion";
+import { reactive, computed } from 'vue'
+
+
+// const count = ref(0)
+
+// async function increment() {
+//   count.value++
+
+//   // DOM not yet updated
+//   console.log(document.getElementById('counter').textContent) // 0
+
+//   await nextTick()
+//   // DOM is now updated
+//   console.log(document.getElementById('counter').textContent) // 1
+// }
+
+async function checkbox() {
+  const checkboxVideo = document.querySelector('input[id="Videographer/Editor"]');
+  checkboxVideo.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+      projects.value = projects.value.concat(projectsFilm.value)
+      console.log(projects.value)
+    } else {
+      console.log('Checkbox is not checked..');
+        projects.value = projects.value.filter(project => !projectsFilm.value.includes(project))
+      console.log(projects.value)
+
+    }
+  });
+  const checkboxWeb = document.querySelector('input[id="Web Design"]');
+  checkboxWeb.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+      projects.value = projects.value.concat(projectsWeb.value)
+      console.log(projects.value)
+    } else {
+      console.log('Checkbox is not checked..');
+      projects.value = projects.value.filter(project => !projectsWeb.value.includes(project))
+      console.log(projects.value)
+    }
+  });
+  const checkboxDance = document.querySelector('input[id="Dancer"]');
+  checkboxDance.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+      projects.value = projects.value.concat(projectsDance.value)
+      console.log(projects.value)
+    } else {
+      console.log('Checkbox is not checked..');
+      projects.value = projects.value.filter(project => !projectsDance.value.includes(project))
+      console.log(projects.value)
+    }
+  });
+  const checkboxModel = document.querySelector('input[id="Model"]');
+  checkboxModel.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+            projects.value = projects.value.concat(projectsModel.value)
+      console.log(projects.value)
+    } else {
+      console.log('Checkbox is not checked..');
+      projects.value = projects.value.filter(project => !projectsModel.value.includes(project))
+      console.log(projects.value)
+
+    }
+  });
+  const checkboxChoreography = document.querySelector('input[id="Choreographer"]');
+  checkboxChoreography.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+      projects.value = projects.value.concat(projectsChoreography.value)
+      console.log(projects.value)
+    } else {
+      console.log('Checkbox is not checked..');
+      projects.value = projects.value.filter(project => !projectsChoreography.value.includes(project))
+      console.log(projects.value)
+
+    }
+  });
+  const checkboxAll = document.querySelector('input[id="All"]');
+  checkboxAll.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+      checkboxVideo.checked = true
+      checkboxWeb.checked = true
+      checkboxDance.checked = true
+      checkboxModel.checked = true
+      checkboxChoreography.checked = true
+      projects.value = projects.value.concat(projectsWeb.value)
+      projects.value = projects.value.concat(projectsFilm.value)
+      projects.value = projects.value.concat(projectsDance.value)
+      projects.value = projects.value.concat(projectsModel.value)
+      projects.value = projects.value.concat(projectsChoreography.value)
+      console.log(projects.value)
+      //if all checked, then show all
+      // if just one of the filters are not checked, then uncheck this one
+    } else {
+      console.log('Checkbox is not checked..');
+      checkboxVideo.checked = false
+      checkboxWeb.checked = false
+      checkboxDance.checked = false
+      checkboxModel.checked = false
+      checkboxChoreography.checked = false
+      projects.value = projects.value.filter(project => !projectsWeb.value.includes(project))
+      projects.value = projects.value.filter(project => !projectsFilm.value.includes(project))
+      projects.value = projects.value.filter(project => !projectsDance.value.includes(project))
+      projects.value = projects.value.filter(project => !projectsModel.value.includes(project))
+      projects.value = projects.value.filter(project => !projectsChoreography.value.includes(project))
+      console.log(projects.value)
+
+    }
+  })
+
+}
+
+
+
+
+
+///previous info
 
 const projectsWeb = ref([
   { id: 1, title: 'VALLETO', image: 'src/assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
@@ -26,9 +147,15 @@ const projectsModel = ref([
 
 const projectsChoreography = ref([
   { id: 10, title: 'Rain', image: 'src/assets/rain/cover.png', link: '/projects/rain', role: 'Choreographer'},
-  { id: 11, title: 'xxii: Twenty-Two', image: 'src/assets/xxii/cover.png', link: '/projects/xxii', role: 'Choreographer'}
+  { id: 11, title: 'xxii: Twenty-Two', image: 'src/assets/xxii/cover.png', link: '/projects/xxii', role: 'Choreographer'},
+  //to make router and view for the following projects
+  { id: 12, title: 'Five Hours', image: 'src/assets/fivehours/cover.png', link: '/projects/fivehours', role: 'Choreographer'},
+  { id: 13, title: '.1 & .2', image: 'src/assets/oneandtwo/cover.png', link: '/projects/oneandtwo', role: 'Choreographer'},
+  { id: 14, title: 'Open Your Eyes', image: 'src/assets/openyoureyes/cover.png', link: '/projects/openyoureyes', role: 'Choreographer'},
+  { id: 15, title: 'Portrait of a Dancer Transforming into a Young Woman', image: 'src/assets/portraitof/cover.png', link: '/projects/portraitof', role: 'Choreographer'}
 ])
 
+const projects = ref([])
 
 
 const observer = new IntersectionObserver((entries, observer) => {
@@ -43,6 +170,8 @@ onMounted(() => {
   const contents = document.querySelector(".cover-contents");
   const progressBar = document.querySelector(".progress-bar");
   const progress = document.querySelector(".progress");
+  checkbox()
+  // const showProject = ref([])
   observer.observe(target, items, contents, progressBar, progress);
   scroll(
     animate(contents, {
@@ -73,14 +202,81 @@ scroll(
 //         animate(contents, { x: [0, "300vw"] })
 //       );} else { return}
 // });
-  
-  
+    
 })
+
 
 // Probably optional
 onUnmounted(() => {
   observer.disconnect()
 })
+
+// const filteredProjects = computed(() => {
+//   return this.projects.filter((project) => {
+//     return project.role.match(this.project)
+//   })
+// })
+
+// const showProject = reactive({
+//   'Videographer/Editor': checked => {
+//     if (checked) {
+//       projects.value = projects.value.concat(projectsFilm.value)
+//     } else {
+//       projects.value = projects.value.filter(project => !projectsFilm.value.includes(project))
+//     }
+//   },
+//   'Web Designer': checked => {
+//     if (checked) {
+//       projects.value = projects.value.concat(projectsWeb.value)
+//     } else {
+//       projects.value = projects.value.filter(project => !projectsWeb.value.includes(project))
+//     }
+//   },
+//   'Dancer': checked => {
+//     if (checked) {
+//       projects.value = projects.value.concat(projectsDance.value)
+//     } else {
+//       projects.value = projects.value.filter(project => !projectsDance.value.includes(project))
+//     }
+//   },
+//   'Model': checked => {
+//     if (checked) {
+//       projects.value = projects.value.concat(projectsModel.value)
+//     } else {
+//       projects.value = projects.value.filter(project => !projectsModel.value.includes(project))
+//     }
+//   },
+//   'Choreographer': checked => {
+//     if (checked) {
+//       projects.value = projects.value.concat(projectsChoreography.value)
+//     } else {
+//       projects.value = projects.value.filter(project => !projectsChoreography.value.includes(project))
+//     }
+//   }
+// })
+
+
+
+// const filteredProjects  = computed(() => {
+  // return this.projects.filter((project) => {
+  //   return project.role.match(showProject)
+  // // })
+  // return projects.value.filter((project) => {
+  //   return project.role.match(showProject)
+  // })
+  // let shownProjects = showProject
+  // console.log(shownProjects.value)
+  // if (shownProjects.value.length === 0) {
+  //   return projects.value
+  // } else {
+  //   return projects.value.filter((project) => {
+  //     return project.role.match(shownProjects)
+  //   })
+  // }
+  // return projects.value.filter((project) => {
+  //   return project.role.match(shownProjects)
+  // }) 
+// })
 
 
 
@@ -93,17 +289,50 @@ onUnmounted(() => {
     <div 
     class="cover"
     >
-    <div class="dropdown">
-      <div class="filter">Filter</div>
+    <!-- <button id="counter" @click="increment" style="top: 200px; position: absolute; z-index: 100;">{{ count }}</button> -->
+    <!-- <div class="dropdown"> -->
+
+
+      <!-- <div style="color: aliceblue; font-size: 50px;">{{filtered}}</div> -->
+      <div class="dropdown">
+        <!-- <div class="filter">Filter Projects</div> -->
+        <!-- Filter Projects -->
+        <fieldset>
+  <legend class="filter">Filter Projects</legend>
+  <input type="checkbox" id="All" value="All" v-model="role" checked/>
+    <label for="All">All</label>
+    <input type="checkbox" id="Videographer/Editor" value="Videographer/Editor" v-model="role"/>
+    <label for="Videographer/Editor">Videographer/Editor</label>
+  <!-- <div class="dropdown-content"> -->
+    <input type="checkbox" id="Web Design" value="Web Design" v-model="role"/>
+    <label for="Web Design">Web Design</label>
+    <input type="checkbox" id="Dancer" value="Dancer" v-model="role" />
+    <label for="Dancer">Dancer</label>
+    <input type="checkbox" id="Model" value="Model" v-model="role" />
+    <label for="Model">Model</label>
+    <input type="checkbox" id="Choreographer" value="Choreographer" v-model="role" />
+    <label for="Choreographer">Choreographer</label>
+  </fieldset>
+</div>
+      <!-- <div class="filter">Filter</div>
       <div class="dropdown-content">
         <button class="btn active" @click="filterSelection('All')">All</button>
         <button class="btn" @click="filterSelection('Web Design')">Web Design</button>
         <button class="btn" @click="filterSelection('Videographer/Editor')">Videographer/Editor</button>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <!-- :height="`${projects.length}00vh`" -->
         <!-- show all -->
-        <div 
+        <ProjectCover
+            v-for="project in filteredProjects"
+            :key="project.id"
+            :ref="project.id"
+            :title="project.title"
+            :projectImg="project.image"
+            :projectLink="project.link"
+            :role="project.role"
+          />
+        <!-- <div 
         class="cover-contents filterDiv all" >
             <ProjectCover
             v-for="web in projectsWeb"
@@ -147,7 +376,7 @@ onUnmounted(() => {
             :projectImg="choreography.image"
             :projectLink="choreography.link"
             :role="choreography.role"/>
-        </div>
+        </div> -->
         <!-- only show web
         <div 
         class="cover-contents filterDiv web" >
@@ -230,7 +459,7 @@ onUnmounted(() => {
 }
 
 .dropdown:hover .filter {
-  background-color: #3e8e41;
+  background-color:  rgb(0, 161, 189);
 }
 
 .dropdown {
@@ -288,7 +517,7 @@ onUnmounted(() => {
       left: 0;
       right: 0;
       height: 10px;
-      background: hsla(160, 100%, 37%, 1);
+      background: rgb(0, 161, 189);
       transform: scaleX(0);
       transform-origin: 0%;
     }
@@ -312,6 +541,7 @@ onUnmounted(() => {
   display: flex;
   position: sticky;
   top: 0;
+  
     /* flex-direction: column;
     position: sticky;
     top: 0;

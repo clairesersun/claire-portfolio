@@ -15,6 +15,57 @@ function showModel() {
   }
 }
 
+// sparkles flowing after cursor
+
+let trailArr = [1, .9, .8, .5, .25, .6, .4, .3, .2];
+
+function trailAnimation(e, i, callbackFn) {
+  var elem = document.createElement('div');
+
+  elem = styleSparkle(elem, e, i);
+
+  if (typeof callbackFn == 'function') {
+    elem = callbackFn(elem);    
+  }
+  
+  elem.classList.add("sparkle");
+
+  document.body.appendChild(elem);
+
+  window.setTimeout(function () {
+    document.body.removeChild(elem);
+  }, Math.round(Math.random() * i * 1000));
+}
+
+function styleSparkle(elem, e, i) {
+  let j = (1 - i) * 50;
+  let size = Math.ceil(Math.random() * 10 * i) + 'px';
+  
+  elem.style.top = e.pageY - window.scrollY + Math.round(Math.random() * j - j / 2) + 'px';
+  elem.style.left = e.pageX + Math.round(Math.random() * j - j / 2) + 'px';
+  
+  elem.style.width = size;
+  elem.style.height = size;
+  elem.style.borderRadius = size;  
+  elem.style.background = 'hsla(' +
+    Math.round(Math.random() * 160) + ', ' +
+    '60%, ' +
+    '90%, ' +
+    i + ')';
+  
+  return elem;
+}
+
+window.addEventListener('mousemove', function (e) {
+  trailArr.forEach((i) => {trailAnimation(e, i)});
+
+  trailArr.forEach((i) => {trailAnimation(e, i, (elem) => {
+    elem.style.animation = "fallingsparkles 1s";
+    
+    return elem;
+  })});
+}, false);
+
 </script>
 
 <template>
@@ -23,7 +74,10 @@ function showModel() {
     <div class="wrapper">
 
       <nav>
-        <RouterLink to="/"><h1>
+        <h1 v-if="showAbout">
+          Claire Sersun
+        </h1>
+        <RouterLink to="/" v-else><h1>
           Claire Sersun
         </h1></RouterLink>
         <button
@@ -41,9 +95,26 @@ function showModel() {
   </div>
 </template>
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+/* sparkles! */
+.sparkle {
+  position: fixed;
+  z-index: 300;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes fallingsparkles {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(50px);
+  }
+}
 
 /* Make the element transition with duration 0.25s and easing ease into opacity 0 when it mounts and unmounts */
 .modal-fade-enter-from,
@@ -87,12 +158,14 @@ nav {
   padding-left: 3rem;
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
+
+nav h1 {
   margin: 0;
+  z-index: 200;
+  font-weight: 500;
   padding: 0;
   color: var(--color-text);
+  font-size: 1.75rem;
 }
 
 nav button.router-link-exact-active {
@@ -121,32 +194,5 @@ nav button.router-link-exact-active:hover {
   /* background-color: var(--color-border); */
 }
 
-.video-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
- iframe {
-    position: relative;
-    align-self: center;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    width: 744px;
-    height: 397px;
-  }
-
-@media (max-width: 800px) {
-    iframe {
-    width: 350px;
-    height: auto;
-  }
-
-  @media (max-width: 360px) {
-    iframe {
-    width: 250px;
-  }}
-
-}
 
 </style>

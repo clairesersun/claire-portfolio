@@ -6,9 +6,10 @@
               </button>
         <h1>This is an about pop up</h1>
         <h2>Hi! I am a multidisiplinary designer, artist, and coach.</h2>
-        <p>I am currently working as a UI/UX Designer @ <a href="https://veoci.com/">Veoci</a> and a pilates instructor @ <a href="https://www.clubpilates.com/location/danbury">Club Pilates Danbury</a>.</p>
+        <p>I am currently working as a UI/UX Designer @ <a href="https://veoci.com/">Veoci</a> and a Pilates Instructor @ <a href="https://www.clubpilates.com/location/danbury">Club Pilates Danbury</a>.</p>
         <p>this is a placeholder for a switch to show the long, medium, or short version of my bio</p>
         <p>This is my bio</p>
+        <!-- link to movement page view -->
         <h2>Contact</h2>
         <p>If you are interested in my work feel free to contact me at >>> put a component to compy email to clipboard >>> claire.sersun[at]gmail.com.</p>
         <h2>Press</h2>
@@ -16,7 +17,7 @@
         <h2>Links</h2>
         <p>Github logo btn</p>
         <p>LinkedIn logo btn</p>
-        <p>Instagram logo btn</p>
+        <a href="https://www.instagram.com/clairesersun/"><p>Instagram logo btn</p></a>
         <p>Spotify logo btn</p>
     </div>
 </template>
@@ -29,8 +30,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: 1rem;
-  padding: 0.5rem;
+  margin-top: 4rem;
+  padding-right: 5rem;
   border: none;
   background: none;
   font-size: 1.5rem;
@@ -48,7 +49,6 @@
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  /* background: rgba(0, 0, 0, 0.2); */
   background: #000;
   display: flex;
   flex-direction: column;
