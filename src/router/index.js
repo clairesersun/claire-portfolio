@@ -102,6 +102,38 @@ const router = createRouter({
       meta: {
         title: 'xxii | Project',
       }
+    },
+    {
+      path: '/projects/fivehours',
+      name: 'Five Hours',
+      component: () => import('../views/projects/FiveHoursView.vue'),
+      meta: {
+        title: 'Five Hours | Project',
+      }
+    },
+    {
+      path: '/projects/oneandtwo',
+      name: '.1 & .2',
+      component: () => import('../views/projects/OneAndTwoView.vue'),
+      meta: {
+        title: '.1 & .2 | Project',
+      }
+    },
+    {
+      path: '/projects/openyoureyes',
+      name: 'Open Your Eyes',
+      component: () => import('../views/projects/OpenYourEyesView.vue'),
+      meta: {
+        title: 'Open Your Eyes | Project',
+      }
+    },
+    {
+      path: '/projects/portraitof',
+      name: 'Portrait of a Dancer',
+      component: () => import('../views/projects/PortraitOfView.vue'),
+      meta: {
+        title: 'Portrait of a Dancer | Project',
+      }
     }
   ],
   scrollBehavior() {

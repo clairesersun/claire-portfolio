@@ -28,7 +28,6 @@ const projectsModel = ref([
 const projectsChoreography = ref([
   { id: 10, title: 'Rain', image: 'src/assets/rain/cover.png', link: '/projects/rain', role: 'Choreographer'},
   { id: 11, title: 'xxii: Twenty-Two', image: 'src/assets/xxii/cover.png', link: '/projects/xxii', role: 'Choreographer'},
-  //to make router and view for the following projects
   { id: 12, title: 'Five Hours', image: 'src/assets/fivehours/cover.png', link: '/projects/fivehours', role: 'Choreographer'},
   { id: 13, title: '.1 & .2', image: 'src/assets/oneandtwo/cover.png', link: '/projects/oneandtwo', role: 'Choreographer'},
   { id: 14, title: 'Open Your Eyes', image: 'src/assets/openyoureyes/cover.png', link: '/projects/openyoureyes', role: 'Choreographer'},
@@ -74,6 +73,10 @@ async function checkbox() {
   checkboxChoreography.checked = true
   checkboxAll.checked = true
   
+  const styleHeight = function () {
+    const cover = document.querySelector(".cover");
+    cover.style.height = `${filteredProjects.value.length * 100}vh`
+  }
 
   // event listeners
   checkboxVideo.addEventListener('change', function () {
@@ -84,20 +87,24 @@ async function checkbox() {
       if (checkboxChoreography.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked) {
         console.log("all checked")
         checkboxAll.checked = true
+        styleHeight()
       }
+      styleHeight()
       console.log(filteredProjects.value)
     } else if (!(checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked)) {
     filteredProjects.value = filteredProjects.value.concat(noProjects.value)
     console.log('Checkbox is not checked..');
+    checkboxAll.checked = false
+    filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
     scrollBehavior()
-      checkboxAll.checked = false
-      filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
-      console.log(filteredProjects.value)
+    styleHeight()
+    console.log(filteredProjects.value)
   } else {
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
-      scrollBehavior()
       filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
+      styleHeight()
+      scrollBehavior()
       console.log(filteredProjects.value)
 
     }
@@ -110,14 +117,16 @@ async function checkbox() {
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxDance.checked & checkboxModel.checked) {
         checkboxAll.checked = true
         console.log("all checked")
-
+        styleHeight()
       }
+      styleHeight()
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
-      scrollBehavior()
       filteredProjects.value = filteredProjects.value.filter(project => !projectsWeb.value.includes(project))
+      styleHeight()
+      scrollBehavior()
       console.log(filteredProjects.value)
     }
   });
@@ -129,14 +138,16 @@ async function checkbox() {
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxModel.checked) {
         checkboxAll.checked = true
         console.log("all checked")
-
+        styleHeight()
       }
+      styleHeight()
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
-      scrollBehavior()
       filteredProjects.value = filteredProjects.value.filter(project => !projectsDance.value.includes(project))
+      scrollBehavior()
+      styleHeight()
       console.log(filteredProjects.value)
     }
   });
@@ -148,14 +159,16 @@ async function checkbox() {
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked) {
         checkboxAll.checked = true
         console.log("all checked")
-
+        styleHeight()
       }
+      styleHeight()
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
-      scrollBehavior()
       filteredProjects.value = filteredProjects.value.filter(project => !projectsModel.value.includes(project))
+      scrollBehavior()
+      styleHeight()
       console.log(filteredProjects.value)
 
     }
@@ -168,13 +181,16 @@ async function checkbox() {
       if (checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked) {
         checkboxAll.checked = true
         console.log("all checked")
+        styleHeight()
       }
+      styleHeight()
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
       scrollBehavior()
       filteredProjects.value = filteredProjects.value.filter(project => !projectsChoreography.value.includes(project))
+      styleHeight()
       console.log(filteredProjects.value)
 
     }
@@ -188,6 +204,7 @@ async function checkbox() {
       checkboxChoreography.checked = true
       console.log("all checked!!!!!", checkboxVideo.checked, checkboxWeb.checked, checkboxDance.checked, checkboxModel.checked, checkboxChoreography.checked)
       allChecked()
+      styleHeight()
       console.log(filteredProjects.value)
       //if all checked, then show all
       // if just one of the filters are not checked, then uncheck this one
@@ -205,10 +222,13 @@ async function checkbox() {
       filteredProjects.value = filteredProjects.value.filter(project => !projectsModel.value.includes(project))
       filteredProjects.value = filteredProjects.value.filter(project => !projectsChoreography.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(noProjects.value)
+      styleHeight()
       console.log(filteredProjects.value)
 
     }
   })
+
+  
 
 }
 
@@ -279,7 +299,6 @@ onUnmounted(() => {
     class="cover"
     :style="`height: ${filteredProjects.length * 100}vh`"
     >
-    <!-- :style="`${filteredProjects.length}00vh`" -->
       <div class="dropdown">
         <fieldset>
           <legend class="filter">Filter Projects</legend>
