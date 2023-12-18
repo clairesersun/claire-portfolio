@@ -205,13 +205,13 @@
   }
 
   @media (max-width: 800px) {
-    .myboy iframe {
+    .fivehours iframe {
     width: 350px;
     height: auto;
   }}
 
   @media (max-width: 360px) {
-    .myboy iframe {
+    .fivehours iframe {
     width: 250px;
   }}
   
