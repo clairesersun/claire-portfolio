@@ -31,7 +31,7 @@ const projectsChoreography = ref([
   { id: 12, title: 'Five Hours', image: 'src/assets/fivehours/cover.png', link: '/projects/fivehours', role: 'Choreographer'},
   { id: 13, title: '.1 & .2', image: 'src/assets/oneandtwo/cover.png', link: '/projects/oneandtwo', role: 'Choreographer'},
   { id: 14, title: 'Open Your Eyes', image: 'src/assets/openyoureyes/cover.png', link: '/projects/openyoureyes', role: 'Choreographer'},
-  { id: 15, title: 'Portrait of a Dancer Transforming into a Young Woman', image: 'src/assets/portraitof/cover.png', link: '/projects/portraitof', role: 'Choreographer'}
+  { id: 15, title: 'Portrait of a Dancer', image: 'src/assets/portraitof/cover.png', link: '/projects/portraitof', role: 'Choreographer'}
 ])
 
 const noProjects = ref([

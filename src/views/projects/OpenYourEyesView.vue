@@ -7,7 +7,7 @@
       <h1 class="title">Open Your Eyes</h1>
       <h2 class="subtitle">Choreographer  ☁︎  2017</h2>
     <div class="content">
-      <p>This is a dance film exploring psychological connection through the mundane, morning routines</p>
+      <p>This is a dance film exploring psychological connection through the mundane, morning routines.</p>
     <div class="position-section">
         <div class="section-wrapper">
             <h3 class="position-title">Presented at</h3>
