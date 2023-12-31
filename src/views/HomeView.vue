@@ -388,7 +388,7 @@ onUnmounted(() => {
 }
 
 .dropdown:hover .filter {
-  background-color:  rgb(0, 161, 189);
+  background-color: inset 0 0 0 2em var(--color-border);
 }
 
 .dropdown {
@@ -464,7 +464,7 @@ fieldset:hover {
 }
 
 .filterLabel:has(.filterInput:checked) {
-  background-color:  rgb(0, 161, 189);
+  box-shadow: inset 0 0 0 2em var(--color-border);
   color: var(--color-text);
 }
 .filterInput:checked {
