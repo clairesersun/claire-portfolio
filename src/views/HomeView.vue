@@ -5,9 +5,9 @@ import { animate, scroll } from "motion";
 
 
 const projectsWeb = ref([
-  { id: 1, title: 'VALLETO', image: 'src/assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
-  { id: 2, title: 'Moving For Life', image: 'src/assets/movingforlife/cover.png', link: '/projects/movingforlife', role: 'Web Designer' },
-  { id: 3, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/timeslot', role: 'Web Designer' }
+  { id: 1, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/timeslot', role: 'Web Designer' },
+  { id: 2, title: 'VALLETO', image: 'src/assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
+  { id: 3, title: 'Moving For Life', image: 'src/assets/movingforlife/cover.png', link: '/projects/movingforlife', role: 'Web Designer' }
 ])
 
 const projectsFilm = ref([
@@ -38,6 +38,10 @@ const noProjects = ref([
   { id: 16, title: 'No Filter Selected', image: 'src/assets/none/cover.jpeg', link: '/', role: ''}
 ])
 
+const projectsPhotography = ref([
+  { id: 17, title: 'Photography', image: 'src/assets/photography/cover.jpeg', link: '/projects/photography', role: 'Photographer'}
+])
+
 const filteredProjects = ref([])
 
 const allChecked = function () {
@@ -65,18 +69,23 @@ async function checkbox() {
   const checkboxDance = document.querySelector('input[id="Dancer"]');
   const checkboxModel = document.querySelector('input[id="Model"]');
   const checkboxChoreography = document.querySelector('input[id="Choreographer"]');
+  const checkboxPhotography = document.querySelector('input[id="Photographer"]');
   const checkboxAll = document.querySelector('input[id="All"]');
   checkboxVideo.checked = true
   checkboxWeb.checked = true
   checkboxDance.checked = true
   checkboxModel.checked = true
   checkboxChoreography.checked = true
+  checkboxPhotography.checked = true
   checkboxAll.checked = true
   
   const styleHeight = function () {
     const cover = document.querySelector(".cover");
-    cover.style.height = `${filteredProjects.value.length * 100}vh`
+     cover.style.height = `${filteredProjects.value.length * 100}vh`
+    //  isnt this width not height??? no. but I want it to be width. Maybe I need to change how this is set up.
   }
+  
+  styleHeight()
 
   // event listeners
   checkboxVideo.addEventListener('change', function () {
@@ -84,14 +93,14 @@ async function checkbox() {
       console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.concat(projectsFilm.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
-      if (checkboxChoreography.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked) {
+      if (checkboxChoreography.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         console.log("all checked")
         checkboxAll.checked = true
         styleHeight()
       }
       styleHeight()
       console.log(filteredProjects.value)
-    } else if (!(checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked)) {
+    } else if (!(checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked & checkboxPhotography.checked)) {
     filteredProjects.value = filteredProjects.value.concat(noProjects.value)
     console.log('Checkbox is not checked..');
     checkboxAll.checked = false
@@ -114,7 +123,7 @@ async function checkbox() {
       console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.concat(projectsWeb.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
-      if (checkboxChoreography.checked & checkboxVideo.checked & checkboxDance.checked & checkboxModel.checked) {
+      if (checkboxChoreography.checked & checkboxVideo.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
         styleHeight()
@@ -135,7 +144,7 @@ async function checkbox() {
       console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.concat(projectsDance.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
-      if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxModel.checked) {
+      if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
         styleHeight()
@@ -156,7 +165,7 @@ async function checkbox() {
       console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.concat(projectsModel.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
-      if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked) {
+      if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
         styleHeight()
@@ -178,7 +187,7 @@ async function checkbox() {
       console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsChoreography.value)
-      if (checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked) {
+      if (checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
         styleHeight()
@@ -195,6 +204,28 @@ async function checkbox() {
 
     }
   });
+  checkboxPhotography.addEventListener('change', function () {
+    if (this.checked) {
+      console.log('Checkbox is checked..');
+      filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
+      filteredProjects.value = filteredProjects.value.concat(projectsPhotography.value)
+      if (checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked) {
+        checkboxAll.checked = true
+        console.log("all checked")
+        styleHeight()
+      }
+      styleHeight()
+      console.log(filteredProjects.value)
+    } else {
+      console.log('Checkbox is not checked..');
+      checkboxAll.checked = false
+      scrollBehavior()
+      filteredProjects.value = filteredProjects.value.filter(project => !projectsPhotography.value.includes(project))
+      styleHeight()
+      console.log(filteredProjects.value)
+
+    }
+  });
   checkboxAll.addEventListener('change', function () {
     if (this.checked) {
       checkboxVideo.checked = true
@@ -202,7 +233,9 @@ async function checkbox() {
       checkboxDance.checked = true
       checkboxModel.checked = true
       checkboxChoreography.checked = true
-      console.log("all checked!!!!!", checkboxVideo.checked, checkboxWeb.checked, checkboxDance.checked, checkboxModel.checked, checkboxChoreography.checked)
+      checkboxPhotography.checked = true
+      console.log("all checked!!!!!", checkboxVideo.checked, checkboxWeb.checked, checkboxDance.checked, checkboxModel.checked, checkboxChoreography.checked, checkboxPhotography.checked)
+      filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       allChecked()
       styleHeight()
       console.log(filteredProjects.value)
@@ -216,18 +249,19 @@ async function checkbox() {
       checkboxDance.checked = false
       checkboxModel.checked = false
       checkboxChoreography.checked = false
+      checkboxPhotography.checked = false
       filteredProjects.value = filteredProjects.value.filter(project => !projectsWeb.value.includes(project))
       filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
       filteredProjects.value = filteredProjects.value.filter(project => !projectsDance.value.includes(project))
       filteredProjects.value = filteredProjects.value.filter(project => !projectsModel.value.includes(project))
       filteredProjects.value = filteredProjects.value.filter(project => !projectsChoreography.value.includes(project))
+      filteredProjects.value = filteredProjects.value.filter(project => !projectsPhotography.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(noProjects.value)
       styleHeight()
       console.log(filteredProjects.value)
 
     }
   })
-
   
 
 }
@@ -297,7 +331,6 @@ onUnmounted(() => {
   <main>
     <div 
     class="cover"
-    :style="`height: ${filteredProjects.length * 100}vh`"
     >
       <div class="dropdown">
         <fieldset>
@@ -321,6 +354,9 @@ onUnmounted(() => {
               <label for="Choreographer" class="filterLabel">
           <input type="checkbox" id="Choreographer" value="Choreographer" name="project" class="filterInput"/>
               <p>Choreographer</p></label>
+              <label for="Photographer" class="filterLabel">
+          <input type="checkbox" id="Photographer" value="Photographer" name="project" class="filterInput"/>
+              <p>Photographer</p></label>
           </div>
         </fieldset>
       </div>
@@ -484,6 +520,7 @@ fieldset:hover {
 .cover {
   /* height: 1500vh; */
   position: relative;
+  width: auto;
     /* display: flex;
     flex-direction: row;
     white-space: nowrap;
