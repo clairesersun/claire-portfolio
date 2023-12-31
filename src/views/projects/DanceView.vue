@@ -5,7 +5,6 @@
       alt="Dance Cover Image"
       class="cover-img">
       <h1 class="title">Dance</h1>
-      <h2 class="subtitle">Dancer</h2>
       <div class="content">
 <div class="video-container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/-c9WCo3gyVY?si=Iey5WV0n4rKh3jmS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay loop playsinline="true" preload="none"></iframe>
@@ -43,7 +42,6 @@
     }
 
     .dance .title {
-      text-transform: uppercase;
       position: absolute;
       align-self: center;
       top: 30vh;
@@ -115,6 +113,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-top: 80px;
   }
 
   .dance iframe {
