@@ -59,7 +59,7 @@ const allChecked = function () {
   
 // when page is loaded, show all projects
 allChecked()
-console.log("page has loaded", filteredProjects.value, filteredProjects.value.length)
+// console.log("page has loaded", filteredProjects.value, filteredProjects.value.length)
 
 const scrollBehavior = function() {
     window.scrollTo(0,0);
@@ -91,139 +91,139 @@ async function checkbox() {
   // event listeners
   checkboxVideo.addEventListener('change', function () {
     if (this.checked) {
-      console.log('Checkbox is checked..');
+      // console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsFilm.value)
       if (checkboxChoreography.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
-        console.log("all checked")
+        // console.log("all checked")
         checkboxAll.checked = true
         styleHeight()
       }
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     } else if (!(checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked & checkboxPhotography.checked)) {
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       filteredProjects.value = filteredProjects.value.concat(noProjects.value)
     checkboxAll.checked = false
     filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
     scrollBehavior()
     styleHeight()
-    console.log(filteredProjects.value)
+    // console.log(filteredProjects.value)
   } else {
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       checkboxAll.checked = false
       filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
       styleHeight()
       scrollBehavior()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
 
     }
   });
   checkboxWeb.addEventListener('change', function () {
     if (this.checked) {
-      console.log('Checkbox is checked..');
+      // console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsWeb.value)
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
-        console.log("all checked")
+        // console.log("all checked")
         styleHeight()
       }
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
       filteredProjects.value = filteredProjects.value.filter(project => !projectsWeb.value.includes(project))
       styleHeight()
       scrollBehavior()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     }
   });
   checkboxDance.addEventListener('change', function () {
     if (this.checked) {
-      console.log('Checkbox is checked..');
+      // console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsDance.value)
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
-        console.log("all checked")
+        // console.log("all checked")
         styleHeight()
       }
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     } else {
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !projectsDance.value.includes(project))
       checkboxAll.checked = false
       scrollBehavior()
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     }
   });
   checkboxModel.addEventListener('change', function () {
     if (this.checked) {
-      console.log('Checkbox is checked..');
+      // console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsModel.value)
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
-        console.log("all checked")
+        // console.log("all checked")
         styleHeight()
       }
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     } else {
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !projectsModel.value.includes(project))
       checkboxAll.checked = false
       scrollBehavior()
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
 
     }
   });
   checkboxChoreography.addEventListener('change', function () {
     if (this.checked) {
-      console.log('Checkbox is checked..');
+      // console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsChoreography.value)
       if (checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
-        console.log("all checked")
+        // console.log("all checked")
         styleHeight()
       }
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     } else {
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !projectsChoreography.value.includes(project))
       checkboxAll.checked = false
       scrollBehavior()
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
 
     }
   });
   checkboxPhotography.addEventListener('change', function () {
     if (this.checked) {
-      console.log('Checkbox is checked..');
+      // console.log('Checkbox is checked..');
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(projectsPhotography.value)
       if (checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked) {
         checkboxAll.checked = true
-        console.log("all checked")
+        // console.log("all checked")
         styleHeight()
       }
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
     } else {
       filteredProjects.value = filteredProjects.value.filter(project => !projectsPhotography.value.includes(project))
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       checkboxAll.checked = false
       scrollBehavior()
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
 
     }
   });
@@ -235,15 +235,15 @@ async function checkbox() {
       checkboxModel.checked = true
       checkboxChoreography.checked = true
       checkboxPhotography.checked = true
-      console.log("all checked!!!!!", checkboxVideo.checked, checkboxWeb.checked, checkboxDance.checked, checkboxModel.checked, checkboxChoreography.checked, checkboxPhotography.checked)
+      // console.log("all checked!!!!!", checkboxVideo.checked, checkboxWeb.checked, checkboxDance.checked, checkboxModel.checked, checkboxChoreography.checked, checkboxPhotography.checked)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
       allChecked()
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
       //if all checked, then show all
       // if just one of the filters are not checked, then uncheck this one
     } else {
-      console.log('Checkbox is not checked..');
+      // console.log('Checkbox is not checked..');
       scrollBehavior()
       checkboxVideo.checked = false
       checkboxWeb.checked = false
@@ -259,7 +259,7 @@ async function checkbox() {
       filteredProjects.value = filteredProjects.value.filter(project => !projectsPhotography.value.includes(project))
       filteredProjects.value = filteredProjects.value.concat(noProjects.value)
       styleHeight()
-      console.log(filteredProjects.value)
+      // console.log(filteredProjects.value)
 
     }
   })
@@ -291,7 +291,7 @@ onMounted(() => {
     );
 // change the number of vw to the number of projects as checkboxes are changed
     watch(filteredProjects, () => {
-    console.log("filteredProjects has changed", filteredProjects.value, filteredProjects.value.length)
+    // console.log("filteredProjects has changed", filteredProjects.value, filteredProjects.value.length)
     scroll(
       animate(contents, {
         transform: ["none", `translateX(-${filteredProjects.value.length - 1}00vw)`]

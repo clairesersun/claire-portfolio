@@ -228,7 +228,7 @@ export default {
   },
   methods: {
     longBioVisibility() {
-      console.log('long bio clicked')
+      // console.log('long bio clicked')
       // all bio classes
       const longBio = document.querySelector('.about-long')
       const longBtn = document.querySelector('.about-long-btn')
@@ -246,7 +246,7 @@ export default {
       shortBtn.style.backgroundColor = 'transparent'
     },
     mediumBioVisibility() {
-      console.log('medium bio clicked')
+      // console.log('medium bio clicked')
       // all bio classes
       const longBio = document.querySelector('.about-long')
       const longBtn = document.querySelector('.about-long-btn')
@@ -264,7 +264,7 @@ export default {
       shortBtn.style.backgroundColor = 'transparent'
     },
     shortBioVisibility() {
-      console.log('short bio clicked')
+      // console.log('short bio clicked')
       // all bio classes
       const longBio = document.querySelector('.about-long')
       const longBtn = document.querySelector('.about-long-btn')
@@ -282,7 +282,7 @@ export default {
       mediumBtn.style.backgroundColor = 'transparent'
     },
     copyToClipboard() {
-      console.log('copy to keyboard clicked')
+      // console.log('copy to keyboard clicked')
       const copyEmail = "claire.sersun@gmail.com"
       // copy email to clipboard
       navigator.clipboard.writeText(copyEmail).then(function() {
@@ -290,7 +290,7 @@ export default {
       })
     },
     privatePilatesVisibility() {
-      console.log('private pilates clicked')
+      // console.log('private pilates clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
       const privatePilatesBtn = document.querySelector('.private-pilates-btn')
@@ -327,7 +327,7 @@ export default {
       
     },
     groupPilatesVisibility() {
-      console.log('group pilates clicked')
+      // console.log('group pilates clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
       const privatePilatesBtn = document.querySelector('.private-pilates-btn')
@@ -363,7 +363,7 @@ export default {
       bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     movingForLifeVisibility() {
-      console.log('moving for life clicked')
+      // console.log('moving for life clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
       const privatePilatesBtn = document.querySelector('.private-pilates-btn')
@@ -399,7 +399,7 @@ export default {
       bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     personalTrainingVisibility() {
-      console.log('personal training clicked')
+      // console.log('personal training clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
       const privatePilatesBtn = document.querySelector('.private-pilates-btn')
@@ -435,7 +435,7 @@ export default {
       bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     yogaClassesVisibility() {
-      console.log('yoga classes clicked')
+      // console.log('yoga classes clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
       const privatePilatesBtn = document.querySelector('.private-pilates-btn')
@@ -471,7 +471,7 @@ export default {
       bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     bodyMindDancingVisibility() {
-      console.log('body mind dancing clicked')
+      // console.log('body mind dancing clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
       const privatePilatesBtn = document.querySelector('.private-pilates-btn')
