@@ -515,7 +515,7 @@ export default {
 
 .modal-close-button {
   font-family: 'Proza Libre', sans-serif;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   margin-top: 4rem;
