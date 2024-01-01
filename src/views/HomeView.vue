@@ -92,8 +92,8 @@ async function checkbox() {
   checkboxVideo.addEventListener('change', function () {
     if (this.checked) {
       console.log('Checkbox is checked..');
-      filteredProjects.value = filteredProjects.value.concat(projectsFilm.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
+      filteredProjects.value = filteredProjects.value.concat(projectsFilm.value)
       if (checkboxChoreography.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         console.log("all checked")
         checkboxAll.checked = true
@@ -102,8 +102,8 @@ async function checkbox() {
       styleHeight()
       console.log(filteredProjects.value)
     } else if (!(checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxModel.checked & checkboxChoreography.checked & checkboxPhotography.checked)) {
-    filteredProjects.value = filteredProjects.value.concat(noProjects.value)
-    console.log('Checkbox is not checked..');
+      console.log('Checkbox is not checked..');
+      filteredProjects.value = filteredProjects.value.concat(noProjects.value)
     checkboxAll.checked = false
     filteredProjects.value = filteredProjects.value.filter(project => !projectsFilm.value.includes(project))
     scrollBehavior()
@@ -122,8 +122,8 @@ async function checkbox() {
   checkboxWeb.addEventListener('change', function () {
     if (this.checked) {
       console.log('Checkbox is checked..');
-      filteredProjects.value = filteredProjects.value.concat(projectsWeb.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
+      filteredProjects.value = filteredProjects.value.concat(projectsWeb.value)
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxDance.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
@@ -143,8 +143,8 @@ async function checkbox() {
   checkboxDance.addEventListener('change', function () {
     if (this.checked) {
       console.log('Checkbox is checked..');
-      filteredProjects.value = filteredProjects.value.concat(projectsDance.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
+      filteredProjects.value = filteredProjects.value.concat(projectsDance.value)
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxModel.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
@@ -154,8 +154,8 @@ async function checkbox() {
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
-      checkboxAll.checked = false
       filteredProjects.value = filteredProjects.value.filter(project => !projectsDance.value.includes(project))
+      checkboxAll.checked = false
       scrollBehavior()
       styleHeight()
       console.log(filteredProjects.value)
@@ -164,8 +164,8 @@ async function checkbox() {
   checkboxModel.addEventListener('change', function () {
     if (this.checked) {
       console.log('Checkbox is checked..');
-      filteredProjects.value = filteredProjects.value.concat(projectsModel.value)
       filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
+      filteredProjects.value = filteredProjects.value.concat(projectsModel.value)
       if (checkboxChoreography.checked & checkboxVideo.checked & checkboxWeb.checked & checkboxDance.checked & checkboxPhotography.checked) {
         checkboxAll.checked = true
         console.log("all checked")
@@ -175,8 +175,8 @@ async function checkbox() {
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
-      checkboxAll.checked = false
       filteredProjects.value = filteredProjects.value.filter(project => !projectsModel.value.includes(project))
+      checkboxAll.checked = false
       scrollBehavior()
       styleHeight()
       console.log(filteredProjects.value)
@@ -197,9 +197,9 @@ async function checkbox() {
       console.log(filteredProjects.value)
     } else {
       console.log('Checkbox is not checked..');
+      filteredProjects.value = filteredProjects.value.filter(project => !projectsChoreography.value.includes(project))
       checkboxAll.checked = false
       scrollBehavior()
-      filteredProjects.value = filteredProjects.value.filter(project => !projectsChoreography.value.includes(project))
       styleHeight()
       console.log(filteredProjects.value)
 
@@ -218,10 +218,10 @@ async function checkbox() {
       styleHeight()
       console.log(filteredProjects.value)
     } else {
+      filteredProjects.value = filteredProjects.value.filter(project => !projectsPhotography.value.includes(project))
       console.log('Checkbox is not checked..');
       checkboxAll.checked = false
       scrollBehavior()
-      filteredProjects.value = filteredProjects.value.filter(project => !projectsPhotography.value.includes(project))
       styleHeight()
       console.log(filteredProjects.value)
 

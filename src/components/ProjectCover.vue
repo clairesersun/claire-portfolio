@@ -1,11 +1,14 @@
 <template>
     
     <RouterLink 
-    :to=projectLink 
+    :to="projectLink" 
     class="item"
     >
         
-            <img :src=projectImg alt="Project Cover Image"/>
+            <img 
+            :src="projectImg"
+            alt="Project Cover Image"
+            />
             <div class="words">
             <div class="overlay start"></div>
                 <h1>
