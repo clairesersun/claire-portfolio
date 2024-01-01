@@ -13,11 +13,11 @@
         <section class="bio">
           <div class="bio-header-wrapper">
           <h2>Bio</h2>
-          <section class="about-switch">
+          <!-- <section class="about-switch">
             <button @click="longBioVisibility" class="about-long-btn"><h3>Long</h3></button>
             <button @click="mediumBioVisibility" class="about-medium-btn"><h3>Medium</h3></button>
             <button @click="shortBioVisibility" class="about-short-btn"><h3>Short</h3></button>
-          </section>
+          </section> -->
           </div>
           <div class="about-long">
             <p>Claire Sersun is an American artist, dancer, choreographer, movement instructor, web designer, and photographer. She earned a Master of Arts in Mass Communication with a focus on Web Design from the University of Florida. Claire received her Bachelor of Arts in Dance and Kinesiology from Marymount Manhattan College. </p>
