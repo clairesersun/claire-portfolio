@@ -361,7 +361,7 @@ onUnmounted(() => {
             :key="project.id"
             :ref="project.id"
             :title="project.title"
-            :projectImg="require(project.image)"
+            :projectImg="project.image"
             :projectLink="project.link"
             :role="project.role"
           />
