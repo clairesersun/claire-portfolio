@@ -149,7 +149,7 @@ export default {
     },
     
     data() {
-        const imageUrl =  new URL(  `${this.projectImg}`, import.meta.url)
+        const imageUrl =  new URL(  `${this.projectImg}`, "https://raw.githubusercontent.com/clairesersun/claire-portfolio/main/")
         return {
         imageUrl
     }
