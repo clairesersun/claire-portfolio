@@ -1,7 +1,7 @@
 <template>
     <div class="about timeslot">
       <img 
-      src="../../assets/movingforlife/cover.png" 
+      src="../../assets/timeslot/cover.png" 
       alt="timeslot Cover Image"
       class="cover-img">
       <h1 class="title">timeslot</h1>

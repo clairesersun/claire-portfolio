@@ -14,9 +14,9 @@
           <div class="bio-header-wrapper">
           <h2>Bio</h2>
           <section class="about-switch">
-            <button @click="longBioVisibility"><h3>Long</h3></button>
-            <button @click="mediumBioVisibility"><h3>Medium</h3></button>
-            <button @click="shortBioVisibility"><h3>Short</h3></button>
+            <button @click="longBioVisibility" class="about-long-btn"><h3>Long</h3></button>
+            <button @click="mediumBioVisibility" class="about-medium-btn"><h3>Medium</h3></button>
+            <button @click="shortBioVisibility" class="about-short-btn"><h3>Short</h3></button>
           </section>
           </div>
           <div class="about-long">
@@ -35,12 +35,12 @@
         <section class="movement-offerings">
           <h2>Movement Offerings</h2>
           <section class="movement-offering-wrapper">
-          <button @click="privatePilatesVisibility"><h3>Private Pilates Sessions</h3></button>
-          <button @click="groupPilatesVisibility"><h3>Group Pilates Classes</h3></button>
-          <button @click="movingForLifeVisibility"><h3>Moving For Life DanceExercise Classes</h3></button>
-          <button @click="personalTrainingVisibility"><h3>Personal Training</h3></button>
-          <button @click="yogaClassesVisibility"><h3>Yoga Classes</h3></button>
-          <button @click="bodyMindDancingVisibility"><h3>BodyMind Dancing</h3></button>
+          <button @click="privatePilatesVisibility" class="private-pilates-btn"><h3>Private Pilates Sessions</h3></button>
+          <button @click="groupPilatesVisibility" class="group-pilates-btn"><h3>Group Pilates Classes</h3></button>
+          <button @click="movingForLifeVisibility" class="moving-for-life-btn"><h3>Moving For Life DanceExercise Classes</h3></button>
+          <button @click="personalTrainingVisibility" class="personal-training-btn"><h3>Personal Training</h3></button>
+          <button @click="yogaClassesVisibility" class="yoga-classes-btn"><h3>Yoga Classes</h3></button>
+          <button @click="bodyMindDancingVisibility" class="bodymind-dancing-btn"><h3>BodyMind Dancing</h3></button>
           <!-- info about movement offerings -->
           <p class="private-pilates-info">Come as you are - receive personalized pilates sessions that will help you reach your goals, no matter where you're starting from. My goal is to help you be comfortable and proud of what your body can do. Whether you want to be able to pick up your grandkids when they come over or win the next 5k, you can achieve all that and more in this safe and fun environment. Sessions are offered in person at Club Pilates Danbury or online zoom sessions.</p>
           <p class="group-pilates-info">Flow with me in full-body reformer based pilates group classes. Each class combines work with the springboard, EXO-chair, TRX, bosu, and more. Classes focus on form and alignment to master pilates fundamentals and progressions. I currently teach at <a href="https://www.clubpilates.com/location/danbury">Club Pilates Danbury</a> on Tuesdays at 4:30pm / 5:30pm / 6:30pm / 7:30pm and Thursdays at 6pm / 7pm.</p>
@@ -231,37 +231,55 @@ export default {
       console.log('long bio clicked')
       // all bio classes
       const longBio = document.querySelector('.about-long')
+      const longBtn = document.querySelector('.about-long-btn')
       const mediumBio = document.querySelector('.about-medium')
+      const mediumBtn = document.querySelector('.about-medium-btn')
       const shortBio = document.querySelector('.about-short')
+      const shortBtn = document.querySelector('.about-short-btn')
       // turn on long bio
       longBio.style.display = 'block'
+      longBtn.style.backgroundColor = 'var(--color-border)'
       // all the other visibilities turned off
       mediumBio.style.display = 'none'
+      mediumBtn.style.backgroundColor = 'transparent'
       shortBio.style.display = 'none'
+      shortBtn.style.backgroundColor = 'transparent'
     },
     mediumBioVisibility() {
       console.log('medium bio clicked')
       // all bio classes
       const longBio = document.querySelector('.about-long')
+      const longBtn = document.querySelector('.about-long-btn')
       const mediumBio = document.querySelector('.about-medium')
+      const mediumBtn = document.querySelector('.about-medium-btn')
       const shortBio = document.querySelector('.about-short')
+      const shortBtn = document.querySelector('.about-short-btn')
       // turn on medium bio
       mediumBio.style.display = 'block'
+      mediumBtn.style.backgroundColor = 'var(--color-border)'
       // all the other visibilities turned off
       longBio.style.display = 'none'
+      longBtn.style.backgroundColor = 'transparent'
       shortBio.style.display = 'none'
+      shortBtn.style.backgroundColor = 'transparent'
     },
     shortBioVisibility() {
       console.log('short bio clicked')
       // all bio classes
       const longBio = document.querySelector('.about-long')
+      const longBtn = document.querySelector('.about-long-btn')
       const mediumBio = document.querySelector('.about-medium')
+      const mediumBtn = document.querySelector('.about-medium-btn')
       const shortBio = document.querySelector('.about-short')
+      const shortBtn = document.querySelector('.about-short-btn')
       // turn on short bio
       shortBio.style.display = 'block'
+      shortBtn.style.backgroundColor = 'var(--color-border)'
       // all the other visibilities turned off
       longBio.style.display = 'none'
+      longBtn.style.backgroundColor = 'transparent'
       mediumBio.style.display = 'none'
+      mediumBtn.style.backgroundColor = 'transparent'
     },
     copyToClipboard() {
       console.log('copy to keyboard clicked')
@@ -275,139 +293,218 @@ export default {
       console.log('private pilates clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
+      const privatePilatesBtn = document.querySelector('.private-pilates-btn')
       const groupPilatesInfo = document.querySelector('.group-pilates-info')
+      const groupPilatesBtn = document.querySelector('.group-pilates-btn')
       const movingForLifeInfo = document.querySelector('.moving-for-life-info')
+      const movingForLifeBtn = document.querySelector('.moving-for-life-btn')
       const personalTrainingInfo = document.querySelector('.personal-training-info')
+      const personalTrainingBtn = document.querySelector('.personal-training-btn')
       const yogaClassesInfo = document.querySelector('.yoga-classes-info')
+      const yogaClassesBtn = document.querySelector('.yoga-classes-btn')
       const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info')
+      const bodyMindDancingBtn = document.querySelector('.bodymind-dancing-btn')
       if (privatePilatesInfo.style.display === 'block') {
         // turn off private pilates info
       privatePilatesInfo.style.display = 'none'
+      privatePilatesBtn.style.backgroundColor = 'transparent'
       } else {
         // turn on private pilates info
       privatePilatesInfo.style.display = 'block'
+      privatePilatesBtn.style.backgroundColor = 'var(--color-border)'
       }
       // all the other visibilities turned off
       groupPilatesInfo.style.display = 'none'
+      groupPilatesBtn.style.backgroundColor = 'transparent'
       movingForLifeInfo.style.display = 'none'
+      movingForLifeBtn.style.backgroundColor = 'transparent'
       personalTrainingInfo.style.display = 'none'
+      personalTrainingBtn.style.backgroundColor = 'transparent'
       yogaClassesInfo.style.display = 'none'
+      yogaClassesBtn.style.backgroundColor = 'transparent'
       bodyMindDancingInfo.style.display = 'none'
+      bodyMindDancingBtn.style.backgroundColor = 'transparent'
       
     },
     groupPilatesVisibility() {
       console.log('group pilates clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
+      const privatePilatesBtn = document.querySelector('.private-pilates-btn')
       const groupPilatesInfo = document.querySelector('.group-pilates-info')
+      const groupPilatesBtn = document.querySelector('.group-pilates-btn')
       const movingForLifeInfo = document.querySelector('.moving-for-life-info')
+      const movingForLifeBtn = document.querySelector('.moving-for-life-btn')
       const personalTrainingInfo = document.querySelector('.personal-training-info')
+      const personalTrainingBtn = document.querySelector('.personal-training-btn')
       const yogaClassesInfo = document.querySelector('.yoga-classes-info')
-      const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info')      
+      const yogaClassesBtn = document.querySelector('.yoga-classes-btn')
+      const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info') 
+      const bodyMindDancingBtn = document.querySelector('.bodymind-dancing-btn')     
       if (groupPilatesInfo.style.display === 'block') {
         // turn off group pilates info
       groupPilatesInfo.style.display = 'none'
+      groupPilatesBtn.style.backgroundColor = 'transparent'
       } else {
         // turn on group pilates info
-      groupPilatesInfo.style.display = 'block'}
+      groupPilatesInfo.style.display = 'block'
+      groupPilatesBtn.style.backgroundColor = 'var(--color-border)'
+    }
       // all the other visibilities turned off
       privatePilatesInfo.style.display = 'none'
+      privatePilatesBtn.style.backgroundColor = 'transparent'
       movingForLifeInfo.style.display = 'none'
+      movingForLifeBtn.style.backgroundColor = 'transparent'
       personalTrainingInfo.style.display = 'none'
+      personalTrainingBtn.style.backgroundColor = 'transparent'
       yogaClassesInfo.style.display = 'none'
+      yogaClassesBtn.style.backgroundColor = 'transparent'
       bodyMindDancingInfo.style.display = 'none'
+      bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     movingForLifeVisibility() {
       console.log('moving for life clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
+      const privatePilatesBtn = document.querySelector('.private-pilates-btn')
       const groupPilatesInfo = document.querySelector('.group-pilates-info')
+      const groupPilatesBtn = document.querySelector('.group-pilates-btn')
       const movingForLifeInfo = document.querySelector('.moving-for-life-info')
+      const movingForLifeBtn = document.querySelector('.moving-for-life-btn')
       const personalTrainingInfo = document.querySelector('.personal-training-info')
+      const personalTrainingBtn = document.querySelector('.personal-training-btn')
       const yogaClassesInfo = document.querySelector('.yoga-classes-info')
+      const yogaClassesBtn = document.querySelector('.yoga-classes-btn')
       const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info')
+      const bodyMindDancingBtn = document.querySelector('.bodymind-dancing-btn')
       if (movingForLifeInfo.style.display === 'block') {
         // turn off moving for life info
       movingForLifeInfo.style.display = 'none'
+      movingForLifeBtn.style.backgroundColor = 'transparent'
       } else {
         // turn on moving for life info
       movingForLifeInfo.style.display = 'block'
+      movingForLifeBtn.style.backgroundColor = 'var(--color-border)'
       }
       // all the other visibilities turned off
       privatePilatesInfo.style.display = 'none'
+      privatePilatesBtn.style.backgroundColor = 'transparent'
       groupPilatesInfo.style.display = 'none'
+      groupPilatesBtn.style.backgroundColor = 'transparent'
       personalTrainingInfo.style.display = 'none'
+      personalTrainingBtn.style.backgroundColor = 'transparent'
       yogaClassesInfo.style.display = 'none'
+      yogaClassesBtn.style.backgroundColor = 'transparent'
       bodyMindDancingInfo.style.display = 'none'
+      bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     personalTrainingVisibility() {
       console.log('personal training clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
+      const privatePilatesBtn = document.querySelector('.private-pilates-btn')
       const groupPilatesInfo = document.querySelector('.group-pilates-info')
+      const groupPilatesBtn = document.querySelector('.group-pilates-btn')
       const movingForLifeInfo = document.querySelector('.moving-for-life-info')
+      const movingForLifeBtn = document.querySelector('.moving-for-life-btn')
       const personalTrainingInfo = document.querySelector('.personal-training-info')
+      const personalTrainingBtn = document.querySelector('.personal-training-btn')
       const yogaClassesInfo = document.querySelector('.yoga-classes-info')
+      const yogaClassesBtn = document.querySelector('.yoga-classes-btn')
       const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info')
+      const bodyMindDancingBtn = document.querySelector('.bodymind-dancing-btn')
       if (personalTrainingInfo.style.display === 'block') {
         // turn off personal training info
       personalTrainingInfo.style.display = 'none'
+      personalTrainingBtn.style.backgroundColor = 'transparent'
       } else {
         // turn on personal training info
       personalTrainingInfo.style.display = 'block'
+      personalTrainingBtn.style.backgroundColor = 'var(--color-border)'
       }
       // all the other visibilities turned off
       privatePilatesInfo.style.display = 'none'
+      privatePilatesBtn.style.backgroundColor = 'transparent'
       groupPilatesInfo.style.display = 'none'
+      groupPilatesBtn.style.backgroundColor = 'transparent'
       movingForLifeInfo.style.display = 'none'
+      movingForLifeBtn.style.backgroundColor = 'transparent'
       yogaClassesInfo.style.display = 'none'
+      yogaClassesBtn.style.backgroundColor = 'transparent'
       bodyMindDancingInfo.style.display = 'none'
+      bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     yogaClassesVisibility() {
       console.log('yoga classes clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
+      const privatePilatesBtn = document.querySelector('.private-pilates-btn')
       const groupPilatesInfo = document.querySelector('.group-pilates-info')
+      const groupPilatesBtn = document.querySelector('.group-pilates-btn')
       const movingForLifeInfo = document.querySelector('.moving-for-life-info')
+      const movingForLifeBtn = document.querySelector('.moving-for-life-btn')
       const personalTrainingInfo = document.querySelector('.personal-training-info')
+      const personalTrainingBtn = document.querySelector('.personal-training-btn')
       const yogaClassesInfo = document.querySelector('.yoga-classes-info')
+      const yogaClassesBtn = document.querySelector('.yoga-classes-btn')
       const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info')
+      const bodyMindDancingBtn = document.querySelector('.bodymind-dancing-btn')
       if (yogaClassesInfo.style.display === 'block') {
         // turn off yoga classes info
       yogaClassesInfo.style.display = 'none'
+      yogaClassesBtn.style.backgroundColor = 'transparent'
       } else {
         // turn on yoga classes info
       yogaClassesInfo.style.display = 'block'
+      yogaClassesBtn.style.backgroundColor = 'var(--color-border)'
       }
       // all the other visibilities turned off
       privatePilatesInfo.style.display = 'none'
+      privatePilatesBtn.style.backgroundColor = 'transparent'
       groupPilatesInfo.style.display = 'none'
+      groupPilatesBtn.style.backgroundColor = 'transparent'
       movingForLifeInfo.style.display = 'none'
+      movingForLifeBtn.style.backgroundColor = 'transparent'
       personalTrainingInfo.style.display = 'none'
+      personalTrainingBtn.style.backgroundColor = 'transparent'
       bodyMindDancingInfo.style.display = 'none'
+      bodyMindDancingBtn.style.backgroundColor = 'transparent'
     },
     bodyMindDancingVisibility() {
       console.log('body mind dancing clicked')
       // all info classes
       const privatePilatesInfo = document.querySelector('.private-pilates-info')
+      const privatePilatesBtn = document.querySelector('.private-pilates-btn')
       const groupPilatesInfo = document.querySelector('.group-pilates-info')
+      const groupPilatesBtn = document.querySelector('.group-pilates-btn')
       const movingForLifeInfo = document.querySelector('.moving-for-life-info')
+      const movingForLifeBtn = document.querySelector('.moving-for-life-btn')
       const personalTrainingInfo = document.querySelector('.personal-training-info')
+      const personalTrainingBtn = document.querySelector('.personal-training-btn')
       const yogaClassesInfo = document.querySelector('.yoga-classes-info')
+      const yogaClassesBtn = document.querySelector('.yoga-classes-btn')
       const bodyMindDancingInfo = document.querySelector('.bodymind-dancing-info')
+      const bodyMindDancingBtn = document.querySelector('.bodymind-dancing-btn')
       if (bodyMindDancingInfo.style.display === 'block') {
         // turn off bodyMind Dancing info
       bodyMindDancingInfo.style.display = 'none'
+      bodyMindDancingBtn.style.backgroundColor = 'transparent'
       } else {
       // turn on bodyMind Dancing info
       bodyMindDancingInfo.style.display = 'block'
+      bodyMindDancingBtn.style.backgroundColor = 'var(--color-border)'
       }
       // all the other visibilities turned off
       privatePilatesInfo.style.display = 'none'
+      privatePilatesBtn.style.backgroundColor = 'transparent'
       groupPilatesInfo.style.display = 'none'
+      groupPilatesBtn.style.backgroundColor = 'transparent'
       movingForLifeInfo.style.display = 'none'
+      movingForLifeBtn.style.backgroundColor = 'transparent'
       personalTrainingInfo.style.display = 'none'
+      personalTrainingBtn.style.backgroundColor = 'transparent'
       yogaClassesInfo.style.display = 'none'
+      yogaClassesBtn.style.backgroundColor = 'transparent'
     }
   }
 }
@@ -513,7 +610,6 @@ section {
   color: var(--color-text);
   padding: 5px 10px 5px 10px;
   margin: 0px 5px 0px 5px;
-  background: none;
   border: none;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -522,6 +618,18 @@ section {
 .about-switch button:hover {
   box-shadow: inset 0 0 0 2em var(--color-border);
   transition: 1s;
+}
+
+.about-long-btn {
+  background-color: var(--color-border);
+}
+
+.about-medium-btn {
+  background-color: transparent;
+}
+
+.about-short-btn {
+  background-color: transparent;
 }
 
 .about-long {
@@ -601,7 +709,6 @@ section {
 .movement-offering-wrapper button:hover {
   box-shadow: inset 0 0 0 2em var(--color-border);
   transition: 1s;
-
 }
 
 /* exhibitions */

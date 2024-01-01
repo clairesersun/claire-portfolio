@@ -134,7 +134,39 @@ const router = createRouter({
       meta: {
         title: 'Portrait of a Dancer | Project',
       }
-    }
+    },
+    {
+      path: '/projects/home',
+      name: 'HOME',
+      component: () => import('../views/projects/homeView.vue'),
+      meta: {
+        title: 'HOME | Project',
+      }
+    },
+    { 
+      path: '/clairesersunphotography',
+			name: "Claire Sersun Photography",
+      beforeEnter() {
+        window.open('https://www.clairesersunphotography.com/', '_blank'),
+        window.location.replace('/')
+      },
+		},
+    {
+      path: '/projects/museummile',
+      name: 'Museum Mile',
+      component: () => import('../views/projects/museumMileView.vue'),
+      meta: {
+        title: 'Museum Mile | Project',
+      }
+    },
+    {
+      path: '/projects/illusion',
+      name: 'Illusion',
+      component: () => import('../views/projects/illusionView.vue'),
+      meta: {
+        title: 'Illusion | Project',
+      }
+    },
   ],
   scrollBehavior() {
     window.scrollTo(0,0);

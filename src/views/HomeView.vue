@@ -1,11 +1,11 @@
 <script setup>
 import ProjectCover from '../components/ProjectCover.vue'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { animate, scroll } from "motion";
 
 
 const projectsWeb = ref([
-  { id: 1, title: 'timeslot', image: 'src/assets/logo.svg', link: '/projects/timeslot', role: 'Web Designer' },
+  // { id: 1, title: 'timeslot', image: 'src/assets/timeslot/cover.png', link: '/projects/timeslot', role: 'Web Designer' },
   { id: 2, title: 'VALLETO', image: 'src/assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
   { id: 3, title: 'Moving For Life', image: 'src/assets/movingforlife/cover.png', link: '/projects/movingforlife', role: 'Web Designer' }
 ])
@@ -39,7 +39,10 @@ const noProjects = ref([
 ])
 
 const projectsPhotography = ref([
-  { id: 17, title: 'Photography', image: 'src/assets/photography/cover.jpeg', link: '/projects/photography', role: 'Photographer'}
+  { id: 17, title: 'Photography', image: 'src/assets/photography/cover.jpeg', link: '/clairesersunphotography', role: 'Photographer'},
+  { id: 18, title: 'HOME', image: 'src/assets/home/Sersun__image-6 copy.jpg', link: '/projects/home', role: 'Photographer'},
+  { id: 19, title: 'Museum Mile', image: 'src/assets/museum/museummile3.jpeg', link: '/projects/museummile', role: 'Photographer'},
+  { id: 20, title: 'Illusion', image: 'src/assets/illusion/illusion5.jpeg', link: '/projects/illusion', role: 'Photographer'},
 ])
 
 const filteredProjects = ref([])
@@ -50,18 +53,23 @@ const allChecked = function () {
     filteredProjects.value = filteredProjects.value.concat(projectsDance.value)
     filteredProjects.value = filteredProjects.value.concat(projectsModel.value)
     filteredProjects.value = filteredProjects.value.concat(projectsChoreography.value)
+    filteredProjects.value = filteredProjects.value.concat(projectsPhotography.value)
     filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
   }
   
-  // when page is loaded, show all projects
-      allChecked()
-      console.log("page has loaded", filteredProjects.value)
-      console.log("page has loaded", filteredProjects.value.length)
-
+// when page is loaded, show all projects
+allChecked()
+console.log("page has loaded", filteredProjects.value, filteredProjects.value.length)
 
 const scrollBehavior = function() {
     window.scrollTo(0,0);
 }
+
+const styleHeight = function () {
+    const cover = document.querySelector(".cover");
+     cover.style.height = `${filteredProjects.value.length - 1}00vw`
+    //  isnt this width not height??? no. but I want it to be width. Maybe I need to change how this is set up.
+  }
 
 async function checkbox() {
   const checkboxVideo = document.querySelector('input[id="Videographer/Editor"]');
@@ -78,13 +86,6 @@ async function checkbox() {
   checkboxChoreography.checked = true
   checkboxPhotography.checked = true
   checkboxAll.checked = true
-  
-  const styleHeight = function () {
-    const cover = document.querySelector(".cover");
-     cover.style.height = `${filteredProjects.value.length * 100}vh`
-    //  isnt this width not height??? no. but I want it to be width. Maybe I need to change how this is set up.
-  }
-  
   styleHeight()
 
   // event listeners
@@ -280,38 +281,32 @@ onMounted(() => {
   const contents = document.querySelector(".cover-contents");
   const progressBar = document.querySelector(".progress-bar");
   const progress = document.querySelector(".progress");
-  // const showProject = ref([])
   observer.observe(target, items, contents, progressBar, progress);
   scroll(
-    animate(contents, {
-      transform: ["none", `translateX(-${items.length - 1}00vw)`]
-    }),
-    { 
-      target: target },
-    
-  );
+      animate(contents, {
+        transform: ["none", `translateX(-${filteredProjects.value.length - 1}00vw)`]
+      }),
+      { 
+        target: target },
+    );
+// change the number of vw to the number of projects as checkboxes are changed
+    watch(filteredProjects, () => {
+    console.log("filteredProjects has changed", filteredProjects.value, filteredProjects.value.length)
+    scroll(
+      animate(contents, {
+        transform: ["none", `translateX(-${filteredProjects.value.length - 1}00vw)`]
+      }),
+      { 
+        target: target },
+    );
+  })
 
   checkbox()
   
 // Pass an animation or timeline to automatically scrub
 scroll(
-  animate(progressBar, { scaleX: [0, 1] })
+  animate(progressBar, { scaleX: [0, 1]})
 );
-
-// // Or pass a function to directly use the scroll info
-// scroll(({ y }) => {
-//   if (y > .3 ) {
-//   scroll(
-//     animate(contents, { x: [0, "100vw"] })
-//   );}
-//   else if (.3 < y < .6) {
-//     scroll(
-//       animate(contents, { x: [0, "200vw"] })
-//     );}  else if (y > .6) {
-//       scroll(
-//         animate(contents, { x: [0, "300vw"] })
-//       );} else { return}
-// });
     
 })
 
@@ -518,9 +513,8 @@ fieldset:hover {
     }
 
 .cover {
-  /* height: 1500vh; */
   position: relative;
-  width: auto;
+  width: 100vw;
     /* display: flex;
     flex-direction: row;
     white-space: nowrap;

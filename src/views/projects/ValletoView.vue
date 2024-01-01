@@ -10,8 +10,8 @@
       <h3 class="section-title">Problem</h3>
       <p>The site required maintenance and updates to keep up with the evolution of the dance company as new initiative were added, new works created, and the home city of the company changed. The site had slow load times and bounced many users off the site. There was a need for a merchandise store and a way for people to register for online zoom classes. Lastly, user experience needed to be elevated as well.</p>
       <div class="img-container">
-        <img src="https://static.wixstatic.com/media/877ffb_834a115324ae4bad8cf557cb979bf4c5~mv2.png/v1/fill/w_720,h_404,al_c,lg_1,q_85,enc_auto/9%20(1).png" alt="9 (1).png" width="564" height="317" style="width: 564px; height: 317px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-one">
-        <img src="https://static.wixstatic.com/media/877ffb_32e0a219d4c946a7ba33222055308ec6~mv2.png/v1/fill/w_720,h_404,al_c,lg_1,q_85,enc_auto/8-transparent.png" alt="8-transparent.png" width="551" height="309" style="width: 551px; height: 309px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-two">
+        <img src="../../assets/valleto/valleto1.webp" alt="9 (1).png" width="564" height="317" style="width: 564px; height: 317px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-one">
+        <img src="../../assets/valleto/valleto2.webp" alt="8-transparent.png" width="551" height="309" style="width: 551px; height: 309px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-two">
       </div>
       <h3 class="section-title">User Experience</h3>
       <p>When I first started working on the site, there were 8+ options in the menu. Menu items were congested which caused us to loose users. My goal was to simplify and streamline the menu bar while creating depth to the organization. There were 4 items that were related to the word 'Company' so I grouped them together to declutter the menu. This was by far the largest change, second to the workshops tab which has evolved over time to have between 2-4 nested pages. </p>
@@ -19,13 +19,13 @@
       </p>
       <p>As the site evolved, constant upkeep and checks were made to ensure excellent mobile optimization. This is essential as a large group of our users view our site from Instagram on their mobile devices.</p>
       <div class="video-container">
-      <video preload="none" autoplay loop playsinline="true" src="https://video.wixstatic.com/video/877ffb_3578e80891eb487ebb622c790ae11914/1080p/mp4/file.mp4"></video>
-      <video preload="none" autoplay loop playsinline="true" src="https://video.wixstatic.com/video/877ffb_1a5f63c848e34a3b8eaeaa2784722ecf/1080p/mp4/file.mp4"></video>
+      <video preload="none" autoplay loop playsinline="true" src="../../assets/valleto/valleto3.mp4"></video>
+      <video preload="none" autoplay loop playsinline="true" src="../../assets/valleto/valleto4.mp4"></video>
       </div>
       <h3 class="section-title">Merchandise & Online Bookings</h3>
       <p>To satisfy the need for a merchandise store, I chose Shopify and integrated it into our preexisting website. This choice was due to the ease of linking print-on-demand services through the admin panel of Shopify. They also had a user friendly interface for admin upkeep and could integrate with our website including our given color palates. To encourage buyers, this page was placed in our main menu and given our demographic, MERCH was the chosen title.</p>
       <p>During COVID-19, the company turned to online dance classes, therefore a system for signing up, taking payment, and seeing who signed up for class had to be built. Because we use WordPress, we wanted a system that could seamlessly run straight from the backend. Then came Amelia. I integrated Amelia, setting up class informational pages, sign up forms and payment, log in pages for users and instructors, created instructor users in the backend, among others. </p>
-      <img src="https://static.wixstatic.com/media/877ffb_8d47614aee934cbf87ab82ad1e6d41fb~mv2.png/v1/fill/w_1470,h_828,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7.png" alt="7.png" width="735" height="414" style="width: 735px; height: 414px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-three">
+      <img src="../../assets/valleto/valleto5.webp" alt="7.png" width="735" height="414" style="width: 735px; height: 414px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-three">
       <h3 class="section-title">Design</h3>
       <p>The hamburger menu required custom design elements. I used Illustrator to design each menu item, the regular and hovered text. Once I exported the PNG I uploaded it to WordPress and used custom CSS to layer in the images and the hover states.</p>
       <p>Adding new Work titles required several design elements to be made. First, the title of the page overlayed with images. This I did in both Illustrator and Photoshop. If no images were given, I would screenshot from videos provided. Next, the color theme had to be chosen. I often would use colors from the given video. Once the color palate was chosen, I would layer them into the background of the block elements. Once the page was created with videos, photos, and text provided, I would add it to the Works page. Once updating the project scroll, I would add custom CSS to overlay the image with text and create a hover state.</p>
@@ -35,11 +35,11 @@
       </p>
       <p>I took performance photos of the Work MOON. See selections <a href="https://valletodance.com/project/moon">here.</a></p>
       <div class="video-container">
-        <video preload="none" autoplay loop playsinline="true" src="https://video.wixstatic.com/video/877ffb_c4aa71a825c34376ab753974259bcfc3/1080p/mp4/file.mp4"></video>
+        <video preload="none" autoplay loop playsinline="true" src="../../assets/valleto/valleto6.mp4"></video>
       </div>
       <div class="img-container">
-        <img src="https://static.wixstatic.com/media/877ffb_df97e8049bc943878f14dd23c6797b28~mv2.png/v1/fill/w_720,h_403,al_c,lg_1,q_85,enc_auto/6-transparent.png" alt="6-transparent.png" width="530" height="297" style="width: 530px; height: 297px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-four">
-        <img src="https://static.wixstatic.com/media/877ffb_798b1a78c91147f6b5dd2b18405d22a2~mv2.png/v1/crop/x_345,y_78,w_255,h_174/fill/w_357,h_241,al_c,lg_1,q_85,enc_auto/5-transparent.png" alt="5-transparent.png" width="227" height="153" style="width: 227px; height: 153px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-five">
+        <img src="../../assets/valleto/valleto7.webp" alt="6-transparent.png" width="530" height="297" style="width: 530px; height: 297px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-four">
+        <img src="../../assets/valleto/valleto8.webp" alt="5-transparent.png" width="227" height="153" style="width: 227px; height: 153px; object-fit: cover; object-position: 50% 50%;" fetchpriority="high" class="align-img-five">
       </div>
       <div class="position-section">
         <div class="section-wrapper">
