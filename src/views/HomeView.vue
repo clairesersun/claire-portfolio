@@ -6,43 +6,43 @@ import { animate, scroll } from "motion";
 
 const projectsWeb = ref([
   // { id: 1, title: 'timeslot', image: 'src/assets/timeslot/cover.png', link: '/projects/timeslot', role: 'Web Designer' },
-  { id: 2, title: 'VALLETO', image: 'src/assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
-  { id: 3, title: 'Moving For Life', image: 'src/assets/movingforlife/cover.png', link: '/projects/movingforlife', role: 'Web Designer' }
+  { id: 2, title: 'VALLETO', image: '../assets/valleto/cover.jpeg', link: '/projects/valleto', role: 'Web Designer' },
+  { id: 3, title: 'Moving For Life', image: '../assets/movingforlife/cover.png', link: '/projects/movingforlife', role: 'Web Designer' }
 ])
 
 const projectsFilm = ref([
-  { id: 4, title: 'PRESEVERE', image: 'src/assets/presevere/cover.jpeg', link: '/projects/presevere', role: 'Videographer/Editor'},
-  { id: 5, title: 'Rise Up', image: 'src/assets/riseup/cover.jpeg', link: '/projects/riseup', role: 'Videographer/Editor'},
-  { id: 6, title: 'Reflect: Re-move', image: 'src/assets/reflectremove/cover.jpeg', link: '/projects/reflectremove', role: 'Videographer/Editor'},
-  { id: 7, title: 'my boy', image: 'src/assets/myboy/cover.png', link: '/projects/myboy', role: 'Videographer/Editor'}
+  { id: 4, title: 'PRESEVERE', image: '../assets/presevere/cover.jpeg', link: '/projects/presevere', role: 'Videographer/Editor'},
+  { id: 5, title: 'Rise Up', image: '../assets/riseup/cover.jpeg', link: '/projects/riseup', role: 'Videographer/Editor'},
+  { id: 6, title: 'Reflect: Re-move', image: '../assets/reflectremove/cover.jpeg', link: '/projects/reflectremove', role: 'Videographer/Editor'},
+  { id: 7, title: 'my boy', image: '../assets/myboy/cover.png', link: '/projects/myboy', role: 'Videographer/Editor'}
 ])
 
 const projectsDance = ref([
-  { id: 8, title: 'Dance', image: 'src/assets/dance/cover.png', link: '/projects/dance', role: 'Dancer'}
+  { id: 8, title: 'Dance', image: '../assets/dance/cover.png', link: '/projects/dance', role: 'Dancer'}
 ])
 
 const projectsModel = ref([
-  { id: 9, title: 'Modeling', image: 'src/assets/modeling/cover.jpeg', link: '/projects/modeling', role: 'Model'}
+  { id: 9, title: 'Modeling', image: '../assets/modeling/cover.jpeg', link: '/projects/modeling', role: 'Model'}
 ])
 
 const projectsChoreography = ref([
-  { id: 10, title: 'Rain', image: 'src/assets/rain/cover.png', link: '/projects/rain', role: 'Choreographer'},
-  { id: 11, title: 'xxii: Twenty-Two', image: 'src/assets/xxii/cover.png', link: '/projects/xxii', role: 'Choreographer'},
-  { id: 12, title: 'Five Hours', image: 'src/assets/fivehours/cover.png', link: '/projects/fivehours', role: 'Choreographer'},
-  { id: 13, title: '.1 & .2', image: 'src/assets/oneandtwo/cover.png', link: '/projects/oneandtwo', role: 'Choreographer'},
-  { id: 14, title: 'Open Your Eyes', image: 'src/assets/openyoureyes/cover.png', link: '/projects/openyoureyes', role: 'Choreographer'},
-  { id: 15, title: 'Portrait of a Dancer', image: 'src/assets/portraitof/cover.png', link: '/projects/portraitof', role: 'Choreographer'}
+  { id: 10, title: 'Rain', image: '../assets/rain/cover.png', link: '/projects/rain', role: 'Choreographer'},
+  { id: 11, title: 'xxii: Twenty-Two', image: '../assets/xxii/cover.png', link: '/projects/xxii', role: 'Choreographer'},
+  { id: 12, title: 'Five Hours', image: '../assets/fivehours/cover.png', link: '/projects/fivehours', role: 'Choreographer'},
+  { id: 13, title: '.1 & .2', image: '../assets/oneandtwo/cover.png', link: '/projects/oneandtwo', role: 'Choreographer'},
+  { id: 14, title: 'Open Your Eyes', image: '../assets/openyoureyes/cover.png', link: '/projects/openyoureyes', role: 'Choreographer'},
+  { id: 15, title: 'Portrait of a Dancer', image: '../assets/portraitof/cover.png', link: '/projects/portraitof', role: 'Choreographer'}
 ])
 
 const noProjects = ref([
-  { id: 16, title: 'No Filter Selected', image: 'src/assets/none/cover.jpeg', link: '/', role: ''}
+  { id: 16, title: 'No Filter Selected', image: '../assets/none/cover.jpeg', link: '/', role: ''}
 ])
 
 const projectsPhotography = ref([
-  { id: 17, title: 'Photography', image: 'src/assets/photography/cover.jpeg', link: '/clairesersunphotography', role: 'Photographer'},
-  { id: 18, title: 'HOME', image: 'src/assets/home/Sersun__image-6 copy.jpg', link: '/projects/home', role: 'Photographer'},
-  { id: 19, title: 'Museum Mile', image: 'src/assets/museum/museummile3.jpeg', link: '/projects/museummile', role: 'Photographer'},
-  { id: 20, title: 'Illusion', image: 'src/assets/illusion/illusion5.jpeg', link: '/projects/illusion', role: 'Photographer'},
+  { id: 17, title: 'Photography', image: '../assets/photography/cover.jpeg', link: '/clairesersunphotography', role: 'Photographer'},
+  { id: 18, title: 'HOME', image: '../assets/home/Sersun__image-6 copy.jpg', link: '/projects/home', role: 'Photographer'},
+  { id: 19, title: 'Museum Mile', image: '../assets/museum/museummile3.jpeg', link: '/projects/museummile', role: 'Photographer'},
+  { id: 20, title: 'Illusion', image: '../assets/illusion/illusion5.jpeg', link: '/projects/illusion', role: 'Photographer'},
 ])
 
 const filteredProjects = ref([])

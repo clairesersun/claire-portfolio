@@ -6,7 +6,7 @@
     >
         
             <img 
-            :src="projectImg"
+            :src=imageUrl
             alt="Project Cover Image"
             />
             <div class="words">
@@ -139,14 +139,22 @@ align-self: flex-end;
 <script>
 
 export default {
-
-
-props: {
-title: String,
-projectImg: String,
-projectLink: String,
-role: String
-}}
+    
+    
+    props: {
+        title: String,
+        projectImg: String,
+        projectLink: String,
+        role: String
+    },
+    
+    data() {
+        const imageUrl =  new URL(  `${this.projectImg}`, import.meta.url)
+        return {
+        imageUrl
+    }
+},
+}
 
 
 
