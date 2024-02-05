@@ -6,30 +6,27 @@
       </button>
       <div class="about-wrapper">
         <section class="intro-section">
-        <h1>Claire Sersun</h1>
-        <h2>multidisiplinary designer, artist, and coach</h2>
-        <p>Currently working as a UI/UX Designer @ <a href="https://veoci.com/" target="_blank">Veoci</a> and a Pilates Instructor @ <a href="https://www.clubpilates.com/location/danbury" target="_blank">Club Pilates Danbury</a>.</p>
+          <img src="../assets/claire.png" alt="Claire Sersun" class="about-image">
+          <h1>About Claire</h1>
+        <!-- <h2>multidisiplinary designer, artist, and coach</h2> -->
+        <p></p>
         </section>
         <section class="bio">
           <div class="bio-header-wrapper">
           <h2>Bio</h2>
-          <!-- <section class="about-switch">
+          <section class="about-switch">
             <button @click="longBioVisibility" class="about-long-btn"><h3>Long</h3></button>
-            <button @click="mediumBioVisibility" class="about-medium-btn"><h3>Medium</h3></button>
             <button @click="shortBioVisibility" class="about-short-btn"><h3>Short</h3></button>
-          </section> -->
+          </section>
           </div>
           <div class="about-long">
-            <p>Claire Sersun is an American artist, dancer, choreographer, movement instructor, web designer, and photographer. She earned a Master of Arts in Mass Communication with a focus on Web Design from the University of Florida. Claire received her Bachelor of Arts in Dance and Kinesiology from Marymount Manhattan College. </p>
-            <p>Initially working within the dance and fitness industry performing and instructing, Claire began to gather a wide array of web design clients. She helped nonprofits, marketing agencies, dance companies, and individual performers on various stages of their website design, development, and maintenance - from full creation and design to redesigning infrastructure. Claire&apos;s work has connected breast cancer thrivers and survivors to movement resources, classes, and communities. She&apos;s reformed the infrastructure of a dance companies website which has increased their yearly donations. Her work has also bolstered performers branding to assist them landing jobs and connections. Claire loves helping to build out the voice of the individual, company, or organization through their website's presence.</p>
-            <p>Claire is a passionate, vastly certified, fitness instructor and coach. Alongside her Bachelor of Arts in Kinesiology and Dance, she holds a Personal Training Certification from the American Council on Exercise (ACE). She is a 500-Hour Comprehensively trained Pilates Instructor and 200-Hour Registered Yoga Teacher. She is trained in somatic based fitness and dance programs as well as pedagogy for those facing the side-effects of cancer and aging. Claire is a Moving For Life Certified Instructor and Certified BodyMind Dancing Teacher. She is trained in the Bridging The Gap Movement Method™ which is a neurophysiological conditioning program. She has a history of teaching dance for elementary school aged children and coaching at Row House and Orangetheory Fitness. Her passion is in getting people moving so that they can love their bodies and live their lives to the fullest.</p>
-            <p>Claire started her dance career at 15 dancing in music videos in Los Angeles. She then moved to NYC for college. While there she was also able to explore her interest in photography through her minor. While in NYC, Claire has had the pleasure of performing and sharing her choreography and photography across the city. She has performed works by Valeria Gonzalez, Mackenzie Martin, Cornelius Carter, Deborah Damast, Karen Gayle, Elizabeth Roxas-Dobrish, Troy Ogilvie, Camille Loftin, Anthony Ferro, Christy Curtis Buss, Charm La'Donna, and more. She was apart of VALLETO Dance's Fall 2020 virtual season. In the Fall of 2021 she trained with the LA based dance company, Geometry Dance Company, as a G2 artist. In 2022 she danced with the Hartford, CT based contemporary modern dance company, Sonia Plumb Dance Company.</p>
-          </div>
-          <div class="about-medium">
-            <p>Medium bio</p>
+            <p>Claire Sersun is an artist, web designer, dancer, choreographer, movement instructor, and photographer. She earned a Master of Arts in Mass Communication with a focus on Web Design from the University of Florida. Claire received her Bachelor of Arts in Dance and Kinesiology from Marymount Manhattan College. Currently working as a UI/UX Designer @ <a href="https://veoci.com/" target="_blank">Veoci</a> and a Pilates Instructor @ <a href="https://www.clubpilates.com/location/danbury" target="_blank">Club Pilates Danbury</a>.</p>
+            <p>Initially working within the dance and fitness industry, Claire gathered a wide array of web design clients. She helped nonprofits, marketing agencies, dance companies, and individual performers on various stages of their website design, development, and maintenance - from full creation and design to redesigning infrastructure. Claire&apos;s work has connected breast cancer survivors to movement resources, classes, and communities. She&apos;s reformed the infrastructure of a dance company&apos;s website which resulted in an increase to their yearly donations. Her work has also bolstered performers branding to assist them landing jobs and connections. Claire is passionate about helping to build out the voice of the individual, company, or organization through their website&apos;s presence.</p>
+            <p>Claire holds multiple certifications as a fitness instructor and coach. Alongside her Bachelor of Arts in Kinesiology and Dance, she holds a Personal Training Certification from the American Council on Exercise (ACE). She is a 500-Hour Comprehensively trained Pilates Instructor and 200-Hour Registered Yoga Teacher. She is trained in somatic based fitness and dance programs as well as pedagogy for those facing the side-effects of cancer and aging. Claire is a Moving For Life Certified Instructor and Certified BodyMind Dancing Teacher. She is trained in the Bridging The Gap Movement Method™ which is a neurophysiological conditioning program. Her passion is in getting people moving so that they can love their bodies and live their lives to the fullest.</p>
+            
           </div>
           <div class="about-short">
-            <p>Short bio</p>
+            <p>Claire Sersun is an artist, web designer, dancer, choreographer, movement instructor, and photographer. She earned a Master of Arts in Mass Communication with a focus on Web Design from the University of Florida. Claire received her Bachelor of Arts in Dance and Kinesiology from Marymount Manhattan College. Currently working as a UI/UX Designer @ <a href="https://veoci.com/" target="_blank">Veoci</a> and a Pilates Instructor @ <a href="https://www.clubpilates.com/location/danbury" target="_blank">Club Pilates Danbury</a>.</p>
           </div>
         </section>
         <section class="movement-offerings">
@@ -157,7 +154,7 @@
             </ol>
         </section>
         <section class="press-wrapper">
-          <h2>Press</h2>
+          <h2 class="press-title">Press</h2>
           <ol class="press-content-wrapper">
             <li class="press-year">
               <p class="press-year-title">2020</p>
@@ -232,34 +229,12 @@ export default {
       // all bio classes
       const longBio = document.querySelector('.about-long')
       const longBtn = document.querySelector('.about-long-btn')
-      const mediumBio = document.querySelector('.about-medium')
-      const mediumBtn = document.querySelector('.about-medium-btn')
       const shortBio = document.querySelector('.about-short')
       const shortBtn = document.querySelector('.about-short-btn')
       // turn on long bio
       longBio.style.display = 'block'
       longBtn.style.backgroundColor = 'var(--color-border)'
       // all the other visibilities turned off
-      mediumBio.style.display = 'none'
-      mediumBtn.style.backgroundColor = 'transparent'
-      shortBio.style.display = 'none'
-      shortBtn.style.backgroundColor = 'transparent'
-    },
-    mediumBioVisibility() {
-      // console.log('medium bio clicked')
-      // all bio classes
-      const longBio = document.querySelector('.about-long')
-      const longBtn = document.querySelector('.about-long-btn')
-      const mediumBio = document.querySelector('.about-medium')
-      const mediumBtn = document.querySelector('.about-medium-btn')
-      const shortBio = document.querySelector('.about-short')
-      const shortBtn = document.querySelector('.about-short-btn')
-      // turn on medium bio
-      mediumBio.style.display = 'block'
-      mediumBtn.style.backgroundColor = 'var(--color-border)'
-      // all the other visibilities turned off
-      longBio.style.display = 'none'
-      longBtn.style.backgroundColor = 'transparent'
       shortBio.style.display = 'none'
       shortBtn.style.backgroundColor = 'transparent'
     },
@@ -268,8 +243,6 @@ export default {
       // all bio classes
       const longBio = document.querySelector('.about-long')
       const longBtn = document.querySelector('.about-long-btn')
-      const mediumBio = document.querySelector('.about-medium')
-      const mediumBtn = document.querySelector('.about-medium-btn')
       const shortBio = document.querySelector('.about-short')
       const shortBtn = document.querySelector('.about-short-btn')
       // turn on short bio
@@ -278,8 +251,6 @@ export default {
       // all the other visibilities turned off
       longBio.style.display = 'none'
       longBtn.style.backgroundColor = 'transparent'
-      mediumBio.style.display = 'none'
-      mediumBtn.style.backgroundColor = 'transparent'
     },
     copyToClipboard() {
       // console.log('copy to keyboard clicked')
@@ -517,9 +488,8 @@ export default {
   font-family: 'Proza Libre', sans-serif;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 82vw;
   margin-top: 4rem;
-  padding-right: 5rem;
   border: none;
   background: none;
   font-size: 1.5rem;
@@ -591,8 +561,15 @@ section {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   align-self: center;
+  width: 100%;
+}
+
+.about-image {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 .about-switch {
@@ -634,14 +611,15 @@ section {
 
 .about-long {
   display: block;
+  text-align: left;
+  max-width: 600px;
 }
 
-.about-medium {
-  display: none;
-}
 
 .about-short {
   display: none;
+  text-align: left;
+  max-width: 600px;
 }
 
 
@@ -649,32 +627,49 @@ section {
 /* movement info */
 .private-pilates-info {
   display: none;
+  max-width: 600px;
+  text-align: left;
+  margin-top: .75rem;
 }
 
 .group-pilates-info {
   display: none;
+  max-width: 600px;
+  text-align: left;
+  margin-top: .75rem;
 }
 
 .moving-for-life-info {
   display: none;
+  max-width: 600px;
+  text-align: left;
+  margin-top: .75rem;
 }
 
 .personal-training-info {
   display: none;
+  max-width: 600px;
+  text-align: left;
+  margin-top: .75rem;
 }
 
 .yoga-classes-info {
   display: none;
+  max-width: 600px;
+  text-align: left;
+  margin-top: .75rem;
 }
 
 .bodymind-dancing-info {
   display: none;
+  max-width: 600px;
+  text-align: left;
+  margin-top: .75rem;
 }
 
 /* movement offering buttons */
 
 .movement-offerings {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -688,7 +683,7 @@ section {
 .movement-offering-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -719,7 +714,7 @@ section {
   align-items: center;
 }
 
-.exhibitions-wrapper h2 {
+.exhibitions-wrapper .exhibitions-title {
   align-self: flex-start;
   margin-bottom: .75rem;
 }
@@ -787,7 +782,7 @@ section {
   align-items: center;
 }
 
-.publications-wrapper h2 {
+.publications-wrapper .publications-title {
   align-self: flex-start;
   margin-bottom: .75rem;
 }
@@ -856,7 +851,7 @@ section {
   align-items: center;
 }
 
-.awards-wrapper h2 {
+.awards-wrapper .awards-title {
   align-self: flex-start;
   margin-bottom: .75rem;
 }
@@ -926,7 +921,7 @@ section {
   align-items: center;
 }
 
-.press-wrapper h2 {
+.press-wrapper .press-title {
   align-self: flex-start;
   margin-bottom: .75rem;
 }
@@ -1001,18 +996,13 @@ section {
   margin-bottom: .75rem;
 }
 
-.contact-info-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
 .contact-info-wrapper .contact-info {
   font-family: 'Proza Libre', sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1rem;
+  display: block;
 }
 
 .contact-info-wrapper .email-to-copy {
@@ -1063,6 +1053,32 @@ section {
   width: 30px;
   height: 30px;
   margin: 0px 5px 0px 5px;
+}
+
+@media screen and (min-width: 576px) {
+  .modal-close-button {
+    left: 90vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-image {
+    margin-top: 0;
+    }
+}
+
+/* @media screen and (min-width: 992px) {
+} */
+
+@media screen and (min-width: 1200px) {
+/* biggest */
+.modal-close-button {
+    left: 93vw;
+  }
+
+  .about-image {
+    margin-top: 10px;
+  }
 }
 
 </style>

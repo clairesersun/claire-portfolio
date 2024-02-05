@@ -185,5 +185,63 @@
     font-weight: 600;
     color: var(--color-heading);
   }
+
+
+
+
+
+
+
+
+
+
+  @media screen and (min-width: 576px) {
+  .illusion .title {
+    font-size: 6rem;
+    line-height: 6rem;
+    top: 32vh;   
+  }
+
+  .illusion .position-section {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .illusion .title {
+    font-size: 8rem;
+    line-height: 8rem; 
+    top: 30vh;
+  }
+
+  .illusion .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .illusion .title {
+    font-size: 10rem;
+    line-height: 10rem; 
+    top: 27vh;
+  }
+
+  .illusion .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+/* biggest */
+.illusion .title {
+    font-size: 15rem;
+    line-height: 15rem;
+    top: 12vh;
+  }
+}
   
   </style>

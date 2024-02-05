@@ -201,5 +201,57 @@
     .reflectremove video {
     width: 250px;
   }}
+
+
+
+
+  @media screen and (min-width: 576px) {
+  .reflectremove .title {
+    font-size: 6rem;
+    line-height: 6rem;
+    top: 32vh;   
+  }
+
+  .reflectremove .position-section {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reflectremove .title {
+    font-size: 8rem;
+    line-height: 8rem; 
+    top: 30vh;
+  }
+
+  .reflectremove .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .reflectremove .title {
+    font-size: 10rem;
+    line-height: 10rem; 
+    top: 27vh;
+  }
+
+  .reflectremove .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+/* biggest */
+.reflectremove .title {
+    font-size: 15rem;
+    line-height: 15rem;
+    top: 12vh;
+  }
+}
   
   </style>

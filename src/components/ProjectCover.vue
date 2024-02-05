@@ -61,21 +61,22 @@
 
 }
 
+    
 .item h1 {
-font-size: 15rem;
-line-height: 15rem;
-word-wrap: break-word;
-max-width: 100vw;
-z-index: 6;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    word-wrap: break-word;
+    max-width: 100vw;
+    z-index: 6;
 }
 
 .item h2 {
-font-size: 2rem;
-line-height: 2rem;
-padding-right: 40px;
-z-index: 6;
-word-wrap: break-word;
-align-self: flex-end;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding-right: 10px;
+    z-index: 6;
+    word-wrap: break-word;
+    align-self: flex-end;
 }
 
 .overlay {
@@ -95,9 +96,55 @@ align-self: flex-end;
     }
 
 .item img { 
-    height: 100%;
-    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
     opacity: 0.8;
+}
+
+@media screen and (min-width: 576px) {
+    
+    .item h1 {
+        font-size: 6rem;
+        line-height: 6rem;   
+    }
+    .item h2 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .item h1 {
+        font-size: 8rem;
+        line-height: 8rem;   
+    }
+    .item h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .item h1 {
+        font-size: 10rem;
+        line-height: 10rem;   
+    }
+    .item h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .item h1 {
+        font-size: 15rem;
+        line-height: 15rem;   
+    }
+    .item h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
 }
 
 </style>

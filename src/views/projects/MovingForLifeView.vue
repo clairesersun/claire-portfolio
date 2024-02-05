@@ -232,5 +232,64 @@
     .moving-for-life video {
     width: 250px;
   }}
+
+
+
+
+
+
+
+
+
+
+
+  @media screen and (min-width: 576px) {
+  .moving-for-life .title {
+    font-size: 6rem;
+    line-height: 6rem;
+    top: 32vh;   
+  }
+
+  .moving-for-life .position-section {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .moving-for-life .title {
+    font-size: 8rem;
+    line-height: 8rem; 
+    top: 30vh;
+  }
+
+  .moving-for-life .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .moving-for-life .title {
+    font-size: 10rem;
+    line-height: 10rem; 
+    top: 27vh;
+  }
+
+  .moving-for-life .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+/* biggest */
+.moving-for-life .title {
+    font-size: 15rem;
+    line-height: 15rem;
+    top: 12vh;
+  }
+}
   
   </style>

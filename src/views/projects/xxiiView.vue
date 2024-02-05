@@ -65,10 +65,10 @@
       align-self: center;
       width: 100vw;
       word-break: break-word;
-      top: 12vh;
+      top: 40vh;
       text-align: center;
-      font-size: 15rem;
-      line-height: 15rem;
+      font-size: 3.5rem;
+      line-height: 3.5rem;
       font-family: 'Proza Libre', sans-serif;
       font-weight: 400;
       color: var(--color-heading);
@@ -149,14 +149,13 @@
     border-radius: 10px;
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 100px;
-    padding-right: 100px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     overflow: auto;
     justify-content: space-around;
     width: 60vw;
+    align-content: center;
   }
 
   .xxii .position-title {
@@ -165,6 +164,7 @@
     text-align: left;
     font-weight: 600;
     margin-bottom: 0;
+    word-wrap: break-word;
   } 
   
   .xxii .position-info {
@@ -206,5 +206,57 @@
     .xxii iframe {
     width: 250px;
   }}
+
+
+
+
+@media screen and (min-width: 576px) {
+  .xxii .title {
+    font-size: 6rem;
+    line-height: 6rem;
+    top: 32vh;   
+  }
+
+  .xxii .position-section {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .xxii .title {
+    font-size: 8rem;
+    line-height: 8rem; 
+    top: 30vh;
+  }
+
+  .xxii .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .xxii .title {
+    font-size: 10rem;
+    line-height: 10rem; 
+    top: 27vh;
+  }
+
+  .xxii .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+/* biggest */
+.xxii .title {
+    font-size: 15rem;
+    line-height: 15rem;
+    top: 12vh;
+  }
+}
   
   </style>
