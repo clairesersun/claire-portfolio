@@ -72,9 +72,10 @@
 .item h2 {
     font-size: 1.5rem;
     line-height: 1.5rem;
-    padding-right: 10px;
+    padding-left: 10px;
     z-index: 6;
     word-wrap: break-word;
+    padding-right: 7vw;
     align-self: flex-end;
 }
 
@@ -109,7 +110,6 @@
     .item h2 {
         font-size: 2.5rem;
         line-height: 2.5rem;
-        padding-right: 30px;
     }
 }
 
@@ -132,17 +132,6 @@
     .item h2 {
         font-size: 2rem;
         line-height: 2rem;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .item h1 {
-        font-size: 15rem;
-        line-height: 15rem;   
-    }
-    .item h2 {
-        font-size: 3rem;
-        line-height: 3rem;
     }
 }
 

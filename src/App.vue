@@ -74,6 +74,7 @@ window.addEventListener('mousemove', function (e) {
 </script>
 
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <div class="main-body">
   <header>
     <div class="wrapper">
@@ -174,6 +175,17 @@ nav h1 {
 
 .home-btn {
   color: var(--vt-c-text-dark-1);
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50vw;
+}
+
+@media screen and (min-width: 576px) {
+  .home-btn {
+  position: relative;
+  transform: none;
+  left: 0;
+}
 }
 
 .home-btn--about {
@@ -198,6 +210,10 @@ nav button.router-link-exact-active:hover {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  top: 85vh;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50vw;
 }
 
 .btn:hover {
@@ -206,21 +222,14 @@ nav button.router-link-exact-active:hover {
   transition: 1s;
 }
 
-/* .btn {
-  display: inline-block;
-  padding: 1rem;
-  border: 3px solid var(--color-border);
-  background-color: transparent;
-  color: var(--color-text);
-  font-size: 1rem;
-  font-weight: 600;
+@media screen and (min-width: 576px) {
+  .btn {
+    position: relative;
+    top: auto;
+    transform: none;
+    left: 0;
+  }
 }
-
-.btn:hover {
-  box-shadow: inset 0 0 0 2em var(--color-border-hover);
-  border: 3px solid var(--color-border-hover);
-  transition: 1s;
-} */
 
 
 </style>
