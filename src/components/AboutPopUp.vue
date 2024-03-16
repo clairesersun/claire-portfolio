@@ -1,9 +1,10 @@
 <template>
-    <div class="modal-wrapper">
+  <div class="modal-wrapper">
       <button 
           class="modal-close-button" @click="$emit('close')">
                 X
-      </button>
+        </button>
+      <ThemeSwitcher />
       <div class="about-wrapper">
         <section class="intro-section">
           <img src="../assets/claire.png" alt="Claire Sersun" class="about-image">
@@ -20,7 +21,7 @@
           </section>
           </div>
           <div class="about-long">
-            <p>Claire Sersun is an artist, web designer, dancer, choreographer, movement instructor, and photographer. She earned a Master of Arts in Mass Communication with a focus on Web Design from the University of Florida. Claire received her Bachelor of Arts in Dance and Kinesiology from Marymount Manhattan College. Currently working as a UI/UX Designer @ <a href="https://veoci.com/" target="_blank">Veoci</a> and a Pilates Instructor @ <a href="https://www.clubpilates.com/location/danbury" target="_blank">Club Pilates Danbury</a>.</p>
+            <p>Claire Sersun is an artist, web designer, dancer, choreographer, movement instructor, and photographer. She earned a Master of Arts in Mass Communication with a focus on Web Design from the University of Florida. Claire received her Bachelor of Arts in Dance and Kinesiology from Marymount Manhattan College. Currently working as a UI/UX Developer @ <a href="https://veoci.com/" target="_blank">Veoci</a> and a Pilates Instructor @ <a href="https://www.clubpilates.com/location/danbury" target="_blank">Club Pilates Danbury</a>.</p>
             <p>Initially working within the dance and fitness industry, Claire gathered a wide array of web design clients. She helped nonprofits, marketing agencies, dance companies, and individual performers on various stages of their website design, development, and maintenance - from full creation and design to redesigning infrastructure. Claire&apos;s work has connected breast cancer survivors to movement resources, classes, and communities. She&apos;s reformed the infrastructure of a dance company&apos;s website which resulted in an increase to their yearly donations. Her work has also bolstered performers branding to assist them landing jobs and connections. Claire is passionate about helping to build out the voice of the individual, company, or organization through their website&apos;s presence.</p>
             <p>Claire holds multiple certifications as a fitness instructor and coach. Alongside her Bachelor of Arts in Kinesiology and Dance, she holds a Personal Training Certification from the American Council on Exercise (ACE). She is a 500-Hour Comprehensively trained Pilates Instructor and 200-Hour Registered Yoga Teacher. She is trained in somatic based fitness and dance programs as well as pedagogy for those facing the side-effects of cancer and aging. Claire is a Moving For Life Certified Instructor and Certified BodyMind Dancing Teacher. She is trained in the Bridging The Gap Movement Method™ which is a neurophysiological conditioning program. Her passion is in getting people moving so that they can love their bodies and live their lives to the fullest.</p>
             
@@ -218,8 +219,13 @@
 </template>
 
 <script>
+import ThemeSwitcher from './ThemeSwitcher.vue'
+
 export default {
   name: 'AboutPopUp',
+  components: {
+    ThemeSwitcher
+  },
   props: {
     showAbout: Boolean
   },
@@ -485,7 +491,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 .modal-close-button {
-  font-family: 'Proza Libre', sans-serif;
   position: fixed;
   top: 0;
   left: 82vw;
@@ -494,20 +499,29 @@ export default {
   background: none;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text);
   cursor: pointer;
   z-index: 100;
 }
+
+.modal-wrapper .theme-switcher {
+  justify-content: flex-start;
+  align-items: flex-start;
+  top: 90vh;
+  left: 3rem;
+  padding: 0;
+}
+
 .modal-wrapper {
-  font-family: 'Proza Libre', sans-serif;
   position: fixed;
   left: 0;
   top: 0;
   padding: 5%;
   z-index: 100;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
+  width: 101vw;
+  height: 102vh;
+  scrollbar-color: dark;
+  background: var(--color-background);
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -626,7 +640,7 @@ section {
 
 /* movement info */
 .private-pilates-info {
-  display: none;
+  display: block;
   max-width: 600px;
   text-align: left;
   margin-top: .75rem;
@@ -696,7 +710,6 @@ section {
   color: var(--color-text);
   padding: 5px 10px 5px 10px;
   margin: 0px 5px 0px 5px;
-  background: none;
   border: none;
   cursor: pointer;
 }
@@ -704,6 +717,30 @@ section {
 .movement-offering-wrapper button:hover {
   box-shadow: inset 0 0 0 2em var(--color-border);
   transition: 1s;
+}
+
+.private-pilates-btn {
+  background-color: var(--color-border);
+}
+
+.group-pilates-btn {
+  background-color: transparent;
+}
+
+.moving-for-life-btn {
+  background-color: transparent;
+}
+
+.personal-training-btn {
+  background-color: transparent;
+}
+
+.yoga-classes-btn {
+  background-color: transparent;
+}
+
+.bodymind-dancing-btn {
+  background-color: transparent;
 }
 
 /* exhibitions */

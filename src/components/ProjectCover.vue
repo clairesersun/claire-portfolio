@@ -40,6 +40,7 @@
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
+    background-color: var(--vt-c-black);
 }
 
 .words {
@@ -51,14 +52,12 @@
     z-index: 75;
     width: 65%;
     height: 100%;
-    color: white;
     text-align: center;
     padding: 1em;
     box-sizing: border-box;
     font-family: 'Proza Libre', sans-serif;
     font-weight: 500;
-    color: var(--color-heading);
-
+    color: var(--vt-c-text-dark-1);
 }
 
     

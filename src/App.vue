@@ -46,11 +46,16 @@ function styleSparkle(elem, e, i) {
   
   elem.style.width = size;
   elem.style.height = size;
-  elem.style.borderRadius = size;  
-  elem.style.background = 'hsla(' +
-    Math.round(Math.random() * 160) + ', ' +
-    '60%, ' +
-    '90%, ' +
+  elem.style.borderRadius = size;
+  // elem.style.background = 'hsla(' +
+  //   Math.round(Math.random() * 160) + ', ' +
+  //   '60%, ' +
+  //   '90%, ' +
+  //   i + ')';
+  elem.style.background = 'rgb(' +
+    '0' + ', ' +
+    '161, ' +
+    '189, ' +
     i + ')';
   
   return elem;
@@ -74,10 +79,10 @@ window.addEventListener('mousemove', function (e) {
     <div class="wrapper">
 
       <nav>
-        <h1 v-if="showAbout">
+        <h1 v-if="showAbout" class="home-btn--about">
           Claire Sersun
         </h1>
-        <RouterLink to="/" v-else><h1>
+        <RouterLink to="/" v-else><h1 class="home-btn">
           Claire Sersun
         </h1></RouterLink>
         <button
@@ -164,8 +169,15 @@ nav h1 {
   z-index: 200;
   font-weight: 500;
   padding: 0;
-  color: var(--color-text);
   font-size: 1.75rem;
+}
+
+.home-btn {
+  color: var(--vt-c-text-dark-1);
+}
+
+.home-btn--about {
+  color: var(--color-text);
 }
 
 nav button.router-link-exact-active {
@@ -180,19 +192,35 @@ nav button.router-link-exact-active:hover {
 .btn {
   display: inline-block;
   padding: 1rem;
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--vt-c-divider-dark-2);
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--vt-c-text-dark-2);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
 }
 
 .btn:hover {
-  box-shadow: inset 0 0 0 2em var(--color-border);
+  box-shadow: inset 0 0 0 2em var(--vt-c-divider-dark-1);
+  border: 3px solid var(--vt-c-divider-dark-1);
   transition: 1s;
-  /* background-color: var(--color-border); */
 }
+
+/* .btn {
+  display: inline-block;
+  padding: 1rem;
+  border: 3px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn:hover {
+  box-shadow: inset 0 0 0 2em var(--color-border-hover);
+  border: 3px solid var(--color-border-hover);
+  transition: 1s;
+} */
 
 
 </style>

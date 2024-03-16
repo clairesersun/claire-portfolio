@@ -1,9 +1,11 @@
 <template>
     <div class="about valleto">
-      <img 
-      src="../../assets/valleto/cover.jpeg" 
-      alt="Valleto Cover Image"
-      class="cover-img">
+      <div class="cover-img-wrapper">
+        <img 
+        src="../../assets/valleto/cover.jpeg" 
+        alt="Valleto Cover Image"
+        class="cover-img">
+      </div>
       <h1 class="title">VALLETO</h1>
       <h2 class="subtitle">Web Designer  ☁︎  UI / UX / Development / Graphic Design  ☁︎  2021-2022</h2>
     <div class="content">
@@ -83,85 +85,6 @@
   </template>
   
   <style>
-  
-    .about.valleto {
-      min-height: 100vh;
-      display: flex;
-      align-items: start;
-      justify-content: center;
-      flex-direction: column;    
-    }
-    
-    .valleto .cover-img {
-      width: 100vw;
-      height: 93vh;
-      object-fit: cover;
-      position: relative;
-      top: 0;
-      z-index: -1;
-      opacity: 0.8;
-    }
-
-    .valleto .title {
-      position: absolute;
-      align-self: center;
-      width: 100vw;
-      word-break: break-word;
-      text-align: center;
-      font-size: 4rem;
-      line-height: 4rem;
-      top: 40vh;
-      font-family: 'Proza Libre', sans-serif;
-      font-weight: 400;
-      color: var(--color-heading);
-    }
-
-    .valleto .subtitle {
-      position: relative;
-      width: 60vw;
-      align-self: center;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .valleto .content {
-      position: relative;
-      width: 60vw;
-      align-self: center;
-    }
-
-    .valleto .section-title {
-      font-family: 'Proza Libre', sans-serif;
-      font-size: 1.2rem;
-      text-align: left;
-      font-weight: 600;
-    }
-
-    .valleto h2 {
-      font-family: 'Proza Libre', sans-serif;
-      font-size: 1.2rem;
-      text-align: left;
-    }
-
-    .valleto p {
-      font-family: 'Proza Libre', sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-        text-align: left;
-    }
-
-    .valleto .img-container {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: center;
-      align-items: center;
-    }
-
     .valleto .align-img-one {
       position: relative;
       justify-self: start;
@@ -209,122 +132,7 @@
     transform: rotate(270deg);
   }
 
-  .valleto .video-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .valleto video {
-    position: relative;
-    align-self: center;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    width: 300px;
-    height: auto;
-  }
-
-  .valleto .position-section {
-    margin-top: 50px;
-    background-color: var(--color-background-soft);
-    border-radius: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-    overflow: auto;
-    justify-content: space-around;
-    width: 60vw;
-    word-wrap: break-word;
-  }
-
-  .valleto .position-title {
-    font-family: 'Proza Libre', sans-serif;
-    font-size: 1.2rem;
-    text-align: left;
-    font-weight: 600;
-    margin-bottom: 0;
-  } 
-
-  .valleto .position-info {
-    font-family: 'Proza Libre', sans-serif;
-    font-size: 1rem;
-    text-align: left;
-    font-weight: 400;
-    margin-bottom: 0;
-  }
-
-  .valleto .section-wrapper {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 40%
-  }
-
-  .valleto .section-wrapper.shift {
-    margin-top: 10px;
-  }
-
-  .valleto .section-title.link {
-    position: relative;
-    margin-top: 5rem;
-    margin-bottom: 7rem;
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'Proza Libre', sans-serif;
-    font-weight: 600;
-    color: var(--color-heading);
-  }
-
-  @media (max-width: 800px) {
-    .valleto iframe {
-    width: 350px;
-    height: auto;
-  }}
-
-  @media (max-width: 360px) {
-    .valleto iframe {
-    width: 250px;
-  }}
-
-
-  @media screen and (min-width: 576px) {
-  .valleto .title {
-    font-size: 6rem;
-    line-height: 6rem;
-    top: 43vh;
-  }
-
-  .valleto .position-section {
-    flex-direction: column;
-    align-content: center;
-  }
-
-  .valleto video {
-    width: 500px;
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .valleto .title {
-    font-size: 8rem;
-    line-height: 8rem; 
-    top: 40vh;
-  }
-
-  .valleto .position-section {
-    padding-left: 100px;
-    padding-right: 100px;
-    flex-direction: row;
-  }
-
-  .valleto .img-container {
-      width: 100%;
-      display: block;
-    }
-
   .valleto .align-img-one {
     margin: 0px 0px -133px calc((100% - 980px) * 0.5);
     left: 391px;
@@ -355,32 +163,9 @@
     grid-area: 23 / 1 / 24 / 2;
     width: 200px;
   }
-
-  .valleto .position-section {
-    margin-top: 250px;
-  }
-
-  .valleto video {
-    width: 700px;
-  }
-
-  .valleto .section-wrapper.shift {
-    margin-top: -55px;
-  }
 }
 
 @media screen and (min-width: 992px) {
-  .valleto .title {
-    font-size: 10rem;
-    line-height: 10rem; 
-    top: 38vh;
-  }
-
-  .valleto .position-section {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-
   .valleto .align-img-one {
     margin: 0px 0px -133px calc((100% - 980px) * 0.5);
     left: 391px;
@@ -408,20 +193,10 @@
     margin: 0px 0px -180px calc((100% - 250px));
     width: 250px;
   }
-
-  .valleto video {
-    width: 870px;
-  }
 }
 
 @media screen and (min-width: 1200px) {
 /* biggest */
-.valleto .title {
-    font-size: 15rem;
-    line-height: 15rem;
-    top: 35vh;
-  }
-
   .valleto .align-img-five {
     margin: 0px 0px -180px calc((100% - 300px));
     width: 250px;

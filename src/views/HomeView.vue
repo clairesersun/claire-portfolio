@@ -1,4 +1,5 @@
 <script setup>
+import ThemeSwitcher from '../components/ThemeSwitcher.vue';
 import ProjectCover from '../components/ProjectCover.vue'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { animate, scroll } from "motion";
@@ -48,12 +49,12 @@ const projectsPhotography = ref([
 const filteredProjects = ref([])
 
 const allChecked = function () {
-    filteredProjects.value = filteredProjects.value.concat(projectsWeb.value)
     filteredProjects.value = filteredProjects.value.concat(projectsFilm.value)
+    filteredProjects.value = filteredProjects.value.concat(projectsWeb.value)
+    filteredProjects.value = filteredProjects.value.concat(projectsPhotography.value)
     filteredProjects.value = filteredProjects.value.concat(projectsDance.value)
     filteredProjects.value = filteredProjects.value.concat(projectsModel.value)
     filteredProjects.value = filteredProjects.value.concat(projectsChoreography.value)
-    filteredProjects.value = filteredProjects.value.concat(projectsPhotography.value)
     filteredProjects.value = filteredProjects.value.filter(project => !noProjects.value.includes(project))
   }
   
@@ -422,32 +423,34 @@ onUnmounted(() => {
 .filter {
   display: inline-block;
   padding: 1rem;
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--vt-c-divider-dark-2);
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--vt-c-text-dark-2);
   font-size: 1rem;
   font-weight: 600;
-  box-shadow: inset 0 0 0 0 var(--color-border);
+  box-shadow: inset 0 0 0 0 var(--vt-c-divider-dark-2);
   z-index: 5;
 }
 
 .filter:hover {
-  box-shadow: inset 0 0 0 2em var(--color-border);
+  box-shadow: inset 0 0 0 2em var(--vt-c-divider-dark-2);
   transition: 1s;
 }
 
 .filterInput {
   position: relative;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 fieldset:hover {
   background-color: rgba(0, 0, 0, 0.25);
 }
+
 .filterLabel {
   display: inline-flex;
-  color: var(--color-text);
+  color: var(--vt-c-text-dark-2);
   font-size: 1rem;
   font-weight: 600;
   align-items: center;
@@ -458,24 +461,29 @@ fieldset:hover {
   margin: 5px 0px 5px 0px;
   user-select: none;
   width: fit-content;
+  cursor: pointer;
 }
 
 .filterLabel p {
   padding-left: 5px ;
+  margin-bottom: 0;
+  line-height: 0;
 }
 
 .filterLabel:hover {
-  box-shadow: inset 0 0 0 2em var(--color-border);
+  box-shadow: inset 0 0 0 2em var(--vt-c-divider-dark-1);
   transition: 1s;
 }
 
 .filterLabel:has(.filterInput:checked) {
-  box-shadow: inset 0 0 0 2em var(--color-border);
-  color: var(--color-text);
+  box-shadow: inset 0 0 0 2em var(--vt-c-divider-dark-2);
+  color: var(--vt-c-text-dark-2);
 }
+
 .filterInput:checked {
-  accent-color: black;
+  accent-color: var(--vt-c-text-dark-2);
 }
+
 .progress-bar {
   position: fixed;
   bottom: 0;

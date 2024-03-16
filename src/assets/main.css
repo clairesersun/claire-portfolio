@@ -3,7 +3,6 @@
 #app {
   max-width: 100vw;
   margin: 0 auto;
-
   font-weight: normal;
 }
 html {
@@ -18,6 +17,7 @@ html::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
+
 img {
   max-height: 100%;
   height: auto;
@@ -26,16 +26,254 @@ img {
 a,
 .blue {
   text-decoration: none;
-  color: rgb(0, 161, 189);
+  color: var(--vt-c-accent);
   transition: 0.4s;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(189, 100%, 37%, 0.2);
+    background-color: var(--vt-c-accent-hover);
   }
 
   .blue:hover {
-    background-color: hsla(189, 100%, 37%, 0.2);
+    background-color: var(--vt-c-accent-hover);
+  }
+}
+
+/* Projects */
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  color: var(--vt-c-text-dark-1);
+}
+
+.cover-img-wrapper {
+  background-color: var(--vt-c-black);
+  z-index: -2;
+  width: 100vw;
+  height: 93vh;
+}
+
+.cover-img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  position: relative;
+  top: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.title {
+  position: absolute;
+  align-self: center;
+  width: 100vw;
+  word-break: break-word;
+  text-align: center;
+  font-size: 4rem;
+  line-height: 4rem;
+  top: 40vh;
+  font-weight: 400;
+}
+
+.subtitle {
+  position: relative;
+  width: 60vw;
+  align-self: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 600;
+}
+
+.content {
+  position: relative;
+  width: 60vw;
+  align-self: center;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.img-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+video {
+  position: relative;
+  align-self: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 300px;
+  height: auto;
+}
+
+.position-section {
+  margin-top: 50px;
+  background-color: rgb(from var(--color-text) r g b / 20%);
+  border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  justify-content: space-around;
+  width: 60vw;
+  word-wrap: break-word;
+}
+
+.position-title {
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.position-info {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.section-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 40%;
+}
+
+.section-wrapper.shift {
+  margin-top: 10px;
+}
+
+.section-title.link {
+  position: relative;
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+@media (max-width: 800px) {
+  iframe {
+    width: 350px;
+    height: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  iframe {
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .title {
+    font-size: 6rem;
+    line-height: 6rem;
+    top: 43vh;
+  }
+
+  .position-section {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  video {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 8rem;
+    line-height: 8rem;
+    top: 40vh;
+  }
+
+  .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: row;
+  }
+
+  .img-container {
+    width: 100%;
+    display: block;
+  }
+
+  .position-section {
+    margin-top: 250px;
+  }
+
+  video {
+    width: 700px;
+  }
+
+  .section-wrapper.shift {
+    margin-top: -55px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .title {
+    font-size: 10rem;
+    line-height: 10rem;
+    top: 38vh;
+  }
+
+  .position-section {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  video {
+    width: 870px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* biggest */
+  .title {
+    font-size: 15rem;
+    line-height: 15rem;
+    top: 35vh;
   }
 }
