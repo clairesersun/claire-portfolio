@@ -1,9 +1,12 @@
 <template>
     <div class="about home">
-      <img 
-      src="../../assets/home/Sersun__image-6 copy.jpg" 
-      alt="HOME Cover Image"
-      class="cover-img">
+      <div class="cover-img-wrapper">
+
+        <img 
+        src="../../assets/home/Sersun__image-6 copy.jpg" 
+        alt="HOME Cover Image"
+        class="cover-img">
+      </div>
       <h1 class="title">HOME</h1>
       <h2 class="subtitle">Photographer  ☁︎  2020</h2>
       <div class="content">
@@ -34,75 +37,6 @@
   </template>
   
   <style>
-  
-    .about.home {
-      min-height: 100vh;
-      display: flex;
-      align-items: start;
-      justify-content: center;
-      flex-direction: column;    
-    }
-    
-    .home .cover-img {
-      width: 100vw;
-      height: 93vh;
-      object-fit: cover;
-      position: relative;
-      top: 0;
-      z-index: -1;
-      opacity: 0.8;
-    }
-
-    .home .title {
-      position: absolute;
-      align-self: center;
-      top: 30vh;
-      width: 100vw;
-      word-break: break-word;
-      text-align: center;
-      font-size: 15rem;
-      font-family: 'Proza Libre', sans-serif;
-      font-weight: 400;
-      color: var(--color-heading);
-    }
-
-    .home .subtitle {
-      position: relative;
-      width: 60vw;
-      align-self: center;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .home .content {
-      position: relative;
-      width: 60vw;
-      align-self: center;
-      justify-content: center;
-    }
-
-    .home .section-title {
-      font-family: 'Proza Libre', sans-serif;
-      font-size: 1.2rem;
-      text-align: left;
-      font-weight: 600;
-    }
-
-    .home h2 {
-      font-family: 'Proza Libre', sans-serif;
-      font-size: 1.2rem;
-      text-align: left;
-    }
-
-    .home p {
-      font-family: 'Proza Libre', sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-        text-align: left;
-    }
-
     .home .img-container {
       width: 100%;
       display: flex;
@@ -120,131 +54,5 @@
       justify-self: start;
       align-self: start;
   }
-
-
-  .home .video-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .home iframe {
-    position: relative;
-    align-self: center;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    width: 744px;
-    height: 397px;
-  }
-
-  .home .position-section {
-    margin-top: 100px;
-    background-color: var(--color-background-soft);
-    border-radius: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 100px;
-    padding-right: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: auto;
-    justify-content: space-around;
-    width: 60vw;
-  }
-
-  .home .position-title {
-    font-family: 'Proza Libre', sans-serif;
-    font-size: 1.2rem;
-    text-align: left;
-    font-weight: 600;
-    margin-bottom: 0;
-  } 
-  
-  .home .position-info {
-    font-family: 'Proza Libre', sans-serif;
-    font-size: 1rem;
-    text-align: left;
-    font-weight: 400;
-    margin-bottom: 0;
-  }
-
-  .home .section-wrapper {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 40%
-  }
-
-  .home .section-wrapper.shift {
-    margin-top: -55px;
-}
-
-  .home .section-title.link {
-    position: relative;
-    margin-top: 5rem;
-    margin-bottom: 7rem;
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'Proza Libre', sans-serif;
-    font-weight: 600;
-    color: var(--color-heading);
-  }
-
-
-
-
-
-
-
-
-
-  @media screen and (min-width: 576px) {
-  .home .title {
-    font-size: 6rem;
-    line-height: 6rem;
-    top: 32vh;   
-  }
-
-  .home .position-section {
-    flex-direction: column;
-    align-content: center;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .home .title {
-    font-size: 8rem;
-    line-height: 8rem; 
-    top: 30vh;
-  }
-
-  .home .position-section {
-    padding-left: 100px;
-    padding-right: 100px;
-    flex-direction: row;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .home .title {
-    font-size: 10rem;
-    line-height: 10rem; 
-    top: 27vh;
-  }
-
-  .home .position-section {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-/* biggest */
-.home .title {
-    font-size: 15rem;
-    line-height: 15rem;
-    top: 12vh;
-  }
-}
   
   </style>

@@ -194,6 +194,15 @@ video {
   color: var(--color-heading);
 }
 
+iframe {
+  position: relative;
+  align-self: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 744px;
+  height: 397px;
+}
+
 @media (max-width: 800px) {
   iframe {
     width: 350px;

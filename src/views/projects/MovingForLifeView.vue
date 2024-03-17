@@ -1,9 +1,12 @@
 <template>
     <div class="about moving-for-life">
-      <img 
-      src="../../assets/movingforlife/cover.png" 
-      alt="Moving For Life Cover Image"
-      class="cover-img">
+      <div class="cover-img-wrapper">
+
+        <img 
+        src="../../assets/movingforlife/cover.png" 
+        alt="Moving For Life Cover Image"
+        class="cover-img">
+      </div>
       <h1 class="title">Moving For Life</h1>
       <h2 class="subtitle">Programming and Administrative Assistant   ☁︎  UI / UX / Graphic Designer ☁︎  2019-2021</h2>
     <div class="content">
@@ -70,75 +73,7 @@
   
   <style>
   
-    .about.moving-for-life {
-      min-height: 100vh;
-      display: flex;
-      align-items: start;
-      justify-content: center;
-      flex-direction: column;    
-    }
     
-    .moving-for-life .cover-img {
-      width: 100vw;
-      height: 93vh;
-      object-fit: cover;
-      position: relative;
-      top: 0;
-      z-index: -1;
-      opacity: 0.8;
-    }
-
-    .moving-for-life .title {
-      position: absolute;
-      align-self: center;
-      top: 25vh;
-      width: 100vw;
-      word-break: break-word;
-      line-height: 15rem;
-      text-align: center;
-      font-size: 15rem;
-      font-family: 'Proza Libre', sans-serif;
-      font-weight: 400;
-      color: var(--color-heading);
-    }
-
-    .moving-for-life .subtitle {
-      position: relative;
-      width: 60vw;
-      align-self: center;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .moving-for-life .content {
-      position: relative;
-      width: 60vw;
-      align-self: center;
-      justify-content: center;
-    }
-
-    .moving-for-life .section-title {
-      font-family: 'Proza Libre', sans-serif;
-      font-size: 1.2rem;
-      text-align: left;
-      font-weight: 600;
-    }
-
-    .moving-for-life h2 {
-      font-family: 'Proza Libre', sans-serif;
-      font-size: 1.2rem;
-      text-align: left;
-    }
-
-    .moving-for-life p {
-      font-family: 'Proza Libre', sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-        text-align: left;
-    }
-
     .moving-for-life .img-container {
       width: 100%;
       display: flex;
@@ -153,143 +88,4 @@
       justify-self: start;
       align-self: start;
   }
-
-  .moving-for-life .video-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .moving-for-life video {
-    position: relative;
-    align-self: center;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    width: 744px;
-    height: 397px;
-  }
-
-  .moving-for-life .position-section {
-    margin-top: 100px;
-    background-color: var(--color-background-soft);
-    border-radius: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 100px;
-    padding-right: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: auto;
-    justify-content: space-around;
-    width: 60vw;
-  }
-
-  .moving-for-life .position-title {
-    font-family: 'Proza Libre', sans-serif;
-    font-size: 1.2rem;
-    text-align: left;
-    font-weight: 600;
-    margin-bottom: 0;
-  } 
-
-  .moving-for-life .position-info {
-    font-family: 'Proza Libre', sans-serif;
-    font-size: 1rem;
-    text-align: left;
-    font-weight: 400;
-    margin-bottom: 0;
-  }
-
-  .moving-for-life .section-wrapper {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 40%
-  }
-
-  .moving-for-life .section-wrapper.shift {
-    margin-top: 0px;
-  }
-
-  .moving-for-life .section-title.link {
-    position: relative;
-    margin-top: 5rem;
-    margin-bottom: 7rem;
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'Proza Libre', sans-serif;
-    font-weight: 600;
-    color: var(--color-heading);
-  }
-
-  @media (max-width: 800px) {
-    .moving-for-life video {
-    width: 350px;
-    height: auto;
-  }}
-
-  @media (max-width: 360px) {
-    .moving-for-life video {
-    width: 250px;
-  }}
-
-
-
-
-
-
-
-
-
-
-
-  @media screen and (min-width: 576px) {
-  .moving-for-life .title {
-    font-size: 6rem;
-    line-height: 6rem;
-    top: 32vh;   
-  }
-
-  .moving-for-life .position-section {
-    flex-direction: column;
-    align-content: center;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .moving-for-life .title {
-    font-size: 8rem;
-    line-height: 8rem; 
-    top: 30vh;
-  }
-
-  .moving-for-life .position-section {
-    padding-left: 100px;
-    padding-right: 100px;
-    flex-direction: row;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .moving-for-life .title {
-    font-size: 10rem;
-    line-height: 10rem; 
-    top: 27vh;
-  }
-
-  .moving-for-life .position-section {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-/* biggest */
-.moving-for-life .title {
-    font-size: 15rem;
-    line-height: 15rem;
-    top: 12vh;
-  }
-}
-  
   </style>
