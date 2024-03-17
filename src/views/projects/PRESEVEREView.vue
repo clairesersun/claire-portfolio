@@ -1,4 +1,5 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about persevere">
       <div class="cover-img-wrapper">
         <img 
@@ -6,7 +7,7 @@
         alt="persevere Cover Image"
         class="cover-img">
       </div>
-      <h1 class="title">persevere</h1>
+      <h1 class="title">PRESEVERE</h1>
       <h2 class="subtitle">Videographer / Editor / Choreographer  ☁︎  2021</h2>
     <div class="content">
       <h3 class="section-title">Overview</h3>
@@ -78,3 +79,13 @@
     }
   
   </style>
+
+<script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

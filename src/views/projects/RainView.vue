@@ -1,4 +1,5 @@
 <template>
+      <ThemeSwitcher id="project"/>
     <div class="about rain">
       <div class="cover-img-wrapper">
 
@@ -48,3 +49,12 @@
     }
   }
     </style>
+    <script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

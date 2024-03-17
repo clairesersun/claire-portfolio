@@ -4,7 +4,7 @@
           class="modal-close-button" @click="$emit('close')">
                 X
         </button>
-      <ThemeSwitcher />
+      <ThemeSwitcher id="theme-switcher"/>
       <div class="about-wrapper">
         <section class="intro-section">
           <img src="../assets/claire.png" alt="Claire Sersun" class="about-image">

@@ -1,44 +1,85 @@
 <template>
     <div class="theme-switcher">
-        <input type="checkbox" id="theme-switcher" class="theme-switcher-input" ref="themeSwitcher" @change="changeTheme">
+        <input type="checkbox" :id="props.id" class="theme-switcher-input" ref="themeSwitcher" @change="changeTheme">
         <label for="theme-switcher" class="theme-switcher-label">
-            <img class="sun" src="../assets/logos/sun.svg" alt="sun" />
-            <img class="moon" src="../assets/logos/moon.svg" alt="moon" />
         </label>
     </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 
-// data
-const themeSwitcher = ref(true);
+// props
+const props = defineProps(['id'])
 
 // mounted
 onMounted(() => {
     const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (dark) {
-        console.log('dark mode on');
-        themeSwitcher.value.checked = true;
-        changeTheme()
-        
+        setTimeout(() => {
+            // debugger
+            const currentTheme = localStorage.getItem('theme');
+            console.log(currentTheme);
+            const project = document.getElementById('project');
+            const themeSwitcher = document.getElementById('theme-switcher');
+            
+            //what happens if you have already set a theme and you are traveling through the site?
+            if (currentTheme === 'light') {
+                console.log('light mode on');
+                themeSwitcher.checked = false;
+                project.checked = false;
+                // console.log(project.checked)
+                document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+            } else if (currentTheme === 'dark') {
+                // console.log('dark mode on');
+                themeSwitcher.checked = true;
+                project.checked = true;
+                // console.log(project.checked)
+                document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+            } else {
+
+                
+                
+                //otherwise, the theme is set to dark mode
+                // console.log('dark mode on');
+                themeSwitcher.checked = true;
+                project.checked = true;
+                // console.log(project.checked)
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            }, 0);    
     } else {
-        console.log('light mode on');
-        themeSwitcher.value.checked = false;
-        changeTheme()
+        setTimeout(() => {
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const project = document.getElementById('project');
+            // console.log('light mode on');
+            themeSwitcher.checked = false;
+            project.checked = false;
+            document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        }, 0); 
+        
     }
 });
 
 // methods
 const changeTheme = () => {
-    if (themeSwitcher.value.checked) {
-        console.log('dark mode on');
+    const project = document.getElementById('project');
+    const themeSwitcher = document.getElementById('theme-switcher');
+    if (themeSwitcher.checked) {
+        // console.log('dark mode on');
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        themeSwitcher.checked = true;
+        project.checked = true;
     } else {
-        console.log('light mode on');
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
+        themeSwitcher.checked = false;
+        project.checked = false;
     }
 }
 </script>
@@ -76,7 +117,7 @@ const changeTheme = () => {
 	background: var(--vt-c-white);
 	border-radius: 90px;
 	transition: 0.3s;
-    background-image: url('../assets/sun.svg');
+    background-image: url('../assets/logos/sun.svg');
 }
 
 .theme-switcher-input:checked + .theme-switcher-label {
@@ -86,7 +127,7 @@ const changeTheme = () => {
 .theme-switcher-input:checked + .theme-switcher-label:after {
 	left: calc(100% - 1px);
 	transform: translateX(-100%);
-    background-image: url('../assets/moon.svg');
+    background-image: url('../assets/logos/moon.svg');
     filter: invert(100%);
 }
 
@@ -104,6 +145,11 @@ const changeTheme = () => {
     padding-left: 3rem;
     padding-bottom: 3rem;
     position: fixed;
+    z-index: 50;
+}
+
+/* the switcher on the popup */
+.modal-wrapper .theme-switcher {
     z-index: 200;
 }
 </style>

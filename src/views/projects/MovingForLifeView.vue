@@ -1,4 +1,5 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about moving-for-life">
       <div class="cover-img-wrapper">
 
@@ -89,3 +90,13 @@
       align-self: start;
   }
   </style>
+
+<script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

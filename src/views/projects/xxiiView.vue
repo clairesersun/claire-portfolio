@@ -1,4 +1,5 @@
 <template>
+  <ThemeSwitcher id="project"/>
     <div class="about xxii">
       <div class="cover-img-wrapper">
         <img 
@@ -6,10 +7,10 @@
         alt="xxii Cover Image"
         class="cover-img">
       </div>
-        <h1 class="title">xxii:
+      <h1 class="title">xxii:
         <br>
         Twenty-Two</h1>
-      <h2 class="subtitle">Choreographer / Performer  ☁︎  2019</h2>
+        <h2 class="subtitle">Choreographer / Performer  ☁︎  2019</h2>
     <div class="content">
       <p>This piece is a questioning and exploring identity as a twenty-two year old woman.</p>
 <div class="video-container">
@@ -49,3 +50,13 @@
   }
 }
   </style>
+
+  <script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

@@ -1,4 +1,5 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about dance">
       <img 
       src="../../assets/dance/cover.png" 
@@ -32,3 +33,13 @@
 
     
   </style>
+
+<script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

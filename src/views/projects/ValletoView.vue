@@ -1,4 +1,5 @@
 <template>
+    <ThemeSwitcher id="project"/>
     <div class="about valleto">
       <div class="cover-img-wrapper">
         <img 
@@ -205,3 +206,12 @@
   
   </style>
   
+<script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

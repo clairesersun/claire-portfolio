@@ -1,4 +1,5 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about fivehours">
       <div class="cover-img-wrapper">
         <img 
@@ -49,3 +50,13 @@
   </template>
   
   
+
+  <script>
+  import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+  
+  export default {
+    components: {
+      ThemeSwitcher
+    },
+  }
+  </script>

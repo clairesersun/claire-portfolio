@@ -1,4 +1,5 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about oneandtwo">
       <div class="cover-img-wrapper">
 
@@ -38,3 +39,12 @@
     </div>
     </div>
   </template>
+<script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

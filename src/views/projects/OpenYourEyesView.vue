@@ -1,4 +1,5 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about openyoureyes">
       <div class="cover-img-wrapper">
 
@@ -41,4 +42,20 @@
     </div>
   </template>
   
-  
+  <style>
+  @media screen and (min-width: 768px) {
+    .rain .position-section {
+      margin-top: 60px;
+    }
+  }
+    </style>
+
+    <script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>

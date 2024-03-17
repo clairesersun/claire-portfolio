@@ -1,7 +1,7 @@
 <template>
+        <ThemeSwitcher id="project"/>
     <div class="about portraitof">
       <div class="cover-img-wrapper">
-
         <img 
         src="../../assets/portraitof/cover.png" 
         alt="Portrait of Cover Image"
@@ -39,4 +39,19 @@
     </div>
   </template>
   
-  
+  <style>
+  @media screen and (min-width: 768px) {
+    .rain .position-section {
+      margin-top: 60px;
+    }
+  }
+    </style>
+    <script>
+import ThemeSwitcher from '../../components/ThemeSwitcher.vue'
+
+export default {
+  components: {
+    ThemeSwitcher
+  },
+}
+</script>
