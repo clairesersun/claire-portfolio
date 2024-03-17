@@ -405,9 +405,9 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   z-index: 50;
-  top: 26vh;
-    transform: translate(-50%, -50%);
-    left: 50vw;
+  top: 30vh;
+  transform: translate(-50%, -50%);
+  left: 50vw;
 }
 
 

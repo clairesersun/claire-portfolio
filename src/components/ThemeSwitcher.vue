@@ -2,8 +2,8 @@
     <div class="theme-switcher">
         <input type="checkbox" id="theme-switcher" class="theme-switcher-input" ref="themeSwitcher" @change="changeTheme">
         <label for="theme-switcher" class="theme-switcher-label">
-            <img class="sun" src="../assets/sun.svg" alt="sun" />
-            <img class="moon" src="../assets/moon.svg" alt="moon" />
+            <img class="sun" src="../assets/logos/sun.svg" alt="sun" />
+            <img class="moon" src="../assets/logos/moon.svg" alt="moon" />
         </label>
     </div>
 </template>

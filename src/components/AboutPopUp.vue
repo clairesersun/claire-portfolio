@@ -208,9 +208,9 @@
           <div class="contact-info-wrapper">
             <p class="contact-info">If you are interested in my work feel free to contact me at <button @click="copyToClipboard" class="email-to-copy"><p>claire.sersun[at]gmail.com</p></button></p>
             <div class="contact-info-link-wrapper">
-            <a class="contact-info-link" href="https://github.com/clairesersun" target="_blank"><img src="../assets/github-mark-white.svg"></a>
-            <a class="contact-info-link" href="https://www.linkedin.com/in/clairesersun/" target="_blank"><img src="../assets/In-White-128@2x.png"></a>
-            <a class="contact-info-link" href="https://www.instagram.com/clairesersun/" target="_blank"><img src="../assets/Instagram_Glyph_White.svg"></a>
+            <a class="contact-info-link" href="https://github.com/clairesersun" target="_blank"><img src="../assets/logos/github-mark-white.svg"></a>
+            <a class="contact-info-link" href="https://www.linkedin.com/in/clairesersun/" target="_blank"><img src="../assets/logos/In-White-128@2x.png"></a>
+            <a class="contact-info-link" href="https://www.instagram.com/clairesersun/" target="_blank"><img src="../assets/logos/Instagram_Glyph_White.svg"></a>
             </div>
           </div>
         </section>

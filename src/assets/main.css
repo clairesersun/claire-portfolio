@@ -5,7 +5,10 @@
   margin: 0 auto;
   font-weight: normal;
 }
+
 html {
+  -webkit-text-size-adjust: none;
+  touch-action: manipulation;
   scroll-snap-type: x mandatory;
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
