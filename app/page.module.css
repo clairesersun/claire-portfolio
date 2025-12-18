@@ -1,0 +1,542 @@
+/* Hero Section - Title page aesthetic */
+.hero {
+  padding: var(--space-2xl) 0;
+  position: relative;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: var(--space-5xl);
+  align-items: center;
+}
+
+.heroContent {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroContent {
+    animation: none;
+  }
+}
+
+.heroLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.heroLabelDot {
+  color: var(--color-cyan);
+  font-size: var(--font-size-xs);
+}
+
+.heroTitle {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+}
+
+.heroTitleEmphasis {
+  color: var(--color-violet);
+  position: relative;
+  display: inline-block;
+}
+
+.heroTitleEmphasis::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.15em;
+  background: var(--gradient-cool);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-3xl);
+  max-width: 55ch;
+}
+
+.heroActions {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+/* Hero Image */
+.heroImage {
+  position: relative;
+  animation: fadeInRight 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImage {
+    animation: none;
+  }
+}
+
+ .heroImageWrapper {
+  position: relative;
+  /* aspect-ratio removed to allow natural image aspect */
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+              var(--gradient-rainbow-horizontal) border-box;
+}
+
+ .heroPhoto {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Beliefs Section */
+.beliefs {
+  padding: var(--space-5xl) 0;
+  background-color: var(--color-surface);
+}
+
+.beliefsHeading {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  color: var(--color-text-primary);
+}
+
+.beliefsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-2xl);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.beliefCard {
+  padding: var(--space-2xl);
+  background-color: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--space-md);
+  transition: all 0.3s ease;
+}
+
+.beliefCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-color-strong);
+}
+
+/* Rainbow border colors for each card on hover */
+.beliefCard:nth-child(1):hover {
+  border-color: var(--color-violet);
+}
+
+.beliefCard:nth-child(2):hover {
+  border-color: var(--color-cyan);
+}
+
+.beliefCard:nth-child(3):hover {
+  border-color: var(--color-coral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beliefCard:hover {
+    transform: none;
+  }
+}
+
+.beliefIcon {
+  margin-bottom: var(--space-lg);
+}
+
+/* Make icons in the Beliefs section 44px (width, height, font-size) */
+/* Minimal selector that matches the CSS Modules output */
+.beliefs .beliefCard .beliefIcon [class~="icon"] {
+  width: 44px;
+  height: 44px;
+  font-size: 44px;
+  line-height: 1;
+  display: block;
+}
+
+/* Unique rainbow colors for each belief card icon */
+.beliefCard:nth-child(1) .beliefIcon {
+  color: var(--color-violet);
+}
+
+.beliefCard:nth-child(2) .beliefIcon {
+  color: var(--color-cyan);
+}
+
+.beliefCard:nth-child(3) .beliefIcon {
+  color: var(--color-coral);
+}
+
+.beliefTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.beliefText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* Work Section - Chapter-like structure */
+.workSection {
+  padding: var(--space-5xl) 0;
+}
+
+.workHeader {
+  margin-bottom: var(--space-4xl);
+  max-width: var(--max-width-content);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionHeading {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+}
+
+.sectionSubheading {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.caseStudiesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.caseStudyCard {
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: var(--delay, 0s);
+  animation-fill-mode: backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caseStudyCard {
+    animation: none;
+  }
+}
+
+.caseStudyLink {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) 0;
+  padding-left: var(--space-xl);
+  border-left: var(--chapter-marker-width) solid transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.caseStudyLink::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--chapter-marker-width);
+  background: var(--gradient-rainbow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.caseStudyLink:hover::before {
+  opacity: 1;
+}
+
+.caseStudyLink:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-outline);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-sm);
+}
+
+.caseStudyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+.caseStudyNumber {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  min-width: 3ch;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Rainbow colors for tags - Subtle filled backgrounds, no borders (not button-like) */
+/* Light mode: Very light backgrounds (6-8% opacity) for AAA contrast with dark text */
+.tag:nth-child(1) {
+  color: var(--color-violet);
+  background-color: rgba(91, 33, 182, 0.06);
+  border: none;
+}
+
+.tag:nth-child(2) {
+  color: var(--color-cyan);
+  background-color: rgba(12, 90, 109, 0.07);
+  border: none;
+}
+
+.tag:nth-child(3) {
+  color: var(--color-green);
+  background-color: rgba(6, 95, 70, 0.06);
+  border: none;
+}
+
+.tag:nth-child(4) {
+  color: var(--color-yellow);
+  background-color: rgba(146, 64, 14, 0.08);
+  border: none;
+}
+
+.tag:nth-child(5) {
+  color: var(--color-coral);
+  background-color: rgba(153, 27, 27, 0.06);
+  border: none;
+}
+
+/* Dark mode - Brighter backgrounds for visibility */
+[data-theme="dark"] .tag:nth-child(1) {
+  color: var(--color-violet);
+  background-color: rgba(196, 181, 253, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(2) {
+  color: var(--color-cyan);
+  background-color: rgba(103, 232, 249, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(3) {
+  color: var(--color-green);
+  background-color: rgba(110, 231, 183, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(4) {
+  color: var(--color-yellow);
+  background-color: rgba(252, 211, 77, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(5) {
+  color: var(--color-coral);
+  background-color: rgba(252, 165, 165, 0.12);
+}
+
+.caseStudyContent {
+  flex: 1;
+}
+
+.caseStudyTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+.caseStudyLink:hover .caseStudyTitle {
+  color: var(--color-violet);
+}
+
+.caseStudySubtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.caseStudyFooter {
+  margin-top: var(--space-md);
+}
+
+.caseStudyLinkText {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-blue);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.caseStudyArrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.caseStudyLink:hover .caseStudyArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caseStudyLink:hover .caseStudyArrow {
+    transform: none;
+  }
+}
+
+/* CTA Section - Book colophon inspired */
+.cta {
+  padding: var(--space-5xl) 0;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.ctaContent {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ctaHeading {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+}
+
+.ctaText {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-2xl);
+}
+
+.ctaActions {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4xl);
+  }
+
+  .heroImage {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .heroTitle {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (max-width: 768px) {
+   .hero {
+    padding: var(--space-2xl) 0;
+  }
+
+  .beliefs,
+  .workSection,
+  .cta {
+    padding: var(--space-4xl) 0;
+  }
+
+  .beliefsHeading,
+  .sectionHeading,
+  .ctaHeading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .beliefsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseStudyLink {
+    padding-left: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .heroActions,
+  .ctaActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroActions .button,
+  .ctaActions .button {
+    width: 100%;
+    text-align: center;
+  }
+}

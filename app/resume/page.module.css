@@ -1,0 +1,375 @@
+.resume {
+  padding: var(--space-3xl) 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.name {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.location {
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  font-size: var(--font-size-sm);
+}
+
+.contactLink {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-timing);
+}
+
+.contactLink:hover {
+  color: var(--color-violet);
+  text-decoration: underline;
+}
+
+.separator {
+  color: var(--color-text-tertiary);
+}
+
+.content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: var(--space-4xl);
+}
+
+.sectionHeading {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid transparent;
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    var(--gradient-cool) border-box;
+  position: relative;
+}
+
+/* Colorful section heading accents */
+.section:nth-child(1) .sectionHeading {
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    linear-gradient(90deg, var(--color-violet), var(--color-blue)) border-box;
+}
+
+.section:nth-child(2) .sectionHeading {
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    linear-gradient(90deg, var(--color-cyan), var(--color-green)) border-box;
+}
+
+.section:nth-child(3) .sectionHeading {
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    linear-gradient(90deg, var(--color-yellow), var(--color-coral)) border-box;
+}
+
+.section:nth-child(4) .sectionHeading {
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    linear-gradient(90deg, var(--color-violet), var(--color-cyan)) border-box;
+}
+
+.summary {
+  line-height: var(--line-height-relaxed);
+}
+
+/* Experience */
+.job {
+  margin-bottom: var(--space-3xl);
+}
+
+.job:last-child {
+  margin-bottom: 0;
+}
+
+.jobHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.jobTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+ .jobPeriod {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.jobCompany {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+ .jobLocation {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.highlights {
+  list-style: disc;
+  margin-left: var(--space-lg);
+  padding: 0;
+}
+
+.highlights li {
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-base);
+}
+
+/* Skills */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-xl);
+}
+
+.skillCategory {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skillCategoryTitle {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.skillList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.skill {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.skill::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+}
+
+/* Rainbow arrows for skill bullets */
+.skillCategory:nth-child(1) .skill::before {
+  color: var(--color-violet);
+}
+
+.skillCategory:nth-child(2) .skill::before {
+  color: var(--color-cyan);
+}
+
+.skillCategory:nth-child(3) .skill::before {
+  color: var(--color-green);
+}
+
+.skillCategory:nth-child(4) .skill::before {
+  color: var(--color-coral);
+}
+
+/* Education */
+.education {
+  margin-bottom: var(--space-2xl);
+}
+
+.education:last-child {
+  margin-bottom: 0;
+}
+
+.educationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.educationDegree {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+ .educationPeriod {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.educationField {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+ .educationInstitution {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  margin-top: var(--space-4xl);
+  padding-top: var(--space-3xl);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume {
+    padding: var(--space-2xl) 0;
+  }
+
+  .header {
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .name {
+    font-size: var(--font-size-2xl);
+  }
+
+  .title {
+    font-size: var(--font-size-base);
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .jobHeader,
+  .educationHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-2xl);
+  }
+
+  .actions .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .resume {
+    padding: 0;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+    page-break-inside: avoid;
+  }
+
+  .sectionHeading {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .job,
+  .education {
+    page-break-inside: avoid;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .contactLink {
+    color: #000;
+  }
+}

@@ -1,0 +1,653 @@
+/* ===================================================================
+   DESIGN TOKENS & CSS CUSTOM PROPERTIES
+   =================================================================== */
+
+:root {
+  /* WCAG AAA Compliant Color System - Light Mode with More Personality */
+  --color-bg: #ffffff;
+  --color-surface: #fafafa;
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #595959;
+  --color-border: #e5e5e5;
+  --color-border-hover: #999999;
+
+  /* Rainbow Palette - WCAG AAA compliant vibrant colors (7:1 on white) */
+  --color-violet: #5B21B6;
+  --color-blue: #1E40AF;
+  --color-cyan: #0C5A6D;
+  --color-green: #065F46;
+  --color-yellow: #92400E;
+  --color-coral: #991B1B;
+
+  /* Legacy accent variable (maps to blue for backwards compatibility) */
+  --color-accent: var(--color-blue);
+  --color-accent-hover: #1E40AF;
+  --color-accent-light: #DBEAFE;
+
+  /* RGB variants for use with rgba(var(--...-rgb), alpha) */
+  --color-accent-rgb: 30, 64, 175; /* matches --color-blue #1E40AF */
+  --color-accent-hover-rgb: 30, 64, 175;
+  --color-accent-light-rgb: 219, 234, 254;
+  --color-bg-rgb: 255, 255, 255;
+  --color-text-primary-rgb: 10, 10, 10;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-color-strong: rgba(0, 0, 0, 0.12);
+
+  /* Rainbow Gradients */
+  --gradient-rainbow: linear-gradient(135deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green));
+  --gradient-rainbow-horizontal: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green), var(--color-yellow), var(--color-coral));
+  --gradient-cool: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+  --gradient-warm: linear-gradient(135deg, var(--color-yellow), var(--color-coral));
+
+  /* Semantic Colors */
+  --color-focus: var(--color-blue);
+  --color-focus-outline: var(--color-blue);
+
+  /* Typography Scale */
+  --font-size-xs: 0.8125rem;   /* 13px */
+  --font-size-sm: 0.9375rem;   /* 15px */
+  --font-size-base: 1.0625rem; /* 17px */
+  --font-size-md: 1.25rem;     /* 20px */
+  --font-size-lg: 1.5rem;      /* 24px */
+  --font-size-xl: 2rem;        /* 32px */
+  --font-size-2xl: 2.75rem;    /* 44px */
+  --font-size-3xl: 3.5rem;     /* 56px */
+  --font-size-4xl: 4.5rem;     /* 72px */
+
+  /* Font Families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Line Heights - Bookish, comfortable reading */
+  --line-height-tight: 1.2;
+  --line-height-base: 1.75;
+  --line-height-relaxed: 1.85;
+
+  /* Spacing Scale (8px base) - Editorial rhythm */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.75rem;   /* 28px - increased for paragraph breathing room */
+  --space-xl: 2.5rem;    /* 40px - increased for section rhythm */
+  --space-2xl: 3.5rem;   /* 56px - increased for chapter breaks */
+  --space-3xl: 5rem;     /* 80px - increased for major sections */
+  --space-4xl: 7rem;     /* 112px - increased for page sections */
+  --space-5xl: 10rem;    /* 160px - increased for dramatic spacing */
+
+  /* Layout - Book-inspired reading comfort */
+  --max-width-content: 65ch;
+  --max-width-page: 1200px;
+  --header-height: 5rem;
+  --chapter-marker-width: 4px;
+  --chapter-marker-offset: calc(-1 * var(--space-xl));
+
+  /* Borders */
+  --border-width: 1px;
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.75rem;
+
+  /* Transitions */
+  --transition-speed: 0.25s;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Focus Ring */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 3px;
+}
+
+/* Dark Mode - WCAG AAA Compliant with More Personality */
+[data-theme="dark"] {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #cccccc;
+  --color-text-tertiary: #a6a6a6;
+  --color-border: #2a2a2a;
+  --color-border-hover: #555555;
+
+  /* Rainbow Palette - Brighter for dark backgrounds (7:1 on #141414) */
+  --color-violet: #C4B5FD;
+  --color-blue: #93C5FD;
+  --color-cyan: #67E8F9;
+  --color-green: #6EE7B7;
+  --color-yellow: #FCD34D;
+  --color-coral: #FCA5A5;
+
+  /* Legacy accent variable */
+  --color-accent: var(--color-blue);
+  --color-accent-hover: #93C5FD;
+  --color-accent-light: #1E3A8A;
+
+  /* RGB helpers for accent colors */
+  --color-accent-rgb: 96, 165, 250;
+  --color-accent-hover-rgb: 147, 197, 253;
+  --color-accent-light-rgb: 30, 58, 138;
+
+  /* Rainbow Gradients - same as light mode */
+  --gradient-rainbow: linear-gradient(135deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green));
+  --gradient-rainbow-horizontal: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green), var(--color-yellow), var(--color-coral));
+  --gradient-cool: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+  --gradient-warm: linear-gradient(135deg, var(--color-yellow), var(--color-coral));
+
+  /* Semantic Colors */
+  --color-focus: var(--color-blue);
+  --color-focus-outline: var(--color-blue);
+  /* RGB helpers */
+  --color-bg-rgb: 10, 10, 10;
+  --color-text-primary-rgb: 245, 245, 245;
+
+  /* Shadows for dark mode - lighter to be visible */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-strong: rgba(0, 0, 0, 0.5);
+}
+
+/* ===================================================================
+   GLOBAL RESETS & BASE STYLES
+   =================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Icon helper: ensure SVG icons inherit color and align nicely */
+.icon {
+  color: currentColor;
+  display: inline-block;
+  line-height: 1;
+  font-size: 15px; /* enforce 15px across the board */
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+/* Small helper for icon sizing inside buttons/links */
+.button .icon,
+.contactLink .icon,
+.footerLink .icon {
+  font-size: 15px;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+.contactLink .icon {
+  transition: transform var(--transition-speed) var(--transition-timing);
+}
+
+.contactLink:hover .icon {
+  transform: scale(1.1);
+}
+
+/* ===================================================================
+   TYPOGRAPHY
+   =================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-family: var(--font-handwriting);
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-family: var(--font-handwriting);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  margin-top: var(--space-4xl);
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.01em;
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  margin-top: var(--space-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5 {
+  font-size: var(--font-size-md);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+p {
+  margin-bottom: var(--space-xl);
+  max-width: var(--max-width-content);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* First paragraph in a section - bookish drop-in */
+section > p:first-of-type {
+  font-size: 1.125em;
+  line-height: var(--line-height-relaxed);
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1.5px;
+  transition: all var(--transition-speed) var(--transition-timing);
+  text-decoration-color: var(--color-cyan);
+}
+
+a:hover {
+  color: var(--color-violet);
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-violet);
+}
+
+a:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-outline);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-sm);
+}
+
+strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+em {
+  font-style: italic;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.125em 0.375em;
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-sm);
+  border: var(--border-width) solid var(--color-border);
+}
+
+/* ===================================================================
+   LISTS
+   =================================================================== */
+
+ul, ol {
+  margin-left: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  max-width: var(--max-width-content);
+}
+
+li {
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-base);
+}
+
+/* ===================================================================
+   ACCESSIBILITY
+   =================================================================== */
+
+/* Skip to main content link */
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  background: #1E40AF;
+  color: #ffffff;
+  padding: var(--space-md) var(--space-lg);
+  text-decoration: none;
+  z-index: 100;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  border-radius: 0 0 var(--border-radius-sm) 0;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-ring-width) solid var(--color-text-primary);
+  outline-offset: -3px;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-outline);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Remove default focus styles for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Font Awesome SVG icons: we import only the SVG icons we need and they inherit color */
+/* Use the `.icon` helper class for sizing/hover rules (replaces legacy `.fa-*` classes) */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===================================================================
+   LAYOUT UTILITIES
+   =================================================================== */
+
+.container {
+  max-width: var(--max-width-page);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.content-wrapper {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+/* Chapter marker - bookish section accent */
+.chapter-marker {
+  position: relative;
+  padding-left: var(--space-xl);
+}
+
+.chapter-marker::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--chapter-marker-width);
+  background-color: var(--color-accent);
+  opacity: 0.6;
+}
+
+/* ===================================================================
+   BUTTON STYLES
+   =================================================================== */
+
+button, .button {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-timing);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before, .button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+button:hover::before, .button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button::before, .button::before {
+    transition: none;
+  }
+
+  button:hover::before, .button:hover::before {
+    width: 0;
+    height: 0;
+  }
+}
+
+button:hover, .button:hover {
+  border-color: var(--color-blue);
+  background-color: var(--color-surface);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button:hover, .button:hover {
+    transform: none;
+  }
+}
+
+button:focus-visible, .button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-outline);
+  outline-offset: var(--focus-ring-offset);
+}
+
+button:active, .button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background: var(--gradient-cool);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.button-primary::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode - More vibrant primary button gradient */
+[data-theme="dark"] .button-primary {
+  background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+  color: #0a0a0a;
+  font-weight: var(--font-weight-semibold);
+}
+
+.button-primary:hover {
+  background: var(--color-bg);
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--color-bg), var(--color-bg)),
+    var(--gradient-rainbow-horizontal);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color-strong);
+}
+
+[data-theme="dark"] .button-primary:hover {
+  box-shadow: 0 4px 12px var(--shadow-color-strong);
+}
+
+/* ===================================================================
+   RESPONSIVE TYPOGRAPHY
+   =================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-4xl: 3rem;     /* 48px */
+    --font-size-3xl: 2.5rem;   /* 40px */
+    --font-size-2xl: 2rem;     /* 32px */
+    --font-size-xl: 1.75rem;   /* 28px */
+  }
+
+  .container {
+    padding: 0 var(--space-lg);
+  }
+
+  .Header_nav__tNWGY {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-4xl: 2.25rem;  /* 36px */
+    --font-size-3xl: 2rem;     /* 32px */
+    --font-size-2xl: 1.75rem;  /* 28px */
+  }
+
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* ===================================================================
+   PRINT STYLES
+   =================================================================== */
+
+@media print {
+  body {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ===================================================================
+   CURSOR SPARKLES
+   Uses existing color CSS variables so sparkles match the site palette.
+   Respects prefers-reduced-motion and cleans up after itself.
+   =================================================================== */
+
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  will-change: transform, opacity;
+  opacity: 1;
+  box-shadow: 0 6px 18px var(--shadow-color);
+  animation: sparkle-float 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes sparkle-float {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: translate(-50%, -350%) scale(0.55);
+    opacity: 0;
+    filter: blur(1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none !important;
+    opacity: 0;
+  }
+}
+/* Offset anchors for sticky header and add a subtle focus animation */
+#work-heading {
+  /* leave a little breathing room below the header */
+  scroll-margin-top: calc(var(--header-height) + var(--space-md));
+}
+
+/* When an element is targeted via a fragment, animate it subtly for a pleasant transition */
+#work-heading:target {
+  animation: section-focus 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@keyframes section-focus {
+  from {
+    opacity: 0.0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #work-heading:target {
+    animation: none;
+  }
+}

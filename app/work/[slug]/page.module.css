@@ -1,0 +1,255 @@
+.caseStudy {
+  padding: var(--space-4xl) 0;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  margin-bottom: var(--space-3xl);
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumbLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-timing);
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-violet);
+}
+
+.breadcrumbLink:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-outline);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-sm);
+}
+
+.breadcrumbSeparator {
+  color: var(--color-text-tertiary);
+}
+
+.breadcrumbCurrent {
+  color: var(--color-text-primary);
+}
+
+/* Header - Essay title page */
+.header {
+  margin-bottom: var(--space-5xl);
+  padding-bottom: var(--space-3xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-md);
+  max-width: 100%;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  line-height: var(--line-height-relaxed);
+  max-width: 100%;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Rainbow colors for tags - Subtle filled backgrounds, no borders (not button-like) */
+/* Light mode: Very light backgrounds (6-8% opacity) for AAA contrast with dark text */
+.tag:nth-child(1) {
+  color: var(--color-violet);
+  background-color: rgba(91, 33, 182, 0.06);
+  border: none;
+}
+
+.tag:nth-child(2) {
+  color: var(--color-cyan);
+  background-color: rgba(12, 90, 109, 0.07);
+  border: none;
+}
+
+.tag:nth-child(3) {
+  color: var(--color-green);
+  background-color: rgba(6, 95, 70, 0.06);
+  border: none;
+}
+
+.tag:nth-child(4) {
+  color: var(--color-yellow);
+  background-color: rgba(146, 64, 14, 0.08);
+  border: none;
+}
+
+.tag:nth-child(5) {
+  color: var(--color-coral);
+  background-color: rgba(153, 27, 27, 0.06);
+  border: none;
+}
+
+/* Dark mode - Brighter backgrounds for visibility */
+[data-theme="dark"] .tag:nth-child(1) {
+  color: var(--color-violet);
+  background-color: rgba(196, 181, 253, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(2) {
+  color: var(--color-cyan);
+  background-color: rgba(103, 232, 249, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(3) {
+  color: var(--color-green);
+  background-color: rgba(110, 231, 183, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(4) {
+  color: var(--color-yellow);
+  background-color: rgba(252, 211, 77, 0.12);
+}
+
+[data-theme="dark"] .tag:nth-child(5) {
+  color: var(--color-coral);
+  background-color: rgba(252, 165, 165, 0.12);
+}
+
+/* Content - Essay body with chapter rhythm */
+.content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.content section {
+  margin-bottom: var(--space-5xl);
+  position: relative;
+  padding-left: var(--space-xl);
+  border-left: var(--chapter-marker-width) solid transparent;
+}
+
+.content section:last-child {
+  margin-bottom: 0;
+}
+
+/* First section gets a visible rainbow chapter marker */
+.content section:first-of-type::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--chapter-marker-width);
+  background: var(--gradient-rainbow);
+  opacity: 0.6;
+}
+
+.sectionHeading {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-xl);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.subsectionHeading {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+}
+
+.bulletList,
+.numberedList {
+  margin-left: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  max-width: 100%;
+}
+
+.bulletList li,
+.numberedList li {
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-relaxed);
+}
+
+.bulletList li:last-child,
+.numberedList li:last-child {
+  margin-bottom: 0;
+}
+
+/* Navigation - End matter */
+.navigation {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: flex-start;
+  margin-top: var(--space-5xl);
+  padding-top: var(--space-4xl);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  max-width: var(--max-width-content);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .caseStudy {
+    padding: var(--space-3xl) 0;
+  }
+
+  .header {
+    margin-bottom: var(--space-4xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .sectionHeading {
+    font-size: var(--font-size-xl);
+  }
+
+  .content section {
+    padding-left: var(--space-lg);
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-3xl);
+  }
+
+  .navigation .button {
+    width: 100%;
+    text-align: center;
+  }
+}
