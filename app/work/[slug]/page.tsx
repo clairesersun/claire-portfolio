@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { caseStudies } from '@/content'
 import styles from './page.module.css'
+import { Tag, Button } from '@/components/ui'
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>
@@ -63,9 +64,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <h1 className={styles.title}>{study.title}</h1>
           <p className={styles.subtitle}>{study.subtitle}</p>
           <ul className={styles.tagList} aria-label="Tags">
-            {study.tags.map((tag) => (
-              <li key={tag} className={styles.tag}>
-                {tag}
+            {study.tags.map((tag, index) => (
+              <li key={tag}>
+                <Tag colorIndex={index} variant="bold">{tag}</Tag>
               </li>
             ))}
           </ul>
@@ -144,12 +145,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         {/* Navigation */}
         <nav aria-label="Case study navigation" className={styles.navigation}>
-          <Link href="/" className="button">
+          <Button href="/">
             ← Back to Home
-          </Link>
-          <Link href="/resume" className="button">
+          </Button>
+          <Button href="/resume">
             View Resume
-          </Link>
+          </Button>
         </nav>
       </div>
     </article>

@@ -72,69 +72,8 @@
   padding: 0;
 }
 
-.tag {
-  font-size: var(--font-size-xs);
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--border-radius-sm);
-  font-weight: var(--font-weight-medium);
-}
-
-/* Rainbow colors for tags - Subtle filled backgrounds, no borders (not button-like) */
-/* Light mode: Very light backgrounds (6-8% opacity) for AAA contrast with dark text */
-.tag:nth-child(1) {
-  color: var(--color-violet);
-  background-color: rgba(91, 33, 182, 0.06);
-  border: none;
-}
-
-.tag:nth-child(2) {
-  color: var(--color-cyan);
-  background-color: rgba(12, 90, 109, 0.07);
-  border: none;
-}
-
-.tag:nth-child(3) {
-  color: var(--color-green);
-  background-color: rgba(6, 95, 70, 0.06);
-  border: none;
-}
-
-.tag:nth-child(4) {
-  color: var(--color-yellow);
-  background-color: rgba(146, 64, 14, 0.08);
-  border: none;
-}
-
-.tag:nth-child(5) {
-  color: var(--color-coral);
-  background-color: rgba(153, 27, 27, 0.06);
-  border: none;
-}
-
-/* Dark mode - Brighter backgrounds for visibility */
-[data-theme="dark"] .tag:nth-child(1) {
-  color: var(--color-violet);
-  background-color: rgba(196, 181, 253, 0.12);
-}
-
-[data-theme="dark"] .tag:nth-child(2) {
-  color: var(--color-cyan);
-  background-color: rgba(103, 232, 249, 0.12);
-}
-
-[data-theme="dark"] .tag:nth-child(3) {
-  color: var(--color-green);
-  background-color: rgba(110, 231, 183, 0.12);
-}
-
-[data-theme="dark"] .tag:nth-child(4) {
-  color: var(--color-yellow);
-  background-color: rgba(252, 211, 77, 0.12);
-}
-
-[data-theme="dark"] .tag:nth-child(5) {
-  color: var(--color-coral);
-  background-color: rgba(252, 165, 165, 0.12);
+.tagList > li {
+  margin-bottom: 0;
 }
 
 /* Content - Essay body with chapter rhythm */
@@ -154,8 +93,8 @@
   margin-bottom: 0;
 }
 
-/* First section gets a visible rainbow chapter marker */
-.content section:first-of-type::before {
+/* ALL sections get visible rainbow chapter markers (not just first) */
+.content section::before {
   content: '';
   position: absolute;
   left: 0;
@@ -163,7 +102,13 @@
   bottom: 0;
   width: var(--chapter-marker-width);
   background: var(--gradient-rainbow);
-  opacity: 0.6;
+  opacity: 0.4; /* Visible by default */
+  transition: opacity 0.3s ease;
+}
+
+/* Brighten on hover for interactivity */
+.content section:hover::before {
+  opacity: 0.8;
 }
 
 .sectionHeading {

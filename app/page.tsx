@@ -6,6 +6,7 @@ import styles from './page.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faWheelchairMove, faLeaf, faTrowelBricks, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { Tag, Button } from '@/components/ui'
 
 export const metadata: Metadata = {
   // Resolve canonical URLs for Open Graph / Twitter images from an env var.
@@ -32,19 +33,20 @@ export default function HomePage() {
                 Building interfaces that work for <span className={styles.heroTitleEmphasis}>everyone</span>
               </h1>
               <p className={styles.heroSubtitle}>
-                I'm Claire and I believe accessibility isn't optional. I transform complex systems into intuitive, WCAG-compliant interfaces that elevate both user experience and business outcomes.
+                I'm Claire and I believe accessibility isn't optional. I transform complex systems into intuitive, WCAG-compliant interfaces that elevate both user experience and business&nbsp;outcomes.
               </p>
               <div className={styles.heroActions}>
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="button button-primary"
+                <Button
+                  externalHref={`mailto:${contactInfo.email}`}
+                  variant="primary"
+                  icon={faEnvelope}
+                  iconPosition="left"
                 >
-                  <FontAwesomeIcon icon={faEnvelope} className="icon" aria-hidden="true" style={{marginRight: '0.5rem'}} />
                   Let's Talk
-                </a>
-                <Link href="/resume" className="button">
+                </Button>
+                <Button href="/resume">
                   View Resume
-                </Link>
+                </Button>
               </div>
             </div>
             <div className={styles.heroImage}>
@@ -129,9 +131,9 @@ export default function HomePage() {
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <ul className={styles.tagList} aria-label="Project tags">
-                      {study.tags.slice(0, 2).map((tag) => (
-                        <li key={tag} className={styles.tag}>
-                          {tag}
+                      {study.tags.slice(0, 2).map((tag, tagIndex) => (
+                        <li key={tag}>
+                          <Tag colorIndex={tagIndex} variant="bold">{tag}</Tag>
                         </li>
                       ))}
                     </ul>
@@ -165,25 +167,24 @@ export default function HomePage() {
               Let's Build
             </h2>
             <p className={styles.ctaText}>
-              Looking for a UI/UX Developer or Frontend Engineer who prioritizes accessibility, usability, and maintainable code? <br/> I'd love to hear about your project.
+              Looking for a UI/UX Developer or Frontend Engineer who prioritizes accessibility, usability, and maintainable code? <br/> I'd love to hear about your&nbsp;project.
             </p>
             <div className={styles.ctaActions}>
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="button button-primary"
+                <Button
+                  externalHref={`mailto:${contactInfo.email}`}
+                  variant="primary"
+                  icon={faEnvelope}
+                  iconPosition="left"
                 >
-                  <FontAwesomeIcon icon={faEnvelope} className="icon" aria-hidden="true" style={{marginRight: '0.5rem'}} />
                   {contactInfo.email}
-                </a>
-                <a
-                  href={contactInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button"
+                </Button>
+                <Button
+                  externalHref={contactInfo.linkedin}
+                  icon={faArrowUpRightFromSquare}
+                  iconPosition="left"
                 >
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="icon" aria-hidden="true" />
-                  <span style={{marginLeft: '0.5rem'}}>LinkedIn</span>
-                </a>
+                  LinkedIn
+                </Button>
             </div>
           </div>
         </div>

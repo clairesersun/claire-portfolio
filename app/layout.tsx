@@ -57,10 +57,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Caveat - elegant handwriting for main headings */}
+        {/* Fonts: Caveat (handwriting for h1/h2), Inter (UI and body) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
         {/* Font Awesome SVG setup (client) — imports only the icons we need */}
 
       </head>

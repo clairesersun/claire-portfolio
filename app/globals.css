@@ -40,6 +40,21 @@
   --gradient-cool: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
   --gradient-warm: linear-gradient(135deg, var(--color-yellow), var(--color-coral));
 
+  /* Rainbow Utility Tokens - For Tag and Card components */
+  /* Light mode backgrounds (6-8% opacity for WCAG AAA) */
+  --rainbow-0-bg: rgba(91, 33, 182, 0.06);    /* Violet */
+  --rainbow-1-bg: rgba(12, 90, 109, 0.07);    /* Cyan */
+  --rainbow-2-bg: rgba(6, 95, 70, 0.06);      /* Green */
+  --rainbow-3-bg: rgba(146, 64, 14, 0.08);    /* Yellow */
+  --rainbow-4-bg: rgba(153, 27, 27, 0.06);    /* Coral */
+
+  /* Bold variant backgrounds (higher opacity) */
+  --rainbow-0-bg-bold: rgba(91, 33, 182, 0.15);
+  --rainbow-1-bg-bold: rgba(12, 90, 109, 0.15);
+  --rainbow-2-bg-bold: rgba(6, 95, 70, 0.15);
+  --rainbow-3-bg-bold: rgba(146, 64, 14, 0.18);
+  --rainbow-4-bg-bold: rgba(153, 27, 27, 0.15);
+
   /* Semantic Colors */
   --color-focus: var(--color-blue);
   --color-focus-outline: var(--color-blue);
@@ -138,6 +153,20 @@
   --gradient-rainbow-horizontal: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green), var(--color-yellow), var(--color-coral));
   --gradient-cool: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
   --gradient-warm: linear-gradient(135deg, var(--color-yellow), var(--color-coral));
+
+  /* Rainbow Utility Tokens - Dark mode (brighter backgrounds) */
+  --rainbow-0-bg: rgba(196, 181, 253, 0.12);  /* Violet */
+  --rainbow-1-bg: rgba(103, 232, 249, 0.12);  /* Cyan */
+  --rainbow-2-bg: rgba(110, 231, 183, 0.12);  /* Green */
+  --rainbow-3-bg: rgba(252, 211, 77, 0.12);   /* Yellow */
+  --rainbow-4-bg: rgba(252, 165, 165, 0.12);  /* Coral */
+
+  /* Bold variant backgrounds */
+  --rainbow-0-bg-bold: rgba(196, 181, 253, 0.22);
+  --rainbow-1-bg-bold: rgba(103, 232, 249, 0.22);
+  --rainbow-2-bg-bold: rgba(110, 231, 183, 0.22);
+  --rainbow-3-bg-bold: rgba(252, 211, 77, 0.22);
+  --rainbow-4-bg-bold: rgba(252, 165, 165, 0.22);
 
   /* Semantic Colors */
   --color-focus: var(--color-blue);
@@ -287,6 +316,17 @@ p:last-child {
 section > p:first-of-type {
   font-size: 1.125em;
   line-height: var(--line-height-relaxed);
+}
+
+/* Drop cap for the very first letter of first paragraph */
+section > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.5em;
+  line-height: 0.85;
+  margin: 0.08em 0.25em 0 0; /* Increased right margin for better letter spacing */
+  font-weight: 700;
+  color: var(--color-violet);
+  font-family: var(--font-handwriting);
 }
 
 a {
@@ -501,9 +541,22 @@ button:active, .button:active {
   transform: translateY(0);
 }
 
-button:disabled {
+@media (prefers-reduced-motion: reduce) {
+  button:active, .button:active {
+    transform: none;
+  }
+}
+
+button:disabled, .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover, .button:disabled:hover {
+  border-color: var(--color-border);
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .button-primary {
@@ -550,14 +603,11 @@ button:disabled {
     --font-size-3xl: 2.5rem;   /* 40px */
     --font-size-2xl: 2rem;     /* 32px */
     --font-size-xl: 1.75rem;   /* 28px */
+    --header-height: 3.75rem;  /* 60px - optimized for mobile */
   }
 
   .container {
     padding: 0 var(--space-lg);
-  }
-
-  .Header_nav__tNWGY {
-    padding-bottom: 24px;
   }
 }
 
@@ -566,6 +616,7 @@ button:disabled {
     --font-size-4xl: 2.25rem;  /* 36px */
     --font-size-3xl: 2rem;     /* 32px */
     --font-size-2xl: 1.75rem;  /* 28px */
+    --header-height: 3.5rem;   /* 56px - further optimized for small screens */
   }
 
   .container {

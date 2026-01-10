@@ -8,7 +8,11 @@
       "Bash([ -s \"$NVM_DIR/nvm.sh\" ])",
       "Bash(. \"$NVM_DIR/nvm.sh\")",
       "Bash(nvm use:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Skill(frontend-design)",
+      "Skill(frontend-design:*)",
+      "Bash(npm run build:*)",
+      "Bash(source ~/.nvm/nvm.sh)"
     ]
   }
 }

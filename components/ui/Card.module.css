@@ -1,0 +1,147 @@
+/* Card Component Styles */
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-speed) var(--transition-timing);
+}
+
+/* ===================================================================
+   DEFAULT VARIANT
+   =================================================================== */
+
+.default {
+  padding: var(--space-2xl);
+  background-color: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+}
+
+.default:hover:not(.noHover) {
+  border-color: var(--color-blue);
+  box-shadow: 0 4px 12px var(--shadow-color-strong);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .default:hover:not(.noHover) {
+    transform: none;
+  }
+}
+
+/* ===================================================================
+   BELIEF VARIANT
+   =================================================================== */
+
+.belief {
+  padding: var(--space-2xl);
+  background-color: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--space-md);
+}
+
+.belief:hover:not(.noHover) {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-color-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .belief:hover:not(.noHover) {
+    transform: none;
+  }
+}
+
+/* Rainbow border colors for each belief card on hover */
+.belief.rainbow0:hover:not(.noHover) {
+  border-color: var(--color-violet);
+}
+
+.belief.rainbow1:hover:not(.noHover) {
+  border-color: var(--color-cyan);
+}
+
+.belief.rainbow2:hover:not(.noHover) {
+  border-color: var(--color-coral);
+}
+
+.beliefIcon {
+  margin-bottom: var(--space-lg);
+}
+
+/* Make icons in belief cards 44px */
+.belief .beliefIcon .icon {
+  width: 44px;
+  height: 44px;
+  font-size: 44px;
+  line-height: 1;
+  display: block;
+}
+
+/* Unique rainbow colors for each belief card icon */
+.belief.rainbow0 .beliefIcon {
+  color: var(--color-violet);
+}
+
+.belief.rainbow1 .beliefIcon {
+  color: var(--color-cyan);
+}
+
+.belief.rainbow2 .beliefIcon {
+  color: var(--color-coral);
+}
+
+/* ===================================================================
+   CASE STUDY VARIANT
+   =================================================================== */
+
+.caseStudy {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) 0;
+  padding-left: var(--space-xl);
+  border-left: var(--chapter-marker-width) solid transparent;
+  position: relative;
+}
+
+.caseStudy::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--chapter-marker-width);
+  background: var(--gradient-rainbow);
+  opacity: 0;
+  transition: opacity var(--transition-speed) var(--transition-timing);
+}
+
+.caseStudy:hover:not(.noHover)::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caseStudy::before {
+    transition: none;
+  }
+}
+
+.caseStudy:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-outline);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .caseStudy {
+    padding-left: var(--space-lg);
+  }
+}
+
+/* ===================================================================
+   NO HOVER STATE
+   =================================================================== */
+
+.noHover {
+  cursor: default;
+}

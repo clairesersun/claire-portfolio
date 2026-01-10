@@ -1,0 +1,117 @@
+/* Tag Component Styles */
+.tag {
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-medium);
+  display: inline-block;
+  border: none;
+}
+
+/* ===================================================================
+   RAINBOW COLOR VARIANTS (WCAG AAA Compliant)
+   =================================================================== */
+
+/* Subtle variant - Low-opacity backgrounds (default) */
+.subtle.color0 {
+  color: var(--color-violet);
+  background-color: rgba(91, 33, 182, 0.06);
+}
+
+.subtle.color1 {
+  color: var(--color-cyan);
+  background-color: rgba(12, 90, 109, 0.07);
+}
+
+.subtle.color2 {
+  color: var(--color-green);
+  background-color: rgba(6, 95, 70, 0.06);
+}
+
+.subtle.color3 {
+  color: var(--color-yellow);
+  background-color: rgba(146, 64, 14, 0.08);
+}
+
+.subtle.color4 {
+  color: var(--color-coral);
+  background-color: rgba(153, 27, 27, 0.06);
+}
+
+/* Dark mode - Brighter backgrounds for visibility */
+[data-theme="dark"] .subtle.color0 {
+  color: var(--color-violet);
+  background-color: rgba(196, 181, 253, 0.12);
+}
+
+[data-theme="dark"] .subtle.color1 {
+  color: var(--color-cyan);
+  background-color: rgba(103, 232, 249, 0.12);
+}
+
+[data-theme="dark"] .subtle.color2 {
+  color: var(--color-green);
+  background-color: rgba(110, 231, 183, 0.12);
+}
+
+[data-theme="dark"] .subtle.color3 {
+  color: var(--color-yellow);
+  background-color: rgba(252, 211, 77, 0.12);
+}
+
+[data-theme="dark"] .subtle.color4 {
+  color: var(--color-coral);
+  background-color: rgba(252, 165, 165, 0.12);
+}
+
+/* Bold variant - Higher contrast */
+.bold.color0 {
+  color: var(--color-violet);
+  background-color: rgba(91, 33, 182, 0.15);
+}
+
+.bold.color1 {
+  color: var(--color-cyan);
+  background-color: rgba(12, 90, 109, 0.15);
+}
+
+.bold.color2 {
+  color: var(--color-green);
+  background-color: rgba(6, 95, 70, 0.15);
+}
+
+.bold.color3 {
+  color: var(--color-yellow);
+  background-color: rgba(146, 64, 14, 0.18);
+}
+
+.bold.color4 {
+  color: var(--color-coral);
+  background-color: rgba(153, 27, 27, 0.15);
+}
+
+/* Dark mode bold */
+[data-theme="dark"] .bold.color0 {
+  color: var(--color-violet);
+  background-color: rgba(196, 181, 253, 0.22);
+}
+
+[data-theme="dark"] .bold.color1 {
+  color: var(--color-cyan);
+  background-color: rgba(103, 232, 249, 0.22);
+}
+
+[data-theme="dark"] .bold.color2 {
+  color: var(--color-green);
+  background-color: rgba(110, 231, 183, 0.22);
+}
+
+[data-theme="dark"] .bold.color3 {
+  color: var(--color-yellow);
+  background-color: rgba(252, 211, 77, 0.22);
+}
+
+[data-theme="dark"] .bold.color4 {
+  color: var(--color-coral);
+  background-color: rgba(252, 165, 165, 0.22);
+}
