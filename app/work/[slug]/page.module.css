@@ -76,6 +76,127 @@
   margin-bottom: 0;
 }
 
+/* Project Snapshot — scannable context block */
+.snapshotSection {
+  max-width: var(--max-width-content);
+  margin: 0 auto var(--space-5xl) auto;
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.snapshotSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-rainbow-horizontal, var(--gradient-rainbow));
+  opacity: 0.6;
+}
+
+.snapshotHeading {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-lg);
+}
+
+.snapshotGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg) var(--space-xl);
+  margin: 0;
+}
+
+.snapshotItem dt {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-xs);
+}
+
+.snapshotItem dd {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+}
+
+/* Give the "Outcome" row full width since it tends to be longest */
+.snapshotItem:last-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .snapshotGrid {
+    grid-template-columns: 1fr;
+  }
+  .snapshotItem:last-child {
+    grid-column: auto;
+  }
+}
+
+/* Workflow walkthrough — numbered step list with captions */
+.workflowList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: workflow;
+}
+
+.workflowItem {
+  position: relative;
+  padding-left: calc(var(--space-xl) + var(--space-sm));
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
+  counter-increment: workflow;
+}
+
+.workflowItem::before {
+  content: counter(workflow);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--space-xl);
+  height: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading, inherit);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-violet);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.workflowStepTitle {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-xs);
+}
+
+.workflowStepCaption {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
 /* Content - Essay body with chapter rhythm */
 .content {
   max-width: var(--max-width-content);
@@ -196,5 +317,14 @@
   .navigation .button {
     width: 100%;
     text-align: center;
+  }
+
+  .snapshotSection {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .workflowItem {
+    padding-left: calc(var(--space-xl) + var(--space-xs));
   }
 }

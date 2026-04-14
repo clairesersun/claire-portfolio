@@ -13,3 +13,6 @@ export type { TagProps } from './Tag'
 
 export { Card } from './Card'
 export type { CardProps } from './Card'
+
+export { Figure } from './Figure'
+export type { FigureProps, FigureLayout, FigureAccent } from './Figure'
