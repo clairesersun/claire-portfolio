@@ -1,507 +1,541 @@
-/* Hero Section - Title page aesthetic */
+/* ===================================================================
+   HOMEPAGE — Nabiu-inspired cozy layout
+   =================================================================== */
+
+/* ---------- RADIAL HERO ---------- */
 .hero {
-  padding: var(--space-2xl) 0;
   position: relative;
-}
-
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  gap: var(--space-5xl);
-  align-items: center;
-}
-
-.heroContent {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .heroContent {
-    animation: none;
-  }
-}
-
-.heroLabel {
+  padding: var(--space-4xl) var(--space-2xl);
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  justify-content: center;
 }
 
-.heroLabelDot {
-  color: var(--color-cyan);
-  font-size: var(--font-size-xs);
+.heroStage {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center column — held narrow so doodles have breathing room on the arc */
+.heroCenter {
+  text-align: center;
+  max-width: 700px;
+  padding: 0 var(--space-2xl);
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.heroKicker {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--color-text-tertiary);
+  margin: 0 0 var(--space-xl);
+  letter-spacing: 0.01em;
+  max-width: none;
 }
 
 .heroTitle {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.1;
-  margin-bottom: var(--space-lg);
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary);
+  margin: 0 auto var(--space-xl);
+  max-width: 36ch;
 }
 
-.heroTitleEmphasis {
-  color: var(--color-violet);
-  position: relative;
-  display: inline-block;
-  font-size: 1.2em; /* Make emphasis word 20% larger */
-}
-
-.heroTitleEmphasis::after {
-  content: '';
-  position: absolute;
-  bottom: 0.05em;
-  left: -0.05em;
-  right: -0.05em;
-  height: 0.35em; /* Taller underline for more impact */
-  background: var(--gradient-cool);
-  opacity: 0.75; /* More visible */
-  z-index: -1;
-  border-radius: 2px;
-}
-
-.heroSubtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-3xl);
-  max-width: 55ch;
+.heroTitle em {
+  font-style: italic;
+  border-bottom: 2px solid var(--color-text-primary);
+  padding-bottom: 2px;
 }
 
 .heroActions {
   display: flex;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
-}
-
-/* Hero Image */
-.heroImage {
-  position: relative;
-  animation: fadeInRight 0.8s ease-out 0.2s backwards;
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .heroImage {
-    animation: none;
-  }
-}
-
- .heroImageWrapper {
-  position: relative;
-  /* aspect-ratio removed to allow natural image aspect */
-  border-radius: var(--border-radius-sm);
-  overflow: hidden;
-  border: 2px solid transparent;
-  background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
-              var(--gradient-rainbow-horizontal) border-box;
-}
-
- .heroPhoto {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Beliefs Section */
-.beliefs {
-  padding: var(--space-5xl) 0;
-  background-color: var(--color-surface);
-}
-
-.beliefsHeading {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
-  margin-bottom: var(--space-3xl);
-  color: var(--color-text-primary);
-  position: relative;
-}
-
-/* Editorial ornament above beliefs heading */
-.beliefsHeading::before {
-  content: '◆';
-  display: block;
-  font-size: var(--font-size-md);
-  color: var(--color-violet);
-  margin-bottom: var(--space-lg);
-  opacity: 0.6;
-}
-
-.beliefsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-2xl);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.beliefCard {
-  padding: var(--space-2xl);
-  background-color: var(--color-bg);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--space-md);
-  transition: all 0.3s ease;
-}
-
-.beliefCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--shadow-color-strong);
-}
-
-/* Rainbow border colors for each card on hover */
-.beliefCard:nth-child(1):hover {
-  border-color: var(--color-violet);
-}
-
-.beliefCard:nth-child(2):hover {
-  border-color: var(--color-cyan);
-}
-
-.beliefCard:nth-child(3):hover {
-  border-color: var(--color-coral);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .beliefCard:hover {
-    transform: none;
-  }
-}
-
-.beliefIcon {
-  margin-bottom: var(--space-lg);
-}
-
-/* Make icons in the Beliefs section MUCH larger for impact */
-/* Minimal selector that matches the CSS Modules output */
-.beliefs .beliefCard .beliefIcon [class~="icon"] {
-  width: 64px;
-  height: 64px;
-  font-size: 64px;
-  line-height: 1;
-  display: block;
-}
-
-/* Unique rainbow colors for each belief card icon */
-.beliefCard:nth-child(1) .beliefIcon {
-  color: var(--color-violet);
-}
-
-.beliefCard:nth-child(2) .beliefIcon {
-  color: var(--color-cyan);
-}
-
-.beliefCard:nth-child(3) .beliefIcon {
-  color: var(--color-coral);
-}
-
-.beliefTitle {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-md);
-  color: var(--color-text-primary);
-}
-
-.beliefText {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin: 0;
-}
-
-/* Work Section - Chapter-like structure */
-.workSection {
-  padding: var(--space-5xl) 0;
-}
-
-.workHeader {
-  margin-bottom: var(--space-4xl);
-  max-width: var(--max-width-content);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sectionHeading {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-lg);
-  color: var(--color-text-primary);
-  position: relative;
-}
-
-/* Editorial ornament for section headings */
-.sectionHeading::before {
-  content: '◆';
-  display: inline-block;
-  font-size: var(--font-size-sm);
-  color: var(--color-violet);
-  margin-right: var(--space-md);
-  opacity: 0.6;
-}
-
-.sectionSubheading {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin: 0;
-  line-height: var(--line-height-relaxed);
-}
-
-.caseStudiesGrid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3xl);
-  max-width: var(--max-width-content);
-  margin: 0 auto;
-}
-
-.caseStudyCard {
-  animation: fadeInUp 0.6s ease-out;
-  animation-delay: var(--delay, 0s);
-  animation-fill-mode: backwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .caseStudyCard {
-    animation: none;
-  }
-}
-
-.caseStudyLink {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-xl) 0;
-  padding-left: var(--space-xl);
-  border-left: var(--chapter-marker-width) solid transparent;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.caseStudyLink::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--chapter-marker-width);
-  background: var(--gradient-rainbow);
-  opacity: 0.4; /* Visible by default */
-  transition: opacity 0.3s ease;
-}
-
-.caseStudyLink:hover::before {
-  opacity: 1; /* Full opacity on hover */
-}
-
-.caseStudyLink:focus-visible {
-  outline: var(--focus-ring-width) solid var(--color-focus-outline);
-  outline-offset: var(--focus-ring-offset);
-  border-radius: var(--border-radius-sm);
-}
-
-.caseStudyHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-md);
-}
-
-.caseStudyNumber {
-  font-size: var(--font-size-2xl); /* Much larger chapter numbers */
-  font-weight: var(--font-weight-black); /* Heavier weight */
-  color: var(--color-text-secondary); /* More visible */
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  min-width: 3ch;
-  font-family: var(--font-heading);
-}
-
-.tagList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.tagList > li {
-  margin-bottom: 0;
-}
-
-.caseStudyContent {
-  flex: 1;
-}
-
-.caseStudyTitle {
-  font-size: var(--font-size-2xl); /* Larger, more impactful */
-  font-weight: var(--font-weight-bold); /* Bolder */
-  margin-bottom: var(--space-sm);
-  color: var(--color-text-primary);
-  transition: color 0.2s ease;
-  line-height: 1.2;
-}
-
-.caseStudyLink:hover .caseStudyTitle {
-  color: var(--color-violet);
-}
-
-.caseStudySubtitle {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin: 0;
-}
-
-.caseStudyFooter {
-  margin-top: var(--space-md);
-}
-
-.caseStudyLinkText {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-blue);
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.caseStudyArrow {
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
-
-.caseStudyLink:hover .caseStudyArrow {
-  transform: translateX(4px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .caseStudyLink:hover .caseStudyArrow {
-    transform: none;
-  }
-}
-
-/* CTA Section - Book colophon inspired */
-.cta {
-  padding: var(--space-5xl) 0;
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-}
-
-.ctaContent {
-  max-width: var(--max-width-content);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.ctaHeading {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-lg);
-  color: var(--color-text-primary);
-}
-
-.ctaText {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-2xl);
-}
-
-.ctaActions {
-  display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   justify-content: center;
-  flex-wrap: wrap;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-3xl);
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .heroGrid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4xl);
-  }
-
-  .heroImage {
-    order: -1;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .heroTitle {
-    font-size: var(--font-size-3xl);
-  }
+.heroCaption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 52ch;
+  letter-spacing: 0.02em;
 }
 
-@media (max-width: 768px) {
-   .hero {
-    padding: var(--space-2xl) 0;
-  }
+/* Radial doodle nav items */
+.navDoodle {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  gap: var(--space-xs);
+  color: var(--color-text-secondary);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
 
-  .beliefs,
-  .workSection,
-  .cta {
-    padding: var(--space-4xl) 0;
-  }
+.navDoodle:hover,
+.navDoodle:focus-visible {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transform: translateY(-4px);
+}
 
-  .beliefsHeading,
-  .sectionHeading,
-  .ctaHeading {
-    font-size: var(--font-size-2xl);
-  }
+.navDoodleImg {
+  width: clamp(90px, 9vw, 120px);
+  height: auto;
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
 
-  .beliefsGrid {
-    grid-template-columns: 1fr;
-  }
+.navDoodle:hover .navDoodleImg { opacity: 1; }
 
-  .caseStudyLink {
-    padding-left: var(--space-lg);
+.navDoodleLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: inherit;
+}
+
+/* Elliptical positions — each doodle sits on the arc of an oval around the
+   centered text. Computed with cos/sin at these angles from center:
+   upper-left  150°  |  upper-right   30°
+   left        180°  |  right          0°
+   lower-left  210°  |  lower-right  330°
+   Ellipse radii: ~44% horizontal × 38% vertical.
+   All items translate by -50% -50% so their center sits on the arc. */
+.navDoodle { --doodle-tilt: 0deg; }
+
+.pos_top_left    { left: 12%; top: 12%;   --doodle-tilt: -4deg; }
+.pos_top_right   { left: 88%; top: 12%;   --doodle-tilt: 4deg; }
+.pos_mid_left    { left: 4%;  top: 50%;   --doodle-tilt: -2deg; }
+.pos_mid_right   { left: 96%; top: 50%;   --doodle-tilt: 2deg; }
+.pos_bottom_left { left: 12%; top: 88%;   --doodle-tilt: -2deg; }
+.pos_bottom_right{ left: 88%; top: 88%;   --doodle-tilt: 3deg; }
+
+.pos_top_left,
+.pos_top_right,
+.pos_mid_left,
+.pos_mid_right,
+.pos_bottom_left,
+.pos_bottom_right {
+  transform: translate(-50%, -50%) rotate(var(--doodle-tilt));
+}
+
+.pos_top_left:hover,
+.pos_top_right:hover,
+.pos_mid_left:hover,
+.pos_mid_right:hover,
+.pos_bottom_left:hover,
+.pos_bottom_right:hover {
+  transform: translate(-50%, calc(-50% - 4px)) rotate(0);
+}
+
+/* Collapse radial layout on narrower screens — text first, doodles after */
+@media (max-width: 960px) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
+  }
+  .heroStage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl) var(--space-md);
+    min-height: 0;
+    align-items: start;
+  }
+  .heroCenter {
+    grid-column: 1 / -1;
+    order: 0;
+    padding: 0;
+  }
+  .navDoodle {
+    position: static;
+    transform: none !important;
+    order: 1;
   }
 }
 
 @media (max-width: 480px) {
-  .heroTitle {
-    font-size: var(--font-size-2xl);
-  }
+  .heroStage { grid-template-columns: repeat(2, 1fr); }
+}
 
-  .heroActions,
-  .ctaActions {
+@media (max-width: 600px) {
+  .heroTitle { font-size: 2.25rem; }
+  .heroCaption { font-size: 0.7rem; }
+  .navDoodleImg { width: 72px; }
+}
+
+/* ---------- SECTION HEADERS ---------- */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.sectionDoodle {
+  width: clamp(64px, 8vw, 96px);
+  height: auto;
+  margin: 0 auto var(--space-md);
+  display: block;
+  opacity: 0.75;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.05;
+  margin: 0 0 var(--space-sm);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.sectionSubheading {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-tertiary);
+  margin: 0 auto;
+  max-width: 54ch;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- CASE STUDIES ---------- */
+.workSection {
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.caseStudiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.caseStudyCard {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--space-xl);
+  transform: rotate(var(--card-tilt, 0deg));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.caseStudyCard:hover {
+  transform: rotate(0deg) translateY(-4px);
+  background: var(--color-surface);
+  box-shadow: 0 12px 32px rgba(90, 79, 67, 0.12);
+}
+
+.caseStudyLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.caseStudyLink:hover { color: inherit; text-decoration: none; }
+
+.caseStudyTitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  margin: 0 0 var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.caseStudySubtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-lg);
+  max-width: none;
+}
+
+.caseStudyLinkText {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-hover);
+  padding-bottom: 2px;
+}
+
+/* ---------- PLAYGROUND — horizontal scroller ---------- */
+.playground {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.playgroundHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  max-width: 1100px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-2xl);
+}
+
+.playgroundHeaderText {
+  max-width: 44ch;
+}
+
+.playgroundHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.playgroundLede {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: none;
+}
+
+.playgroundViewAll {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  align-self: flex-end;
+  transition: color 0.2s ease;
+}
+
+.playgroundViewAll:hover,
+.playgroundViewAll:focus-visible {
+  color: var(--color-text-primary);
+}
+
+/* Auto-scrolling marquee — continuous loop, pauses on hover */
+.playgroundMarquee {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--space-sm) var(--space-2xl) var(--space-md);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+.playgroundTrack {
+  display: flex;
+  gap: var(--space-md);
+  width: max-content;
+  animation: playground-scroll 60s linear infinite;
+}
+
+.playgroundMarquee:hover .playgroundTrack,
+.playgroundMarquee:focus-within .playgroundTrack {
+  animation-play-state: paused;
+}
+
+@keyframes playground-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.playgroundCard {
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.playgroundImageWrap {
+  position: relative;
+  height: clamp(220px, 26vw, 310px);
+  background: var(--color-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  line-height: 0;
+}
+
+a.playgroundCard:hover .playgroundImageWrap,
+a.playgroundCard:focus-visible .playgroundImageWrap {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.playgroundImage {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Hover overlay — fades in title + caption on hover */
+.playgroundOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-md);
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 26, 0.78) 0%,
+    rgba(26, 26, 26, 0.35) 50%,
+    rgba(26, 26, 26, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.playgroundCard:hover .playgroundOverlay,
+.playgroundCard:focus-visible .playgroundOverlay {
+  opacity: 1;
+}
+
+.playgroundOverlayTitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 0.15rem;
+}
+
+.playgroundOverlayCaption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playgroundImageWrap,
+  .playgroundOverlay { transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playgroundTrack { animation: none; }
+  .playgroundMarquee {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+}
+
+@media (max-width: 600px) {
+  .playgroundHeader {
+    padding: 0 var(--space-lg);
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: var(--space-sm);
   }
+}
 
-  .heroActions .button,
-  .ctaActions .button {
-    width: 100%;
-    text-align: center;
+/* ---------- CONTACT ---------- */
+.contact {
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  text-align: center;
+}
+
+.contactDoodle {
+  width: clamp(80px, 10vw, 120px);
+  height: auto;
+  margin: 0 auto var(--space-md);
+  display: block;
+  opacity: 0.75;
+}
+
+.contactPlantLady {
+  width: clamp(160px, 18vw, 220px);
+  height: auto;
+  margin: 0 auto var(--space-lg);
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.1));
+}
+
+.contactHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  margin: 0 auto var(--space-md);
+  max-width: 22ch;
+  color: var(--color-text-primary);
+}
+
+.contactText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  max-width: 42ch;
+  margin: 0 auto var(--space-xl);
+}
+
+.contactActions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroCenter,
+  .caseStudyCard,
+  .navDoodle {
+    animation: none !important;
+    transition: none !important;
   }
 }

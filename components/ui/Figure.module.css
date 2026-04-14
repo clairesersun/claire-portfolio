@@ -36,13 +36,15 @@
 .accent-yellow .accentBar { background-color: var(--color-yellow); }
 .accent-coral  .accentBar { background-color: var(--color-coral); }
 
-/* Caption below the frame — bolded title only */
+/* Single-line caption — direct, quiet, below the figure */
 .caption {
-  margin-top: var(--space-md);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-primary);
-  text-align: center;
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+  color: var(--color-text-tertiary);
+  text-align: left;
+  max-width: 62ch;
 }
 
 /* Tall layout: narrower, still centered */
@@ -50,10 +52,27 @@
   width: min(calc(100vw - 2 * var(--space-xl)), 720px);
 }
 
+/* Contained mode — figure fills its parent column (no breakout).
+   Used when figures are inlined inside editorial section bodies. */
+.contained {
+  width: 100%;
+  position: static;
+  left: auto;
+  transform: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contained .caption { text-align: left; }
+
 @media (max-width: 768px) {
   .figure {
     width: calc(100vw - 2 * var(--space-lg));
     margin-top: var(--space-2xl);
     margin-bottom: var(--space-2xl);
+  }
+  .contained {
+    width: 100%;
+    margin: 0;
   }
 }

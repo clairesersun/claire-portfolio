@@ -19,6 +19,8 @@ export interface FigureProps {
   accentColor?: FigureAccent
   id?: string
   className?: string
+  /** When true, figure fills its parent column instead of breaking out wide. */
+  contained?: boolean
 }
 
 /**
@@ -28,10 +30,12 @@ export interface FigureProps {
  */
 export function Figure({
   title,
+  caption,
   layout = 'wide',
   accentColor = 'violet',
   id,
-  className = ''
+  className = '',
+  contained = false,
 }: FigureProps) {
   const RegisteredFigure = id ? figureRegistry[id] : undefined
   if (!RegisteredFigure) return null
@@ -40,6 +44,7 @@ export function Figure({
     styles.figure,
     styles[`layout-${layout}`],
     styles[`accent-${accentColor}`],
+    contained && styles.contained,
     className
   ]
     .filter(Boolean)
@@ -51,6 +56,9 @@ export function Figure({
         <div className={styles.accentBar} />
         <RegisteredFigure />
       </div>
+      {caption && (
+        <figcaption className={styles.caption}>{caption}</figcaption>
+      )}
     </figure>
   )
 }

@@ -317,11 +317,6 @@ export function M1MessagingHero() {
             </BrowserFrame>
           </div>
         </div>
-        <div style={{ height: 60, flexShrink: 0, background: '#fff', borderTop: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ fontFamily: "'Caveat', cursive", fontSize: 28, color: '#0a0a0a', fontWeight: 600 }}>
-            From fragmented flat feed to structured, contextual conversation
-          </span>
-        </div>
       </div>
     </FigureCanvas>
   );

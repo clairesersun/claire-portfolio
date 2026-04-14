@@ -60,6 +60,8 @@ export interface CaseStudy {
   subtitle: string
   tags: string[]
   year: string
+  /** NDA-protected: requires unlock before the case study renders. */
+  protected?: boolean
   projectSnapshot?: ProjectSnapshot
   overview: string
   problemContext?: string
@@ -82,6 +84,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "redesign-settings",
     slug: "redesign-settings",
+    protected: true,
     title: "Restructuring a Legacy Settings Experience for Clarity and Accessibility",
     subtitle: "A redesign of a fragmented settings and profile experience to improve findability, reduce cognitive overload, and help users make changes with confidence in a legacy B2B environment.",
     tags: ["Information Architecture", "User Research", "Accessibility", "Vue/SCSS"],
@@ -173,7 +176,7 @@ export const caseStudies: CaseStudy[] = [
         id: "settings-hero",
         section: "overview",
         title: "From fragmented to structured",
-        caption: "The old settings page was a flat list of loose options. The new structure groups them by user intent, surfaces accessibility, and reveals detail only when needed.",
+        caption: "Before / After",
         layout: "split",
         accentColor: "violet"
       },
@@ -181,7 +184,7 @@ export const caseStudies: CaseStudy[] = [
         id: "settings-pain-map",
         section: "problem",
         title: "Four structural pain points",
-        caption: "Findability, accessibility discoverability, organization-switch friction, and legacy sprawl. Each one mapped to a distinct design move in the redesign.",
+        caption: "",
         layout: "grid-4",
         accentColor: "coral"
       },
@@ -189,7 +192,7 @@ export const caseStudies: CaseStudy[] = [
         id: "settings-ia-diagram",
         section: "approach",
         title: "IA before and after — system-driven to user-centered",
-        caption: "The redesign collapsed a flat list into predictable one-word categories. This is the most important diagram in the case study — it shows IA thinking at a glance.",
+        caption: "",
         layout: "wide",
         accentColor: "cyan"
       },
@@ -197,7 +200,7 @@ export const caseStudies: CaseStudy[] = [
         id: "settings-whiteboard",
         section: "process",
         title: "Whiteboard grouping and label iteration",
-        caption: "Early grouping exercise. The crossed-out labels are the interesting part — they show how many passes the category names took before they settled on one-word labels users could predict.",
+        caption: "An example of what my whiteboard may look like during the process.",
         layout: "wide",
         accentColor: "yellow"
       },
@@ -205,7 +208,7 @@ export const caseStudies: CaseStudy[] = [
         id: "settings-workflow",
         section: "workflow",
         title: "End-to-end: updating a notification setting",
-        caption: "A complete user journey in four frames. This directly answers the hiring feedback asking for end-to-end workflows — entry, navigation, change, confirmation, with context preserved throughout.",
+        caption: "",
         layout: "grid-4",
         accentColor: "green"
       },
@@ -213,7 +216,7 @@ export const caseStudies: CaseStudy[] = [
         id: "settings-states",
         section: "states",
         title: "Edge cases — permissions and org-managed settings",
-        caption: "B2B settings live and die by edge cases. These states show the redesign respects organizational boundaries, permission restrictions, and admin-managed controls.",
+        caption: "Edge Cases",
         layout: "grid-3",
         accentColor: "violet"
       }
@@ -222,6 +225,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "messaging-modernization",
     slug: "messaging-modernization",
+    protected: true,
     title: "Modernizing Messaging for Context, Clarity, and Scale",
     subtitle: "A redesign of a legacy messaging experience to improve conversation context, reduce navigation friction, and align the interface with modern user expectations and the product's evolving design system.",
     tags: ["UX Design", "Storybook", "Accessibility", "Vue/SCSS"],
@@ -320,7 +324,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-hero",
         section: "overview",
         title: "From flat feed to contextual workflow",
-        caption: "The old messaging UI lost context whenever a conversation branched. The new one makes thread relationships visible without crowding the feed.",
+        caption: "Before / After",
         layout: "split",
         accentColor: "cyan"
       },
@@ -328,7 +332,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-friction-map",
         section: "problem",
         title: "Friction map of the legacy experience",
-        caption: "Five friction points mapped onto one screen. Each one became a specific design move later in the case study.",
+        caption: "",
         layout: "wide",
         accentColor: "coral"
       },
@@ -336,7 +340,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-pattern-matrix",
         section: "research",
         title: "Comparative pattern matrix",
-        caption: "Pattern literacy plus tradeoff thinking in one table. For each modern chat pattern, I captured the user expectation, the product constraint, and the adaptation decision.",
+        caption: "",
         layout: "tall",
         accentColor: "green"
       },
@@ -344,7 +348,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-principles",
         section: "approach",
         title: "Four design principles",
-        caption: "The principles that guided every design decision from wireframe to shipped code — preserve context, reduce clutter, borrow patterns intentionally, and build for accessibility and scale.",
+        caption: "",
         layout: "grid-4",
         accentColor: "yellow"
       },
@@ -352,7 +356,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-workflow",
         section: "workflow",
         title: "Threading a message and returning to context",
-        caption: "A complete reply-and-return workflow across six frames. Context preservation shows up on both the compose path and the read path — this is the most important figure for answering the end-to-end workflows feedback.",
+        caption: "",
         layout: "grid-3",
         accentColor: "cyan"
       },
@@ -360,7 +364,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-anatomy",
         section: "gallery",
         title: "Anatomy of the redesigned message component",
-        caption: "Every element of the message component labeled and justified — sender, timestamp, reply target, body, thread badge, and overflow actions. Every element earned its place.",
+        caption: "",
         layout: "wide",
         accentColor: "violet"
       },
@@ -368,7 +372,7 @@ export const caseStudies: CaseStudy[] = [
         id: "messaging-states",
         section: "states",
         title: "State gallery — default, hover, reply, thread, long content, system, empty, restricted",
-        caption: "States are where B2B credibility lives. These prove the redesign survives contact with real product reality — long messages, system events, access restrictions.",
+        caption: "",
         layout: "grid-3",
         accentColor: "green"
       }
@@ -380,6 +384,123 @@ export const aboutContent = {
   intro: "I'm a UI/UX designer and frontend developer who believes accessibility isn't optional; it's fundamental to good design. I specialize in strategic information architecture and inclusive user experiences, transforming complex systems into intuitive, accessible interfaces that work for everyone.",
   body: "From conducting screenreader testing to implementing WCAG-compliant components in Vue, I bridge the gap between design vision and technical reality. My work emphasizes human-centered design, accessibility, and scalable front-end solutions that ensure every user, regardless of ability, can accomplish their goals efficiently."
 };
+
+export interface PlaygroundCard {
+  id: string
+  title: string
+  caption: string
+  image: string
+  /** Optional href — opens in a new tab. Used for PDFs and external links. */
+  href?: string
+}
+
+export interface PlaygroundCategory {
+  id: string
+  label: string
+  items: PlaygroundCard[]
+}
+
+// PDF viewer URL fragment hides the Chrome/Edge toolbar (incl. download/print buttons).
+// This is a courtesy, not a guarantee — files are still public and grabbable via devtools.
+const pdfView = (path: string) => `${path}#toolbar=0&navpanes=0&scrollbar=0`
+
+export const playgroundCategories: PlaygroundCategory[] = [
+  {
+    id: 'web-design',
+    label: 'web design',
+    items: [
+      {
+        id: 'valleto',
+        title: 'Valleto',
+        caption: 'dance company',
+        image: '/playground/valleto.webp',
+      },
+      {
+        id: '20000km',
+        title: '20.000km',
+        caption: 'run project',
+        image: '/playground/20000km.webp',
+        href: 'https://20000km.com/',
+      },
+      {
+        id: 'andi',
+        title: 'Andi Pei',
+        caption: 'artist website',
+        image: '/playground/andi.webp',
+      },
+      {
+        id: 'faye-works',
+        title: 'Faye Works',
+        caption: 'searchable works database',
+        image: '/playground/faye-works.webp',
+        href: 'https://www.fayeellensilverman.com/works',
+      },
+      {
+        id: 'sneakerlaw',
+        title: 'Sneakerlaw',
+        caption: 'product page',
+        image: '/playground/sneakerlaw.webp',
+      },
+    ],
+  },
+  {
+    id: 'print-brand',
+    label: 'print & brand',
+    items: [
+      {
+        id: 'innerseasons',
+        title: 'Inner Seasons',
+        caption: 'recipe book',
+        image: '/playground/innerseasons.webp',
+        href: pdfView('/playground/innerseasons.pdf'),
+      },
+      {
+        id: 'movingforlife',
+        title: 'Moving for Life',
+        caption: 'nonprofit brochure',
+        image: '/playground/movingforlife.webp',
+        href: pdfView('/playground/movingforlife.pdf'),
+      },
+      {
+        id: 'portiko',
+        title: 'Portiko',
+        caption: 'brand identity',
+        image: '/playground/portiko.webp',
+        href: pdfView('/playground/portiko.pdf'),
+      },
+    ],
+  },
+  {
+    id: 'photography',
+    label: 'photography',
+    items: [
+      {
+        id: 'fairfield',
+        title: 'Fairfield County Fine Gifts',
+        caption: 'product photography',
+        image: '/playground/FairfieldCountyFineGifts.webp',
+      },
+      {
+        id: 'tahoe',
+        title: 'Underwater',
+        caption: 'film · lake tahoe',
+        image: '/playground/underwater-photo.webp',
+      },
+      {
+        id: 'joshua-tree',
+        title: 'Joshua Tree',
+        caption: 'film · joshua tree',
+        image: '/playground/joshuatreekyra.webp',
+      },
+      {
+        id: 'japan',
+        title: 'Marketplaces',
+        caption: 'film · japan',
+        image: '/playground/japanmarket.webp',
+      },
+    ],
+  },
+]
 
 export const contactInfo = {
   email: "claire.sersun@gmail.com",

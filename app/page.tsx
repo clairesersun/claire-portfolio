@@ -1,118 +1,120 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { caseStudies, contactInfo } from '@/content'
+import { caseStudies, playgroundCategories, contactInfo } from '@/content'
 import styles from './page.module.css'
+import { Button } from '@/components/ui'
+import { LocalGreeting } from '@/components/LocalGreeting'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faWheelchairMove, faLeaf, faTrowelBricks, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { Tag, Button } from '@/components/ui'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 
 export const metadata: Metadata = {
-  // Resolve canonical URLs for Open Graph / Twitter images from an env var.
-  // Use NEXT_PUBLIC_SITE_URL in production; fallback to localhost for dev.
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Claire Sersun | UI/UX Developer & Frontend Engineer',
-  description: 'Accessibility-focused UI/UX Developer and Frontend Engineer specializing in inclusive user experiences, information architecture, and WCAG-compliant interfaces.'
+  description: 'Accessibility-focused UI/UX Developer and Frontend Engineer building inclusive, WCAG-compliant interfaces.'
 }
 
+const navDoodles = [
+  { href: '/#work', label: 'Work', doodle: '/doodles/reading.svg', position: 'top-left', external: false },
+  { href: '/#playground', label: 'Playground', doodle: '/doodles/swinging.svg', position: 'top-right', external: false },
+  { href: '/about', label: 'About', doodle: '/doodles/sitting-reading.svg', position: 'mid-left', external: false },
+  { href: '/resume', label: 'Resume', doodle: '/doodles/reading-side.svg', position: 'mid-right', external: false },
+  { href: `mailto:${contactInfo.email}`, label: 'Contact', doodle: '/doodles/float.svg', position: 'bottom-left', external: true },
+  { href: contactInfo.github, label: 'GitHub', doodle: '/doodles/levitate.svg', position: 'bottom-right', external: true },
+] as const
+// Note: ballet.svg is used for "Home" in the footer. All 7 downloaded doodles are in use.
+
+// Interleave web / photo / print so no two neighbors share a category.
+const marqueeOrder = [
+  'valleto',       // web
+  'tahoe',         // photo
+  'innerseasons',  // print
+  'andi',          // web
+  'joshua-tree',   // photo
+  'movingforlife', // print
+  'faye-works',    // web
+  'japan',         // photo
+  '20000km',       // web
+  'fairfield',     // photo
+  'sneakerlaw',    // web
+  'portiko',       // print
+]
+
 export default function HomePage() {
+  const allPlayground = playgroundCategories.flatMap((cat) => cat.items)
+  const playgroundById = new Map(allPlayground.map((item) => [item.id, item]))
+  const orderedPlayground = marqueeOrder
+    .map((id) => playgroundById.get(id))
+    .filter((x): x is (typeof allPlayground)[number] => Boolean(x))
+  const marqueeItems = [...orderedPlayground, ...orderedPlayground]
+
   return (
     <>
-      {/* Hero Section */}
+      {/* Radial Hero */}
       <section className={styles.hero} aria-labelledby="hero-heading">
-        <div className="container">
-          <div className={styles.heroGrid}>
-            <div className={styles.heroContent}>
-              <div className={styles.heroLabel}>
-                <span className={styles.heroLabelText}>UI/UX Developer</span>
-                <span className={styles.heroLabelDot} aria-hidden="true">•</span>
-                <span className={styles.heroLabelText}>Frontend Engineer</span>
-              </div>
-              <h1 id="hero-heading" className={styles.heroTitle}>
-                Building interfaces that work for <span className={styles.heroTitleEmphasis}>everyone</span>
-              </h1>
-              <p className={styles.heroSubtitle}>
-                I'm Claire and I believe accessibility isn't optional. I transform complex systems into intuitive, WCAG-compliant interfaces that elevate both user experience and business&nbsp;outcomes.
-              </p>
-              <div className={styles.heroActions}>
-                <Button
-                  externalHref={`mailto:${contactInfo.email}`}
-                  variant="primary"
-                  icon={faEnvelope}
-                  iconPosition="left"
-                >
-                  Let's Talk
-                </Button>
-                <Button href="/resume">
-                  View Resume
-                </Button>
-              </div>
-            </div>
-            <div className={styles.heroImage}>
-              <div className={styles.heroImageWrapper}>
+        <div className={styles.heroStage}>
+          {navDoodles.map((item) => {
+            const Anchor = item.external ? 'a' : Link
+            const extra = item.external
+              ? { target: '_blank' as const, rel: 'noopener noreferrer' }
+              : {}
+            return (
+              <Anchor
+                key={item.label}
+                href={item.href}
+                className={`${styles.navDoodle} ${styles[`pos_${item.position.replace('-', '_')}`]}`}
+                {...(extra as object)}
+              >
                 <Image
-                  src="/headshot.webp"
-                  alt="Claire Sersun smiling, wearing a cream-colored top with black stripes"
-                  width={400}
-                  height={400}
+                  src={item.doodle}
+                  alt=""
+                  aria-hidden="true"
+                  width={120}
+                  height={120}
                   priority
-                  className={styles.heroPhoto}
+                  className={styles.navDoodleImg}
                 />
-                <div className={styles.heroImageAccent} aria-hidden="true"></div>
-              </div>
+                <span className={styles.navDoodleLabel}>{item.label}</span>
+              </Anchor>
+            )
+          })}
+
+          <div className={styles.heroCenter}>
+            <p className={styles.heroKicker}>
+              Welcome to Claire&rsquo;s portfolio and playground
+            </p>
+            <h1 id="hero-heading" className={styles.heroTitle}>
+              Hi, I am Claire, a designer and developer who cares about{' '}
+              <em>accessible interfaces</em> and <em>storytelling</em>, guided by curiosity, somatics, and empathy.
+            </h1>
+            <div className={styles.heroActions}>
+              <Button href="/about" variant="primary">
+                Read more
+              </Button>
             </div>
+            <LocalGreeting className={styles.heroCaption} />
           </div>
         </div>
       </section>
 
-      {/* Beliefs Section */}
-      <section className={styles.beliefs} aria-labelledby="beliefs-heading">
+      {/* Case Studies */}
+      <section id="work" className={styles.workSection} aria-labelledby="work-heading">
         <div className="container">
-          <h2 id="beliefs-heading" className={styles.beliefsHeading}>
-            What I Believe
-          </h2>
-          <div className={styles.beliefsGrid}>
-            <div className={styles.beliefCard}>
-              <div className={styles.beliefIcon} aria-hidden="true">
-                <FontAwesomeIcon icon={faWheelchairMove} className="icon" aria-hidden="true" />
-              </div>
-              <h3 className={styles.beliefTitle}>Accessibility is Foundational</h3>
-              <p className={styles.beliefText}>
-                Not a feature to bolt on later. It's the baseline for good design: informing every decision from day one.
-              </p>
-            </div>
-            <div className={styles.beliefCard}>
-              <div className={styles.beliefIcon} aria-hidden="true">
-                <FontAwesomeIcon icon={faLeaf} className="icon" aria-hidden="true" />
-              </div>
-              <h3 className={styles.beliefTitle}>Clarity Over Cleverness</h3>
-              <p className={styles.beliefText}>
-                The best interfaces feel invisible. Users accomplish their goals without fighting the interface.
-              </p>
-            </div>
-            <div className={styles.beliefCard}>
-              <div className={styles.beliefIcon} aria-hidden="true">
-                <FontAwesomeIcon icon={faTrowelBricks} className="icon" aria-hidden="true" />
-              </div>
-              <h3 className={styles.beliefTitle}>Implementation is Design</h3>
-              <p className={styles.beliefText}>
-                Design doesn't stop at mockups. Semantic HTML, proper ARIA, and keyboard navigation are design decisions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies Section */}
-      <section className={styles.workSection} aria-labelledby="work-heading">
-        <div className="container">
-          <div className={styles.workHeader}>
+          <div className={styles.sectionHeader}>
+            <Image
+              src="/doodles/reading.svg"
+              alt=""
+              aria-hidden="true"
+              width={96}
+              height={96}
+              className={styles.sectionDoodle}
+            />
             <h2 id="work-heading" className={styles.sectionHeading} tabIndex={-1}>
-              Selected Work
+              Selected work
             </h2>
             <p className={styles.sectionSubheading}>
-              Real projects. Real impact. Real accessibility.
+              Case studies on information architecture, accessibility, and frontend craft.
             </p>
           </div>
           <div className={styles.caseStudiesGrid}>
@@ -120,38 +122,14 @@ export default function HomePage() {
               <article
                 key={study.id}
                 className={styles.caseStudyCard}
-                style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
+                style={{ '--card-tilt': index % 2 === 0 ? '-0.8deg' : '1deg' } as React.CSSProperties}
               >
-                <Link
-                  href={`/work/${study.slug}`}
-                  className={styles.caseStudyLink}
-                >
-                  <div className={styles.caseStudyHeader}>
-                    <span className={styles.caseStudyNumber} aria-hidden="true">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <ul className={styles.tagList} aria-label="Project tags">
-                      {study.tags.slice(0, 2).map((tag, tagIndex) => (
-                        <li key={tag}>
-                          <Tag colorIndex={tagIndex} variant="bold">{tag}</Tag>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className={styles.caseStudyContent}>
-                    <h3 className={styles.caseStudyTitle}>
-                      {study.title}
-                    </h3>
-                    <p className={styles.caseStudySubtitle}>
-                      {study.subtitle}
-                    </p>
-                  </div>
-                  <div className={styles.caseStudyFooter}>
-                    <span className={styles.caseStudyLinkText}>
-                      View Case Study
-                      <span className={styles.caseStudyArrow} aria-hidden="true">→</span>
-                    </span>
-                  </div>
+                <Link href={`/work/${study.slug}`} className={styles.caseStudyLink}>
+                  <h3 className={styles.caseStudyTitle}>{study.title}</h3>
+                  <p className={styles.caseStudySubtitle}>{study.subtitle}</p>
+                  <span className={styles.caseStudyLinkText}>
+                    Read case study <span aria-hidden="true">→</span>
+                  </span>
                 </Link>
               </article>
             ))}
@@ -159,33 +137,95 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className={styles.cta} aria-labelledby="cta-heading">
-        <div className="container">
-          <div className={styles.ctaContent}>
-            <h2 id="cta-heading" className={styles.ctaHeading}>
-              Let's Build
+      {/* Playground */}
+      <section id="playground" className={styles.playground} aria-labelledby="playground-heading">
+        <div className={styles.playgroundHeader}>
+          <div className={styles.playgroundHeaderText}>
+            <h2 id="playground-heading" className={styles.playgroundHeading}>
+              Playground
             </h2>
-            <p className={styles.ctaText}>
-              Looking for a UI/UX Developer or Frontend Engineer who prioritizes accessibility, usability, and maintainable code? <br/> I'd love to hear about your&nbsp;project.
+            <p className={styles.playgroundLede}>
+              An archive of select web, print, and photo work I make on the&nbsp;side.
             </p>
-            <div className={styles.ctaActions}>
-                <Button
-                  externalHref={`mailto:${contactInfo.email}`}
-                  variant="primary"
-                  icon={faEnvelope}
-                  iconPosition="left"
-                >
-                  {contactInfo.email}
-                </Button>
-                <Button
-                  externalHref={contactInfo.linkedin}
-                  icon={faArrowUpRightFromSquare}
-                  iconPosition="left"
-                >
-                  LinkedIn
-                </Button>
-            </div>
+          </div>
+          <Link href="/playground" className={styles.playgroundViewAll}>
+            View all <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className={styles.playgroundMarquee} aria-label="Playground projects">
+          <div className={styles.playgroundTrack}>
+            {marqueeItems.map((item, i) => {
+            const card = (
+              <>
+                <div className={styles.playgroundImageWrap}>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={600}
+                    height={600}
+                    className={styles.playgroundImage}
+                  />
+                  <div className={styles.playgroundOverlay} aria-hidden="true">
+                    <span className={styles.playgroundOverlayTitle}>{item.title}</span>
+                    <span className={styles.playgroundOverlayCaption}>{item.caption}</span>
+                  </div>
+                </div>
+              </>
+            )
+            const key = `${item.id}-${i}`
+            const ariaHidden = i >= orderedPlayground.length
+            return item.href ? (
+              <a
+                key={key}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.playgroundCard}
+                aria-label={`${item.title} — ${item.caption}`}
+                aria-hidden={ariaHidden || undefined}
+                tabIndex={ariaHidden ? -1 : undefined}
+              >
+                {card}
+              </a>
+            ) : (
+              <article
+                key={key}
+                className={styles.playgroundCard}
+                aria-label={`${item.title} — ${item.caption}`}
+                aria-hidden={ariaHidden || undefined}
+              >
+                {card}
+              </article>
+            )
+          })}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className={styles.contact} aria-labelledby="contact-heading">
+        <div className="container">
+          <Image
+            src="/plant-lady.webp"
+            alt=""
+            aria-hidden="true"
+            width={320}
+            height={412}
+            className={styles.contactPlantLady}
+          />
+          <h2 id="contact-heading" className={styles.contactHeading}>
+            Want to make something together?
+          </h2>
+          <p className={styles.contactText}>
+            Send a note, or say hi on LinkedIn.
+          </p>
+          <div className={styles.contactActions}>
+            <Button externalHref={`mailto:${contactInfo.email}`} variant="primary" icon={faEnvelope} iconPosition="left">
+              {contactInfo.email}
+            </Button>
+            <Button externalHref={contactInfo.linkedin} icon={faArrowUpRightFromSquare} iconPosition="left">
+              LinkedIn
+            </Button>
           </div>
         </div>
       </section>

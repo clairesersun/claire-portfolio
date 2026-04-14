@@ -1,154 +1,92 @@
 .about {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-2xl) var(--space-xl) var(--space-4xl);
 }
 
-.header {
-  margin-bottom: var(--space-3xl);
-  text-align: center;
-}
-
-.title {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-md);
-}
-
-.content {
-  max-width: var(--max-width-content);
+.container {
+  max-width: 640px;
   margin: 0 auto;
 }
 
-.intro {
-  margin-bottom: var(--space-4xl);
-  padding: var(--space-3xl);
-  background: var(--color-surface);
-  border: 2px solid transparent;
-  background-image:
-    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-    var(--gradient-cool) border-box;
-  border-radius: var(--border-radius-md);
-  position: relative;
-  overflow: hidden;
+.header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
 }
 
-.intro::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -30%;
-  width: 100%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.03) 0%, transparent 70%);
-  opacity: 1;
-  pointer-events: none;
+.doodle {
+  width: clamp(80px, 10vw, 120px);
+  height: auto;
+  margin: 0 auto var(--space-md);
+  display: block;
+  opacity: 0.85;
 }
 
-.intro > * {
-  position: relative;
-  z-index: 1;
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.05;
 }
 
-.introText {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-lg);
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+  margin: 0;
+  text-transform: lowercase;
 }
 
-.bodyText {
+.body {
+  font-family: var(--font-sans);
   font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
+  line-height: 1.8;
   color: var(--color-text-secondary);
 }
 
-.background,
-.expertise,
-.values,
-.connect {
-  margin-bottom: var(--space-4xl);
-}
-
-.sectionHeading {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+.body p {
   margin-bottom: var(--space-lg);
-  color: var(--color-text-primary);
+  max-width: none;
 }
 
-.expertiseList,
-.valuesList {
-  list-style: none;
+.body p:last-child { margin-bottom: 0; }
+
+.note {
+  font-style: italic;
+  color: var(--color-text-tertiary);
   margin: 0;
-  padding: 0;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Final paragraph + plant-lady illustration laid out horizontally */
+.noteRow {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+  align-items: center;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
 }
 
-.expertiseList li,
-.valuesList li {
-  padding-left: var(--space-lg);
-  position: relative;
-  line-height: var(--line-height-relaxed);
+.plantLady {
+  flex: 0 0 auto;
+  width: clamp(140px, 22vw, 200px);
+  height: auto;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.1));
 }
 
-.expertiseList li::before,
-.valuesList li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: var(--font-weight-bold);
-}
-
-.actions {
-  display: flex;
-  gap: var(--space-lg);
-  justify-content: center;
-  margin-top: var(--space-4xl);
-  padding-top: var(--space-3xl);
-  border-top: var(--border-width) solid var(--color-border);
-  flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-  .about {
-    padding: var(--space-2xl) 0;
-  }
-  
-  .header {
-    margin-bottom: var(--space-2xl);
-  }
-  
-  .title {
-    font-size: var(--font-size-2xl);
-  }
-  
-  .intro {
-    padding: var(--space-lg);
-    margin-bottom: var(--space-3xl);
-  }
-  
-  .introText {
-    font-size: var(--font-size-base);
-  }
-  
-  .background,
-  .expertise,
-  .values,
-  .connect {
-    margin-bottom: var(--space-3xl);
-  }
-  
-  .actions {
-    flex-direction: column;
-    align-items: stretch;
-    margin-top: var(--space-3xl);
-    padding-top: var(--space-2xl);
-  }
-  
-  .actions .button {
-    width: 100%;
+@media (max-width: 640px) {
+  .noteRow {
+    flex-direction: column-reverse;
+    align-items: center;
     text-align: center;
+    gap: var(--space-md);
   }
+  .plantLady { width: 180px; }
+}
+
+@media (max-width: 600px) {
+  .about { padding: var(--space-xl) var(--space-lg) var(--space-3xl); }
 }
