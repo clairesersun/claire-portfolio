@@ -1,0 +1,78 @@
+/* Figure — full-bleed editorial figure wrapper */
+
+.figure {
+  /* Break out of the 65ch editorial column to near container width */
+  width: min(calc(100vw - 2 * var(--space-xl)), var(--max-width-page));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: none;
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+/* Rainbow chapter-marker echo at the top of each figure */
+.accentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+}
+
+.accent-violet .accentBar { background-color: var(--color-violet); }
+.accent-cyan   .accentBar { background-color: var(--color-cyan); }
+.accent-green  .accentBar { background-color: var(--color-green); }
+.accent-yellow .accentBar { background-color: var(--color-yellow); }
+.accent-coral  .accentBar { background-color: var(--color-coral); }
+
+/* Single-line caption — direct, quiet, below the figure */
+.caption {
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+  color: var(--color-text-tertiary);
+  text-align: left;
+  max-width: 62ch;
+}
+
+/* Tall layout: narrower, still centered */
+.layout-tall {
+  width: min(calc(100vw - 2 * var(--space-xl)), 720px);
+}
+
+/* Contained mode — figure fills its parent column (no breakout).
+   Used when figures are inlined inside editorial section bodies. */
+.contained {
+  width: 100%;
+  position: static;
+  left: auto;
+  transform: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contained .caption { text-align: left; }
+
+@media (max-width: 768px) {
+  .figure {
+    width: calc(100vw - 2 * var(--space-lg));
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+  .contained {
+    width: 100%;
+    margin: 0;
+  }
+}

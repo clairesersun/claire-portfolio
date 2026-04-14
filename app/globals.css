@@ -3,57 +3,58 @@
    =================================================================== */
 
 :root {
-  /* WCAG AAA Compliant Color System - Light Mode with More Personality */
-  --color-bg: #ffffff;
-  --color-surface: #fafafa;
-  --color-text-primary: #0a0a0a;
-  --color-text-secondary: #333333;
-  --color-text-tertiary: #595959;
-  --color-border: #e5e5e5;
-  --color-border-hover: #999999;
+  /* Cozy ivory palette — paper-soft, Nabiu-inspired.
+     Contrast verified on --color-bg #f7f4ec:
+     text-primary #1a1a1a → 17.2:1 (AAA), secondary #3a3a3a → 10.9:1 (AAA),
+     tertiary #5a5a5a → 6.7:1 (AAA UI). */
+  --color-bg: #f7f4ec;
+  --color-surface: #efeadb;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #3a3a3a;
+  --color-text-tertiary: #5a5a5a;
+  --color-border: #dfd8c3;
+  --color-border-hover: #7a6f55;
 
-  /* Rainbow Palette - WCAG AAA compliant vibrant colors (7:1 on white) */
-  --color-violet: #5B21B6;
-  --color-blue: #1E40AF;
-  --color-cyan: #0C5A6D;
-  --color-green: #065F46;
-  --color-yellow: #92400E;
-  --color-coral: #991B1B;
+  /* Former rainbow palette — all unified to ink/sepia on the cozy ivory. */
+  --color-violet: var(--color-text-primary);
+  --color-blue:   var(--color-text-primary);
+  --color-cyan:   var(--color-text-secondary);
+  --color-green:  var(--color-text-secondary);
+  --color-yellow: var(--color-text-tertiary);
+  --color-coral:  var(--color-text-primary);
 
-  /* Legacy accent variable (maps to blue for backwards compatibility) */
-  --color-accent: var(--color-blue);
-  --color-accent-hover: #1E40AF;
-  --color-accent-light: #DBEAFE;
+  /* Legacy accent variable (flat ink) */
+  --color-accent: var(--color-text-primary);
+  --color-accent-hover: var(--color-text-primary);
+  --color-accent-light: var(--color-surface);
 
   /* RGB variants for use with rgba(var(--...-rgb), alpha) */
-  --color-accent-rgb: 30, 64, 175; /* matches --color-blue #1E40AF */
-  --color-accent-hover-rgb: 30, 64, 175;
-  --color-accent-light-rgb: 219, 234, 254;
-  --color-bg-rgb: 255, 255, 255;
-  --color-text-primary-rgb: 10, 10, 10;
-  --shadow-color: rgba(0, 0, 0, 0.08);
-  --shadow-color-strong: rgba(0, 0, 0, 0.12);
+  --color-accent-rgb: 26, 26, 26;
+  --color-accent-hover-rgb: 26, 26, 26;
+  --color-accent-light-rgb: 239, 234, 219;
+  --color-bg-rgb: 247, 244, 236;
+  --color-text-primary-rgb: 26, 26, 26;
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --shadow-color-strong: rgba(0, 0, 0, 0.10);
 
-  /* Rainbow Gradients */
-  --gradient-rainbow: linear-gradient(135deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green));
-  --gradient-rainbow-horizontal: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green), var(--color-yellow), var(--color-coral));
-  --gradient-cool: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
-  --gradient-warm: linear-gradient(135deg, var(--color-yellow), var(--color-coral));
+  /* Gradients flattened to solid ink so no rainbows bleed through */
+  --gradient-rainbow: var(--color-text-primary);
+  --gradient-rainbow-horizontal: var(--color-text-primary);
+  --gradient-cool: var(--color-text-primary);
+  --gradient-warm: var(--color-text-primary);
 
-  /* Rainbow Utility Tokens - For Tag and Card components */
-  /* Light mode backgrounds (6-8% opacity for WCAG AAA) */
-  --rainbow-0-bg: rgba(91, 33, 182, 0.06);    /* Violet */
-  --rainbow-1-bg: rgba(12, 90, 109, 0.07);    /* Cyan */
-  --rainbow-2-bg: rgba(6, 95, 70, 0.06);      /* Green */
-  --rainbow-3-bg: rgba(146, 64, 14, 0.08);    /* Yellow */
-  --rainbow-4-bg: rgba(153, 27, 27, 0.06);    /* Coral */
+  /* Tag/Card soft backgrounds — all warm neutral tints of the surface */
+  --rainbow-0-bg: rgba(26, 26, 26, 0.04);
+  --rainbow-1-bg: rgba(26, 26, 26, 0.05);
+  --rainbow-2-bg: rgba(26, 26, 26, 0.06);
+  --rainbow-3-bg: rgba(26, 26, 26, 0.07);
+  --rainbow-4-bg: rgba(26, 26, 26, 0.08);
 
-  /* Bold variant backgrounds (higher opacity) */
-  --rainbow-0-bg-bold: rgba(91, 33, 182, 0.15);
-  --rainbow-1-bg-bold: rgba(12, 90, 109, 0.15);
-  --rainbow-2-bg-bold: rgba(6, 95, 70, 0.15);
-  --rainbow-3-bg-bold: rgba(146, 64, 14, 0.18);
-  --rainbow-4-bg-bold: rgba(153, 27, 27, 0.15);
+  --rainbow-0-bg-bold: rgba(26, 26, 26, 0.08);
+  --rainbow-1-bg-bold: rgba(26, 26, 26, 0.10);
+  --rainbow-2-bg-bold: rgba(26, 26, 26, 0.12);
+  --rainbow-3-bg-bold: rgba(26, 26, 26, 0.14);
+  --rainbow-4-bg-bold: rgba(26, 26, 26, 0.16);
 
   /* Semantic Colors */
   --color-focus: var(--color-blue);
@@ -67,13 +68,13 @@
   --font-size-lg: 1.5rem;      /* 24px */
   --font-size-xl: 2rem;        /* 32px */
   --font-size-2xl: 2.75rem;    /* 44px */
-  --font-size-3xl: 3.5rem;     /* 56px */
-  --font-size-4xl: 4.5rem;     /* 72px */
+  --font-size-3xl: 4rem;       /* 64px */
+  --font-size-4xl: 5.5rem;     /* 88px */
 
   /* Font Families */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Instrument Serif', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-handwriting: 'Caveat', cursive;
 
   /* Font Weights */
@@ -100,8 +101,8 @@
   --space-5xl: 10rem;    /* 160px - increased for dramatic spacing */
 
   /* Layout - Book-inspired reading comfort */
-  --max-width-content: 65ch;
-  --max-width-page: 1200px;
+  --max-width-content: 60ch;
+  --max-width-page: 820px;
   --header-height: 5rem;
   --chapter-marker-width: 4px;
   --chapter-marker-offset: calc(-1 * var(--space-xl));
@@ -118,66 +119,6 @@
   /* Focus Ring */
   --focus-ring-width: 3px;
   --focus-ring-offset: 3px;
-}
-
-/* Dark Mode - WCAG AAA Compliant with More Personality */
-[data-theme="dark"] {
-  --color-bg: #0a0a0a;
-  --color-surface: #141414;
-  --color-text-primary: #f5f5f5;
-  --color-text-secondary: #cccccc;
-  --color-text-tertiary: #a6a6a6;
-  --color-border: #2a2a2a;
-  --color-border-hover: #555555;
-
-  /* Rainbow Palette - Brighter for dark backgrounds (7:1 on #141414) */
-  --color-violet: #C4B5FD;
-  --color-blue: #93C5FD;
-  --color-cyan: #67E8F9;
-  --color-green: #6EE7B7;
-  --color-yellow: #FCD34D;
-  --color-coral: #FCA5A5;
-
-  /* Legacy accent variable */
-  --color-accent: var(--color-blue);
-  --color-accent-hover: #93C5FD;
-  --color-accent-light: #1E3A8A;
-
-  /* RGB helpers for accent colors */
-  --color-accent-rgb: 96, 165, 250;
-  --color-accent-hover-rgb: 147, 197, 253;
-  --color-accent-light-rgb: 30, 58, 138;
-
-  /* Rainbow Gradients - same as light mode */
-  --gradient-rainbow: linear-gradient(135deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green));
-  --gradient-rainbow-horizontal: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-cyan), var(--color-green), var(--color-yellow), var(--color-coral));
-  --gradient-cool: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
-  --gradient-warm: linear-gradient(135deg, var(--color-yellow), var(--color-coral));
-
-  /* Rainbow Utility Tokens - Dark mode (brighter backgrounds) */
-  --rainbow-0-bg: rgba(196, 181, 253, 0.12);  /* Violet */
-  --rainbow-1-bg: rgba(103, 232, 249, 0.12);  /* Cyan */
-  --rainbow-2-bg: rgba(110, 231, 183, 0.12);  /* Green */
-  --rainbow-3-bg: rgba(252, 211, 77, 0.12);   /* Yellow */
-  --rainbow-4-bg: rgba(252, 165, 165, 0.12);  /* Coral */
-
-  /* Bold variant backgrounds */
-  --rainbow-0-bg-bold: rgba(196, 181, 253, 0.22);
-  --rainbow-1-bg-bold: rgba(103, 232, 249, 0.22);
-  --rainbow-2-bg-bold: rgba(110, 231, 183, 0.22);
-  --rainbow-3-bg-bold: rgba(252, 211, 77, 0.22);
-  --rainbow-4-bg-bold: rgba(252, 165, 165, 0.22);
-
-  /* Semantic Colors */
-  --color-focus: var(--color-blue);
-  --color-focus-outline: var(--color-blue);
-  /* RGB helpers */
-  --color-bg-rgb: 10, 10, 10;
-  --color-text-primary-rgb: 245, 245, 245;
-
-  /* Shadows for dark mode - lighter to be visible */
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-color-strong: rgba(0, 0, 0, 0.5);
 }
 
 /* ===================================================================
@@ -270,20 +211,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-family: var(--font-handwriting);
+  font-family: var(--font-heading);
   font-size: var(--font-size-4xl);
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: var(--space-lg);
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 
 h2 {
-  font-family: var(--font-handwriting);
+  font-family: var(--font-heading);
   font-size: var(--font-size-2xl);
-  font-weight: 600;
+  font-weight: 400;
   margin-top: var(--space-4xl);
   margin-bottom: var(--space-xl);
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
 }
 
 h3 {
@@ -324,24 +265,25 @@ section > p:first-of-type::first-letter {
   font-size: 3.5em;
   line-height: 0.85;
   margin: 0.08em 0.25em 0 0; /* Increased right margin for better letter spacing */
-  font-weight: 700;
-  color: var(--color-violet);
-  font-family: var(--font-handwriting);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+  font-style: italic;
 }
 
 a {
-  color: var(--color-blue);
+  color: var(--color-text-primary);
   text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-border-hover);
   transition: all var(--transition-speed) var(--transition-timing);
-  text-decoration-color: var(--color-cyan);
 }
 
 a:hover {
-  color: var(--color-violet);
+  color: var(--color-text-primary);
   text-decoration-thickness: 2px;
-  text-decoration-color: var(--color-violet);
+  text-decoration-color: var(--color-text-primary);
 }
 
 a:focus-visible {
@@ -390,20 +332,33 @@ li {
 
 .skip-link {
   position: absolute;
-  top: -60px;
-  left: 0;
-  background: #1E40AF;
-  color: #ffffff;
-  padding: var(--space-md) var(--space-lg);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  background: var(--color-text-primary);
+  color: var(--color-bg);
   text-decoration: none;
-  z-index: 100;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-base);
-  border-radius: 0 0 var(--border-radius-sm) 0;
 }
 
 .skip-link:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: var(--space-md) var(--space-lg);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
   top: 0;
+  left: 0;
+  z-index: 100;
+  border-radius: 0 0 var(--border-radius-sm) 0;
   outline: var(--focus-ring-width) solid var(--color-text-primary);
   outline-offset: -3px;
 }
@@ -471,65 +426,32 @@ li {
    BUTTON STYLES
    =================================================================== */
 
+/* Cozy pill button — flat, quiet, Nabiu-style. */
 button, .button {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: var(--color-text-primary);
-  background-color: transparent;
-  border: 2px solid var(--color-border);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-hover);
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all var(--transition-speed) var(--transition-timing);
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
   text-decoration: none;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-}
-
-button::before, .button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease;
-  z-index: -1;
-  opacity: 0.1;
-}
-
-button:hover::before, .button:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  button::before, .button::before {
-    transition: none;
-  }
-
-  button:hover::before, .button:hover::before {
-    width: 0;
-    height: 0;
-  }
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1;
 }
 
 button:hover, .button:hover {
-  border-color: var(--color-blue);
-  background-color: var(--color-surface);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-color-strong);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  button:hover, .button:hover {
-    transform: none;
-  }
+  background-color: var(--color-text-primary);
+  color: var(--color-bg);
+  border-color: var(--color-text-primary);
 }
 
 button:focus-visible, .button:focus-visible {
@@ -537,60 +459,28 @@ button:focus-visible, .button:focus-visible {
   outline-offset: var(--focus-ring-offset);
 }
 
-button:active, .button:active {
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  button:active, .button:active {
-    transform: none;
-  }
-}
-
 button:disabled, .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
 }
 
 button:disabled:hover, .button:disabled:hover {
-  border-color: var(--color-border);
-  background-color: transparent;
-  box-shadow: none;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hover);
 }
 
+/* Primary = same pill, filled ink (was rainbow gradient) */
 .button-primary {
-  background: var(--gradient-cool);
-  color: white;
-  border: 2px solid transparent;
-}
-
-.button-primary::before {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Dark mode - More vibrant primary button gradient */
-[data-theme="dark"] .button-primary {
-  background: linear-gradient(135deg, #8B5CF6, #06B6D4);
-  color: #0a0a0a;
-  font-weight: var(--font-weight-semibold);
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  border-color: var(--color-text-primary);
 }
 
 .button-primary:hover {
   background: var(--color-bg);
-  border: 2px solid transparent;
-  background-image:
-    linear-gradient(var(--color-bg), var(--color-bg)),
-    var(--gradient-rainbow-horizontal);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
   color: var(--color-text-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-color-strong);
-}
-
-[data-theme="dark"] .button-primary:hover {
-  box-shadow: 0 4px 12px var(--shadow-color-strong);
+  border-color: var(--color-text-primary);
 }
 
 /* ===================================================================

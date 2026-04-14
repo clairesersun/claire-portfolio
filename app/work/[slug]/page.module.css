@@ -1,200 +1,463 @@
+/* ===================================================================
+   CASE STUDY — Editorial Cozy Layout
+   =================================================================== */
+
 .caseStudy {
-  padding: var(--space-4xl) 0;
+  padding: var(--space-2xl) 0 0;
 }
 
-/* Breadcrumbs */
-.breadcrumb {
-  margin-bottom: var(--space-3xl);
+/* ---------- HERO ---------- */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto var(--space-3xl);
+  padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+  text-align: left;
 }
 
-.breadcrumbList {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: var(--font-size-sm);
-}
-
-.breadcrumbLink {
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  transition: color var(--transition-speed) var(--transition-timing);
-}
-
-.breadcrumbLink:hover {
-  color: var(--color-violet);
-}
-
-.breadcrumbLink:focus-visible {
-  outline: var(--focus-ring-width) solid var(--color-focus-outline);
-  outline-offset: var(--focus-ring-offset);
-  border-radius: var(--border-radius-sm);
-}
-
-.breadcrumbSeparator {
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
   color: var(--color-text-tertiary);
-}
-
-.breadcrumbCurrent {
-  color: var(--color-text-primary);
-}
-
-/* Header - Essay title page */
-.header {
-  margin-bottom: var(--space-5xl);
-  padding-bottom: var(--space-3xl);
-  border-bottom: 1px solid var(--color-border);
+  margin: 0 0 var(--space-md);
 }
 
 .title {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-md);
-  max-width: 100%;
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-lg);
+  max-width: 22ch;
 }
 
 .subtitle {
-  font-size: var(--font-size-lg);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  line-height: 1.55;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-lg);
-  line-height: var(--line-height-relaxed);
-  max-width: 100%;
+  margin: 0 0 var(--space-xl);
+  max-width: 60ch;
 }
 
-.tagList {
+/* Inline meta row beneath the subtitle — Role / Scope / Environment */
+.metaRow {
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: var(--space-xs);
-  list-style: none;
+  gap: var(--space-xl);
   margin: 0;
-  padding: 0;
+  padding: var(--space-lg) 0 0;
+  border-top: 1px dashed var(--color-border);
+  text-align: left;
 }
 
-.tagList > li {
-  margin-bottom: 0;
+.metaItem {
+  min-width: 160px;
+  flex: 1 1 160px;
 }
 
-/* Content - Essay body with chapter rhythm */
-.content {
-  max-width: var(--max-width-content);
+.metaItem dt {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-xs);
+}
+
+.metaItem dd {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ---------- FIGURE BLOCK (breakout, used for hero overview figure) ---------- */
+.figureBlock {
+  max-width: 1100px;
+  margin: 0 auto var(--space-4xl);
+  padding: 0 var(--space-xl);
+}
+
+.figureBlock:last-child { margin-bottom: 0; }
+
+/* Figures rendered inside a Section body column — sit alongside the text.
+   Figure itself uses `contained` mode to fill the column width cleanly. */
+.figureInline {
+  margin: var(--space-xl) 0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* ---------- BODY — two-column editorial sections ---------- */
+.body {
+  max-width: 1040px;
   margin: 0 auto;
+  padding: 0 var(--space-2xl);
 }
 
-.content section {
-  margin-bottom: var(--space-5xl);
-  position: relative;
-  padding-left: var(--space-xl);
-  border-left: var(--chapter-marker-width) solid transparent;
+.section {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-4xl);
+  align-items: start;
 }
 
-.content section:last-child {
-  margin-bottom: 0;
+.section:last-of-type { margin-bottom: var(--space-3xl); }
+
+.sectionLabelCol {
+  position: sticky;
+  top: var(--space-2xl);
 }
 
-/* ALL sections get visible rainbow chapter markers (not just first) */
-.content section::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--chapter-marker-width);
-  background: var(--gradient-rainbow);
-  opacity: 0.4; /* Visible by default */
-  transition: opacity 0.3s ease;
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: var(--color-text-tertiary);
+  display: block;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
 }
 
-/* Brighten on hover for interactivity */
-.content section:hover::before {
-  opacity: 0.8;
+.sectionBodyCol {
+  min-width: 0;
 }
 
 .sectionHeading {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-xl);
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
   color: var(--color-text-primary);
-  line-height: var(--line-height-tight);
+  margin: 0 0 var(--space-lg);
 }
 
 .subsectionHeading {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  margin-top: var(--space-3xl);
-  margin-bottom: var(--space-lg);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  font-style: italic;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
   color: var(--color-text-primary);
 }
 
+.sectionBodyCol p {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 62ch;
+}
+
+.sectionBodyCol p:last-child { margin-bottom: 0; }
+
+/* Lead paragraph in the overview section */
+.lead {
+  font-size: var(--font-size-md) !important;
+  line-height: 1.65 !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* ---------- OUTCOME CALLOUT ---------- */
+.outcomeCallout {
+  margin-top: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.outcomeLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-xs);
+}
+
+.outcomeCallout p {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm) !important;
+  line-height: 1.6 !important;
+  color: var(--color-text-primary) !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+/* ---------- PULL QUOTE ---------- */
+.pullQuote {
+  margin: var(--space-xl) 0 0;
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  position: relative;
+}
+
+.pullQuoteLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.pullQuoteList {
+  list-style: none;
+  counter-reset: pqlist;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
+.pullQuoteList li {
+  counter-increment: pqlist;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--color-text-primary);
+  padding: var(--space-sm) 0 var(--space-sm) var(--space-xl);
+  position: relative;
+  border-top: 1px dashed var(--color-border);
+  max-width: none;
+}
+
+.pullQuoteList li:first-child { border-top: none; }
+
+.pullQuoteList li::before {
+  content: counter(pqlist, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  padding-top: 4px;
+}
+
+/* ---------- LISTS ---------- */
 .bulletList,
 .numberedList {
-  margin-left: var(--space-lg);
-  margin-bottom: var(--space-lg);
-  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-lg);
+  padding-left: var(--space-lg);
+  max-width: 62ch;
 }
 
 .bulletList li,
 .numberedList li {
-  margin-bottom: var(--space-md);
-  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-sm);
 }
 
 .bulletList li:last-child,
-.numberedList li:last-child {
-  margin-bottom: 0;
+.numberedList li:last-child { margin-bottom: 0; }
+
+/* ---------- WORKFLOW WALKTHROUGH ---------- */
+.workflowList {
+  list-style: none;
+  counter-reset: workflow;
+  padding: 0;
+  margin: 0;
+  max-width: none;
 }
 
-/* Navigation - End matter */
-.navigation {
+.workflowItem {
+  position: relative;
+  padding-left: calc(var(--space-xl) + var(--space-md));
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
+  counter-increment: workflow;
+  border-top: 1px dashed var(--color-border);
+}
+
+.workflowItem:first-child { border-top: none; padding-top: 0; }
+.workflowItem:first-child::before { top: 0; }
+
+.workflowItem::before {
+  content: counter(workflow);
+  position: absolute;
+  left: 0;
+  top: var(--space-sm);
+  width: var(--space-xl);
+  height: var(--space-xl);
   display: flex;
-  gap: var(--space-lg);
-  justify-content: flex-start;
-  margin-top: var(--space-5xl);
-  padding-top: var(--space-4xl);
-  border-top: 1px solid var(--color-border);
-  flex-wrap: wrap;
-  max-width: var(--max-width-content);
-  margin-left: auto;
-  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-hover);
+  border-radius: 50%;
+  line-height: 1;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .caseStudy {
-    padding: var(--space-3xl) 0;
-  }
+.workflowStepTitle {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin-bottom: var(--space-xs);
+}
 
-  .header {
-    margin-bottom: var(--space-4xl);
-    padding-bottom: var(--space-2xl);
-  }
+.workflowStepCaption {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 60ch;
+}
 
-  .title {
-    font-size: var(--font-size-2xl);
-  }
+/* ---------- RELATED CASE STUDIES ---------- */
+.relatedSection {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  margin-top: var(--space-3xl);
+}
 
-  .subtitle {
-    font-size: var(--font-size-base);
-  }
+.relatedInner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 var(--space-2xl);
+}
 
-  .sectionHeading {
-    font-size: var(--font-size-xl);
-  }
+.relatedHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xl);
+  text-align: center;
+}
 
-  .content section {
-    padding-left: var(--space-lg);
-  }
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-xl);
+}
 
-  .navigation {
-    flex-direction: column;
-    align-items: stretch;
-    margin-top: var(--space-4xl);
-    padding-top: var(--space-3xl);
-  }
+.relatedCard {
+  display: block;
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .navigation .button {
-    width: 100%;
-    text-align: center;
+.relatedCard:hover,
+.relatedCard:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+}
+
+.relatedKicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+}
+
+.relatedTitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.relatedSubtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-md);
+  max-width: none;
+  /* clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.relatedLink {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-hover);
+  padding-bottom: 2px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-3xl);
   }
+  .sectionLabelCol { position: static; }
+  .sectionLabel {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+  }
+  .figureBlock { padding: 0 var(--space-lg); }
+  .body { padding: 0 var(--space-lg); }
+  .hero { padding: var(--space-xl) var(--space-lg); }
+  .metaRow { gap: var(--space-lg); }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: var(--space-lg); }
+  .metaRow { flex-direction: column; gap: var(--space-md); }
+  .pullQuoteList li { padding-left: var(--space-2xl); }
+  .outcomeCallout, .pullQuote { padding: var(--space-lg); }
+  .relatedInner { padding: 0 var(--space-lg); }
 }
