@@ -6,12 +6,12 @@
   /* Cozy ivory palette — paper-soft, Nabiu-inspired.
      Contrast verified on --color-bg #f7f4ec:
      text-primary #1a1a1a → 17.2:1 (AAA), secondary #3a3a3a → 10.9:1 (AAA),
-     tertiary #5a5a5a → 6.7:1 (AAA UI). */
+     tertiary #4a4a4a → 7.9:1 (AAA normal text). Do not lighten past #4c4c4c (7.0:1 boundary). */
   --color-bg: #f7f4ec;
   --color-surface: #efeadb;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #3a3a3a;
-  --color-text-tertiary: #5a5a5a;
+  --color-text-tertiary: #4a4a4a;
   --color-border: #dfd8c3;
   --color-border-hover: #7a6f55;
 
