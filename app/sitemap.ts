@@ -7,13 +7,14 @@ import { caseStudies } from '@/content'
  * Domain: https://clairesersun.com
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://clairesersun.com'
+  const baseUrl = 'https://www.clairesersun.com'
 
   // Main site pages (archive excluded via robots.txt)
   const routes = [
-    '',        // Homepage
-    '/about',  // About page
-    '/resume', // Resume page
+    '',           // Homepage
+    '/about',     // About page
+    '/resume',    // Resume page
+    '/playground', // Playground index
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),

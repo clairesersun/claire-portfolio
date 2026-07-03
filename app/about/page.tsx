@@ -3,15 +3,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { aboutContent } from '@/content'
 import styles from './page.module.css'
+import { JsonLd, SITE_URL } from '@/components/JsonLd'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Accessibility-focused UI/UX Developer and Frontend Engineer.'
+  description: 'Accessibility-focused UI/UX Developer and Frontend Engineer.',
+  alternates: { canonical: '/about' }
+}
+
+const profileSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${SITE_URL}/about#profilepage`,
+  url: `${SITE_URL}/about`,
+  name: 'About Claire Sersun',
+  mainEntity: { '@id': `${SITE_URL}/#person` },
 }
 
 export default function AboutPage() {
   return (
     <article className={styles.about}>
+      <JsonLd data={profileSchema} />
       <div className={styles.container}>
         <header className={styles.header}>
           <Image

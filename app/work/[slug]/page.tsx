@@ -5,6 +5,7 @@ import { caseStudies, type CaseStudyFigure, type FigureSection } from '@/content
 import styles from './page.module.css'
 import { Figure } from '@/components/ui'
 import PasswordGate from '@/components/PasswordGate'
+import { JsonLd, SITE_URL } from '@/components/JsonLd'
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>
@@ -18,7 +19,11 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const { slug } = await params
   const study = caseStudies.find((s) => s.slug === slug)
   if (!study) return {}
-  return { title: study.title, description: study.subtitle }
+  return {
+    title: study.title,
+    description: study.subtitle,
+    alternates: { canonical: `/work/${slug}` },
+  }
 }
 
 function figuresFor(
@@ -106,6 +111,29 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   const related = caseStudies.filter((s) => s.slug !== study.slug)
   const snapshot = study.projectSnapshot
+
+  const caseUrl = `${SITE_URL}/work/${study.slug}`
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: study.title, item: caseUrl },
+        ],
+      },
+      {
+        '@type': 'CreativeWork',
+        '@id': `${caseUrl}#casestudy`,
+        url: caseUrl,
+        name: study.title,
+        description: study.subtitle,
+        author: { '@id': `${SITE_URL}/#person` },
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+      },
+    ],
+  }
 
   const content = (
     <article className={styles.caseStudy}>
@@ -264,9 +292,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     </article>
   )
 
-  if (study.protected) {
-    return <PasswordGate>{content}</PasswordGate>
-  }
-
-  return content
+  // Schema is rendered server-side regardless of the password gate so crawlers
+  // always see BreadcrumbList/CreativeWork (the gate returns null during SSR).
+  return (
+    <>
+      <JsonLd data={schema} />
+      {study.protected ? <PasswordGate>{content}</PasswordGate> : content}
+    </>
+  )
 }

@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/archive', '/archive/'], // Prevent indexing of archive page
       },
     ],
-    sitemap: 'https://clairesersun.com/sitemap.xml',
+    sitemap: 'https://www.clairesersun.com/sitemap.xml',
   }
 }

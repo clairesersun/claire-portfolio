@@ -4,8 +4,9 @@ import { playgroundCategories, type PlaygroundCard } from '@/content'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Playground | Claire Sersun',
+  title: 'Playground',
   description: 'An archive of select web, print, and photo work Claire makes on the side.',
+  alternates: { canonical: '/playground' },
 }
 
 // Per-card layout hints — tilt (deg) + image height (px) + orientation vibe.

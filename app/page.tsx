@@ -10,9 +10,10 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: 'Claire Sersun | UI/UX Developer & Frontend Engineer',
-  description: 'Accessibility-focused UI/UX Developer and Frontend Engineer building inclusive, WCAG-compliant interfaces.'
+  // metadataBase is inherited from the root layout.
+  title: { absolute: 'Claire Sersun | UI/UX Developer & Frontend Engineer' },
+  description: 'Accessibility-focused UI/UX Developer and Frontend Engineer building inclusive, WCAG-compliant interfaces.',
+  alternates: { canonical: '/' }
 }
 
 const navDoodles = [

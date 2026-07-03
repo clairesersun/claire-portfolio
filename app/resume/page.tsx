@@ -5,7 +5,8 @@ import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: 'Resume',
-  description: 'Claire Sersun — UI/UX Developer and Frontend Engineer.'
+  description: 'Claire Sersun — UI/UX Developer and Frontend Engineer.',
+  alternates: { canonical: '/resume' }
 }
 
 export default function ResumePage() {
